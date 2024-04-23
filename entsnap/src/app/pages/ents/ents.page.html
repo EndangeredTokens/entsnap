@@ -1,0 +1,36 @@
+<ion-content>
+  <img [src]="backIconBackground" class="custom-icon-background" />
+  <button class="custom-button" routerLink="/tabs/home">
+    <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+  </button>
+  <div class="ion-padding">
+    <h1>
+      <span>MY </span>
+      <span class="ent">ENTS</span>
+    </h1>
+    <div [hidden]="!checkIfDraftsExist()" class="show-drafts">
+
+      <button (click)="printEnts()">IMPRIMIR DRAFTS</button>
+      <div class="drafts">
+        <div class="drafts-row">
+          <div size="6" *ngFor="let draft of draftsData">
+            <div class="draft-card" (click)="setCurrentDraft(draft)">
+              <div >
+                <img class="draft-card-image" src={{draft.localStorageImageUrl}}  alt="">
+              </div>
+              <div class="draft-card-title">
+                {{draft.tree_type}}
+              </div>
+              <div class="draft-card-buttons">
+                <button class="delete-draft-button" (click)="removeDraft(draft)">X</button>
+                <button [hidden]="isUserOffline()" class="submit-draft-button" (click)="submitDraft(draft)">SUBMIT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-notifications #feed></app-notifications>
+  </div>
+
+</ion-content>

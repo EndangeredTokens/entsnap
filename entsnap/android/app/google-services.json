@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "24422883865",
+    "firebase_url": "https://ents-app-default-rtdb.firebaseio.com",
+    "project_id": "ents-app",
+    "storage_bucket": "ents-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24422883865:android:b521de27b22df3863bc088",
+        "android_client_info": {
+          "package_name": "com.entsnap.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24422883865-1c3fj3mok3t8jpklugt6uq5ghc2mt2sm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.entsnap.app",
+            "certificate_hash": "438c828f4201c22199da38134a3f07c9bd18e698"
+          }
+        },
+        {
+          "client_id": "24422883865-tg6hlqrujs8btbgoc01d7d14f2po643r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.entsnap.app",
+            "certificate_hash": "21de659e25239092eaf6f18af619ff8788a36301"
+          }
+        },
+        {
+          "client_id": "24422883865-uupdb0h74j4i23s4658m0k13cf5omusa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.entsnap.app",
+            "certificate_hash": "f415e519aee3aab400ce9cf80193d29f7384c667"
+          }
+        },
+        {
+          "client_id": "24422883865-m66365o94mr6bcn9spicvqi424cnsj1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCquJEwz9gqylpXK2kznRMlR3IPrHVHw_g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24422883865-l1gv6dmum55o1uselp5jsogvs8j8nj5n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">entsnap</string>
+    <string name="title_activity_main">entsnap</string>
+    <string name="package_name">com.entsnap.app</string>
+    <string name="custom_url_scheme">com.entsnap.app</string>
+    <string name="server_client_id">24422883865-m66365o94mr6bcn9spicvqi424cnsj1s.apps.googleusercontent.com</string>
+</resources>

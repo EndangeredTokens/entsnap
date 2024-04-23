@@ -1,0 +1,25 @@
+<ion-content>
+  <img [src]="backIconBackground" class="custom-icon-background" />
+  <button class="custom-button" routerLink="/tabs/home">
+    <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+  </button>
+  <div class="logo-container">
+    <img id="logo" [src]="logo" />
+  </div>
+  <div class="ion-padding" *ngIf="!isOfflineMode()">
+    <h1>
+      <span>MY </span>
+      <span class="ent">CREDENTIALS</span>
+    </h1>
+    <app-profile-info #profile></app-profile-info>
+  </div>
+  <div class="ion-padding" *ngIf="isOfflineMode()">
+    <h1>
+      <span> Offline Mode </span>
+    </h1>
+    <ion-button (click)="offlineModeLogout()" class="btn-logout">
+      <ion-icon name="log-in-outline"></ion-icon>
+      LOGOUT
+    </ion-button>
+  </div>
+</ion-content>

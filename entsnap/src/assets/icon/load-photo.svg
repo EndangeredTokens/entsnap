@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="load-photo" transform="translate(-158 -178.485)">
+    <circle id="Elipse_17" data-name="Elipse 17" cx="30" cy="30" r="30" transform="translate(158 178.485)" fill="#fff"/>
+    <g id="camera_filled" data-name="camera filled" transform="translate(172.5 194.985)">
+      <path id="camera_filled-2" data-name="camera filled" d="M5.643,6.643A3.643,3.643,0,0,0,2,10.286V24.857A3.643,3.643,0,0,0,5.643,28.5H27.5a3.643,3.643,0,0,0,3.643-3.643V10.286A3.643,3.643,0,0,0,27.5,6.643H24.611a1.821,1.821,0,0,1-1.288-.534L21.282,4.067A3.643,3.643,0,0,0,18.706,3H14.437a3.643,3.643,0,0,0-2.576,1.067L9.819,6.109a1.821,1.821,0,0,1-1.288.534ZM16.571,23.036a5.464,5.464,0,1,0-3.864-1.6A5.463,5.463,0,0,0,16.571,23.036Z" transform="translate(-2 -3)" fill="#19829b" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,140 @@
+#logo {
+    height: 31px;
+    margin-left: 24px;
+    width: auto;
+}
+
+#menu {
+    height: 15px;
+    margin-right: 24px;
+    margin-top: 5px;
+    width: auto;
+}
+
+#refresh {
+    margin-left: 50%;
+    text-decoration: none;
+}
+
+h1 {
+    color: #505E41;
+    font-size: 25px;
+    font-weight: 400;
+    margin-left: 16px;
+    line-height: 35px;
+    text-align: right;
+    padding-bottom: 10%;
+}
+
+.ent {
+    font-weight: 700;
+}
+
+h2 {
+    color: #505E41;
+    font-size: 25px;
+    font-weight: 700;
+    margin-left: 16px;
+    line-height: 35px;
+    text-align: left;
+    display: inline-block;
+}
+
+ion-card {
+    --ion-background-color: #FFFFFF;
+    border-radius: 12pt 12pt 0pt 0pt;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+ion-content {
+    --background: #DCD8B7;
+}
+
+.ion-padding {
+    padding-top: 15%;
+    padding-bottom: 30%;
+}
+
+ion-label {
+    color: #093242;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.custom-button {
+    background-color: #505E41;
+    border: none;
+    border-radius: 30px;
+    padding: 0;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 1000;
+}
+
+.custom-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.custom-icon-background {
+    position: absolute;
+    z-index: 10;
+}
+
+ion-item {
+    --background: #DCD8B7;
+}
+
+.mi-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 4%;
+    margin-top: 4%;
+    border-radius: 30px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #505E41;
+}
+
+.mi-label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+#list-img {
+    border-radius: 12pt;
+    height: auto;
+    margin-top: 10px;
+    width: 96px;
+    height: 170px;
+}
+
+.horizontal-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+}
+
+.image-container {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.edit-button {
+    background-color: #DCD8B7;
+    color: #F2A62A;
+    font-size: 20px;
+    font-weight: 400;
+    height: 29px;
+    text-align: right;
+    text-transform: none;
+    width: 40%;
+    display: inline-block;
+    margin-left: 20%;
+}

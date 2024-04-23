@@ -1,0 +1,145 @@
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #505E41;
+}
+
+ion-content {
+  --background: #505E41;
+}
+
+ion-content::after {
+  --background: #505E41;
+}
+
+.custom-button {
+  background-color: #949C79;
+  border: none;
+  border-radius: 30px;
+  padding: 0;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  z-index: 1000;
+}
+
+.custom-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.custom-icon-background {
+  position: absolute;
+  z-index: 10;
+  bottom: 0%;
+  width: 100%;
+}
+
+#logo-arbol {
+  margin-bottom: 75%;
+  margin-top: 20%;
+  padding-top: 10%;
+  width: 65%;
+  height: 70%;
+}
+
+#logo-moneda {
+  margin-bottom: 75%;
+  margin-top: 20%;
+  padding-top: 10%;
+  width: 65%;
+  height: 70%;
+}
+
+#grupo {
+  position: absolute;
+  z-index: 10;
+  bottom: 5%;
+  left: 45%;
+}
+
+h1 {
+  position: absolute;
+  bottom: 35%;
+  color: #DCD8B7;
+  text-align: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+}
+
+h2 {
+  position: absolute;
+  bottom: 30%;
+  color: #DCD8B7;
+  text-align: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+h3 {
+  position: absolute;
+  bottom: 35%;
+  color: #DCD8B7;
+  text-align: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+h3>span {
+  font-weight: 700;
+}
+
+h4 {
+  position: absolute;
+  bottom: 30%;
+  color: #DCD8B7;
+  text-align: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+h4>span {
+  font-weight: 700;
+}
+
+h5 {
+  position: absolute;
+  bottom: 25%;
+  color: #DCD8B7;
+  text-align: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+h5>span {
+  font-weight: 700;
+}
+
+h6 {
+  position: absolute;
+  top: 42%;
+  color: #DCD8B7;
+  text-align: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+#logo-principal {
+  margin-bottom: 85%;
+  width: 345px;
+  height: 346px;
+}

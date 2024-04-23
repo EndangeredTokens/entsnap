@@ -1,0 +1,11 @@
+<svg id="check-circle-filled" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="check-circle-filled-2" data-name="check-circle-filled" class="cls-1" d="M14,26a12,12,0,1,0-8.485-3.515A12,12,0,0,0,14,26Zm5.561-13.94A1.5,1.5,0,0,0,17.44,9.939l-4.94,4.94-1.939-1.94A1.5,1.5,0,0,0,8.439,15.06l3,3a1.5,1.5,0,0,0,2.121,0Z" transform="translate(-2 -2)"/>
+</svg>

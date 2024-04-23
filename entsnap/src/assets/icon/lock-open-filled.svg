@@ -1,0 +1,10 @@
+<svg id="lock-open-filled" xmlns="http://www.w3.org/2000/svg" width="24" height="27.429" viewBox="0 0 24 27.429">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+      }
+    </style>
+  </defs>
+  <path id="lock-open-filled-2" data-name="lock-open-filled" class="cls-1" d="M15,2a8.571,8.571,0,0,0-8.571,8.571V14A3.429,3.429,0,0,0,3,17.429V26a3.429,3.429,0,0,0,3.429,3.429H23.571A3.429,3.429,0,0,0,27,26V17.429A3.429,3.429,0,0,0,23.571,14H9.857V10.571A5.143,5.143,0,0,1,19.98,9.286,1.715,1.715,0,0,0,23.3,8.429,8.575,8.575,0,0,0,15,2Z" transform="translate(-3 -2)"/>
+</svg>

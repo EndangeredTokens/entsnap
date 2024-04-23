@@ -1,0 +1,17 @@
+<svg id="chat_filled" data-name="chat filled" xmlns="http://www.w3.org/2000/svg" width="24" height="21.333" viewBox="0 0 24 21.333">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="chat" class="cls-1" d="M27,14.667c0,5.891-5.373,10.667-12,10.667a13.15,13.15,0,0,1-5.673-1.265L3,25.333l1.86-4.96A9.78,9.78,0,0,1,3,14.667C3,8.776,8.373,4,15,4S27,8.776,27,14.667Z" transform="translate(-3 -4)"/>
+  <circle id="Elipse_3" data-name="Elipse 3" class="cls-2" cx="1" cy="1" r="1" transform="translate(6 10)"/>
+  <circle id="Elipse_4" data-name="Elipse 4" class="cls-2" cx="1" cy="1" r="1" transform="translate(11 10)"/>
+  <circle id="Elipse_5" data-name="Elipse 5" class="cls-2" cx="1" cy="1" r="1" transform="translate(16 10)"/>
+</svg>

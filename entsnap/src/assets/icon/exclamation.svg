@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.068" height="23.498" viewBox="0 0 26.068 23.498">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="exclamation" transform="translate(1.034 1)">
+    <path id="exclamation-2" data-name="exclamation" class="cls-1" d="M15.069,11.062v2.687m0,5.374h.013M5.76,24.5H24.378A2.687,2.687,0,0,0,26.7,20.467L17.4,4.344a2.687,2.687,0,0,0-4.654,0L3.433,20.467A2.687,2.687,0,0,0,5.76,24.5Z" transform="translate(-3.069 -3)"/>
+  </g>
+</svg>

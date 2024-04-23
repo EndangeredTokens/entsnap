@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="184" height="183" viewBox="0 0 184 183">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1.843" x2="0.5" y2="0.514" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fe94a2"/>
+      <stop offset="1" stop-color="#fd4f59"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0" y1="0.5" x2="1" y2="0.5" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-path">
+      <ellipse id="Elipse_62" data-name="Elipse 62" cx="36.332" cy="4.666" rx="36.332" ry="4.666" fill="url(#linear-gradient)"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectángulo_231" data-name="Rectángulo 231" width="486.718" height="325.419" transform="translate(486.718 325.419) rotate(180)" fill="url(#linear-gradient-2)"/>
+    </clipPath>
+    <filter id="Elipse_60" x="-217.522" y="222.501" width="349.005" height="540.203" filterUnits="userSpaceOnUse">
+      <feOffset dx="-8.504" dy="5.669" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.087" result="blur"/>
+      <feFlood flood-opacity="0.749"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Elipse_61" x="169.096" y="104.286" width="147.371" height="207.476" filterUnits="userSpaceOnUse">
+      <feOffset dx="5.669" dy="-8.504" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="8.504" result="blur-2"/>
+      <feFlood flood-opacity="0.749"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-8" x1="0.824" y1="-0.077" x2="0.152" y2="0.786" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fd4f59"/>
+      <stop offset="1" stop-color="#fe94a2"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-9" x1="0.407" y1="0.859" x2="0.734" y2="0.263" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fd4f59"/>
+      <stop offset="0.932" stop-color="#fe94a2"/>
+    </linearGradient>
+  </defs>
+  <g id="App-Icon-2" transform="translate(-759 -482)">
+    <rect id="Rectángulo_23" data-name="Rectángulo 23" width="184" height="183" rx="19.334" transform="translate(759 482)" fill="#f4f4f5"/>
+    <g id="Grupo_353" data-name="Grupo 353" transform="translate(814.461 505.099)">
+      <g id="Grupo_315" data-name="Grupo 315" transform="translate(0 127.468)">
+        <ellipse id="Elipse_59" data-name="Elipse 59" cx="36.332" cy="4.666" rx="36.332" ry="4.666" fill="url(#linear-gradient)"/>
+        <g id="Grupo_314" data-name="Grupo 314" clip-path="url(#clip-path)">
+          <g id="Grupo_313" data-name="Grupo 313" transform="translate(-143.048 -38.089)">
+            <rect id="Rectángulo_229" data-name="Rectángulo 229" width="486.718" height="325.419" transform="translate(486.718 325.419) rotate(180)" fill="url(#linear-gradient-2)"/>
+            <g id="Grupo_312" data-name="Grupo 312" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+              <rect id="Rectángulo_230" data-name="Rectángulo 230" width="422.048" height="291.851" transform="translate(470.7 293.899) rotate(180)" fill="url(#linear-gradient-2)"/>
+              <g transform="matrix(1, 0, 0, 1, 87.59, -112.48)" filter="url(#Elipse_60)">
+                <ellipse id="Elipse_60-2" data-name="Elipse 60" cx="153.243" cy="248.841" rx="153.243" ry="248.841" transform="translate(-187.76 238.09)" fill="url(#linear-gradient-2)"/>
+              </g>
+              <g transform="matrix(1, 0, 0, 1, 87.59, -112.48)" filter="url(#Elipse_61)">
+                <ellipse id="Elipse_61-2" data-name="Elipse 61" cx="48.174" cy="78.226" rx="48.174" ry="78.226" transform="translate(188.94 138.3)" fill="url(#linear-gradient-2)"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="Grupo_316" data-name="Grupo 316" transform="translate(0.462 0)">
+        <path id="Trazado_270" data-name="Trazado 270" d="M1062.632,598.251v.388a35.831,35.831,0,0,1-3,13.51,29.151,29.151,0,0,1-3.947,7.038s-.55.715-1.266,1.67l-2.532,3.087-6.371,7.813-4.285,5.253a3.259,3.259,0,0,1-1.229-.53c-.051-.034-.086-.084-.136-.118-.1-.084-.2-.151-.286-.235a2.124,2.124,0,0,0,.539.487c.017,0,.017.017.034.034a2.653,2.653,0,0,1-.774-.606l-12.426-15.431-2.089-2.619c-.395-.547-1.052-1.44-1.455-2a.008.008,0,0,1-.009-.009,36.3,36.3,0,0,1-5.91-18.612c-.017-.5-.026-.993-.026-1.489a36.792,36.792,0,0,1,4.1-16.929c.009-.009.009-.026.017-.034.438-.716.851-1.44,1.229-2.188.009-.008.009-.017.017-.026a38.765,38.765,0,0,0-5.371-43.556,34.459,34.459,0,0,1,21.813,24.026,2.488,2.488,0,0,1,.084.319,33.219,33.219,0,0,1,.64,3.427c.015.017.015.034.015.067.026.269.06.547.084.834.026.218.06.446.086.681v.067c.016.1.016.186.033.287.051.489.118.994.168,1.515.034.278.052.547.084.817.052.556.1,1.112.168,1.683v.153c.254,2.7.446,5.546.48,7.98a26.341,26.341,0,0,0,1.044,7.475,7.583,7.583,0,0,0,.422,1.532,7.834,7.834,0,0,0,2.391,3.242,7.7,7.7,0,0,0,4.369,1.632h.37a7.642,7.642,0,0,0,7.626-6.954,4.665,4.665,0,0,0,.034-.707,13.358,13.358,0,0,0-.084-1.75A35.774,35.774,0,0,1,1062.632,598.251Z" transform="translate(-990.891 -532.868)" fill="url(#linear-gradient-8)"/>
+        <path id="Trazado_271" data-name="Trazado 271" d="M1052.319,637.128l-12.064,14.782c-.084.1-.168.185-.252.269l-.017.017-.606.353a3.25,3.25,0,0,1-3.444-.2c-.05-.034-.084-.084-.134-.119-.1-.084-.2-.151-.287-.235a2.128,2.128,0,0,0,.539.488c.017,0,.017.017.034.034a2.688,2.688,0,0,1-.775-.606l-21.861-27.158-3.931-4.738a48.6,48.6,0,0,1-3.291-4.623c-.069-.117-.153-.285-.237-.421a35.774,35.774,0,0,1-4.016-16.5c0-.27,0-.539.017-.8a35.526,35.526,0,0,1,6.432-19.716c0-.017.017-.033.017-.05.168-.22.336-.438.487-.657.168-.218.321-.42.472-.623s.3-.4.455-.589c3.257-4.218,5.076-5.565,5.9-6.794,1-1.272,2.214-2.55,3.089-3.712a41.109,41.109,0,0,0,4.285-5.675l.168-.269a34.384,34.384,0,0,0,5.362-18.485,34.8,34.8,0,0,0-.959-8.115c.278.093.563.185.841.285a38.82,38.82,0,0,1,5.371,43.556c-.008.009-.008.017-.017.026-.429.715-.841,1.44-1.229,2.188-.008.009-.008.026-.017.034a36.793,36.793,0,0,0-4.1,16.929c0,.5.009.994.026,1.489a36.3,36.3,0,0,0,5.91,18.612.008.008,0,0,0,.008.008c.4.556,1.061,1.448,1.456,2l2.089,2.618,12.426,15.431a2.66,2.66,0,0,0,.774.606c-.017-.017-.017-.034-.034-.034a2.137,2.137,0,0,1-.539-.487c.084.084.185.151.286.235.05.034.084.084.136.118A3.26,3.26,0,0,0,1052.319,637.128Z" transform="translate(-1001.977 -532.987)" fill="url(#linear-gradient-9)"/>
+      </g>
+    </g>
+  </g>
+</svg>

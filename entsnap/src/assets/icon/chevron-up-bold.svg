@@ -1,0 +1,11 @@
+<svg id="chevron-up-bold" xmlns="http://www.w3.org/2000/svg" width="18.122" height="10.886" viewBox="0 0 18.122 10.886">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="chevron-up-bold-2" data-name="chevron-up-bold" class="cls-1" d="M22.6,17.355a1.814,1.814,0,0,1-2.566,0L14.062,11.38,8.087,17.355a1.814,1.814,0,0,1-2.566-2.566l7.258-7.258a1.814,1.814,0,0,1,2.566,0L22.6,14.789a1.814,1.814,0,0,1,0,2.566Z" transform="translate(-5.012 -7)"/>
+</svg>

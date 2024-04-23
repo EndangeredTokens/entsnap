@@ -1,0 +1,32 @@
+<ion-content>
+  <swiper-container
+  [slidesPerView]="1"
+  [spaceBetween]="50"
+  [pagination]="{ clickable: true }"
+  >
+  <swiper-slide>
+    <img src="../../../assets/img/palm.png" height="350" alt="palm tree">
+    <span class="text">Biodiversity assets <br>for the Future</span>
+  </swiper-slide>
+  
+  <swiper-slide>
+    <img src="../../../assets/img/coins.png" height="160" alt="coin">
+    <span class="text">Own ENT <br> Preserve Biodiversity <br> Earn rewards</span>
+  </swiper-slide>
+  
+  <swiper-slide>
+      <div class="header">
+        <button
+          (click)="goToLogin()"
+          class="btn-close"
+        >
+          &#x2715;
+        </button>
+      </div>
+      <div class="final-step">
+        <img src="../../../assets/img/pines.png" height="300" alt="pines">
+        <span class="text">Verify trees</span>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

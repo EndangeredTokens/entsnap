@@ -1,0 +1,42 @@
+<ion-row style="display: flex; justify-content: center;">
+  <ion-col size="13" class="col-description">
+    <ion-item>
+      <img [src]="wallet" alt="Wallet icon" class="logo-connect">
+      <ion-label class="mi-item-connect" (click)="connectWallet()">{{user.wallet_address ? 'Update wallet' : 'Add wallet'}}</ion-label>
+    </ion-item>
+    <ion-item >
+      <img [src]="gitcoin" alt="Gitcoin" class="logo-connect">
+      <ion-label class="mi-item-connect">Connect Gitcoin Passport</ion-label>
+    </ion-item>
+    <!-- <ion-item>
+      <img [src]="google" alt="Google" class="logo-connect">
+      <ion-label class="mi-item-connect">Connect with Google</ion-label>
+    </ion-item>
+    <ion-item>
+      <img [src]="instagram" alt="Instagram" class="logo-connect">
+      <ion-label class="mi-item-connect">Connect with Instagram</ion-label>
+    </ion-item> -->
+  </ion-col> 
+</ion-row>
+<ion-row >
+  <ion-col size="12" class="col-description">
+    <h2>Account</h2>
+    <button class="edit-button">Edit</button>
+    <ion-item class="mi-item">
+      <ion-label class="mi-label">{{user.wallet_address}}</ion-label>
+    </ion-item>
+    <ion-item class="mi-item">
+      <ion-label class="mi-label">{{user.name}}</ion-label>
+    </ion-item>
+    <ion-item class="mi-item">
+      <ion-label class="mi-label">{{user.email}}</ion-label>
+    </ion-item>
+    <ion-item class="mi-item">
+      <ion-label class="mi-label">{{user.phone}}</ion-label>
+    </ion-item>
+    <ion-button (click)="logout()" class="btn-logout">
+      <ion-icon name="log-in-outline"></ion-icon>
+      LOGOUT
+    </ion-button>
+  </ion-col>
+</ion-row>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.974" height="34.234" viewBox="0 0 32.974 34.234">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_132" data-name="Rectángulo 132" width="6.521" height="3.26" rx="1.63" transform="translate(1.63 0) rotate(30)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectángulo_134" data-name="Rectángulo 134" width="6.521" height="3.26" rx="1.63" transform="translate(2.824) rotate(60)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect id="Rectángulo_135" data-name="Rectángulo 135" width="6.521" height="3.26" rx="1.63" transform="translate(2.824 0) rotate(60)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-5">
+      <rect id="Rectángulo_136" data-name="Rectángulo 136" width="6.521" height="3.26" rx="1.63" transform="translate(3.26) rotate(90)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-7">
+      <rect id="Rectángulo_138" data-name="Rectángulo 138" width="6.521" height="3.26" rx="1.63" transform="translate(6.084 1.63) rotate(120)" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-9">
+      <rect id="Rectángulo_140" data-name="Rectángulo 140" width="6.521" height="3.26" rx="1.63" transform="translate(7.277 2.824) rotate(150)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="sunny" transform="translate(0.848)">
+    <path id="Trazado_117" data-name="Trazado 117" d="M30.932,21.966A8.966,8.966,0,1,1,21.966,13,8.966,8.966,0,0,1,30.932,21.966Z" transform="translate(-6.327 -4.849)" fill="none" stroke="#fff" stroke-width="2" fill-rule="evenodd"/>
+    <line id="Línea_69" data-name="Línea 69" x1="3.26" transform="translate(27.866 17.117)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Línea_70" data-name="Línea 70" x1="3.26" transform="translate(0.152 17.117)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Línea_71" data-name="Línea 71" x1="3.26" transform="translate(27.866 17.117)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Línea_72" data-name="Línea 72" x1="3.26" transform="translate(0.152 17.117)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <g id="Grupo_83" data-name="Grupo 83" transform="translate(24.001 21.004)" clip-path="url(#clip-path)">
+      <line id="Línea_73" data-name="Línea 73" x1="2.824" y1="1.63" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_84" data-name="Grupo 84" transform="translate(0 7.147)" clip-path="url(#clip-path)">
+      <line id="Línea_74" data-name="Línea 74" x1="2.824" y1="1.63" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_85" data-name="Grupo 85" transform="translate(19.525 25.479)" clip-path="url(#clip-path-3)">
+      <line id="Línea_75" data-name="Línea 75" x1="1.63" y1="2.824" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_86" data-name="Grupo 86" transform="translate(5.669 1.478)" clip-path="url(#clip-path-4)">
+      <line id="Línea_76" data-name="Línea 76" x1="1.63" y1="2.824" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_87" data-name="Grupo 87" transform="translate(14.009 27.714)" clip-path="url(#clip-path-5)">
+      <line id="Línea_77" data-name="Línea 77" y1="3.26" transform="translate(1.63 1.63)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_88" data-name="Grupo 88" transform="translate(14.009)" clip-path="url(#clip-path-5)">
+      <line id="Línea_78" data-name="Línea 78" y1="3.26" transform="translate(1.63 1.63)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_89" data-name="Grupo 89" transform="translate(5.669 25.479)" clip-path="url(#clip-path-7)">
+      <line id="Línea_79" data-name="Línea 79" y1="2.824" x2="1.63" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_90" data-name="Grupo 90" transform="translate(19.525 1.478)" clip-path="url(#clip-path-7)">
+      <line id="Línea_80" data-name="Línea 80" y1="2.824" x2="1.63" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_91" data-name="Grupo 91" transform="translate(0 21.003)" clip-path="url(#clip-path-9)">
+      <line id="Línea_81" data-name="Línea 81" y1="1.63" x2="2.824" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Grupo_92" data-name="Grupo 92" transform="translate(24 7.147)" clip-path="url(#clip-path-9)">
+      <line id="Línea_82" data-name="Línea 82" y1="1.63" x2="2.824" transform="translate(2.227 2.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <path id="Trazado_118" data-name="Trazado 118" d="M30.3,22.151A8.151,8.151,0,1,1,22.151,14,8.151,8.151,0,0,1,30.3,22.151Z" transform="translate(-6.512 -5.034)" fill="none"/>
+  </g>
+</svg>

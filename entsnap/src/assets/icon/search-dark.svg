@@ -1,0 +1,11 @@
+<svg id="search-dark" xmlns="http://www.w3.org/2000/svg" width="24" height="24.001" viewBox="0 0 24 24.001">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="search-dark-2" data-name="search-dark" class="cls-1" d="M11.007,5a6,6,0,1,0,4.246,1.759A6,6,0,0,0,11.007,5ZM2,11.007a9.007,9.007,0,1,1,16.348,5.218l7.231,7.231a1.5,1.5,0,0,1-2.123,2.123l-7.23-7.23A9.007,9.007,0,0,1,2,11.007Z" transform="translate(-2 -1.999)"/>
+</svg>

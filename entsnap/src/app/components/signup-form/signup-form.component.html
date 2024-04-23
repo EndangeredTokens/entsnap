@@ -1,0 +1,176 @@
+<!-- <img [src]="logoPrincipal" id="logo-principal"> -->
+<!-- <img [src]="grupo3" id="grupo"> -->
+
+<ion-grid>
+  <ion-row>
+    <ion-col *ngIf="actualRegisterStep == 0">
+      <div class="car-icon">
+        <img [src]="logoPrincipal" />
+      </div>
+      <ion-row>
+        <ion-col>
+          <ion-row class="container-form">
+            <form [formGroup]="emailForm">
+              <ion-item class="mi-item">
+                <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+                <ion-input
+                  type="email"
+                  [clearOnEdit]="false"
+                  placeholder="Email"
+                  formControlName="email"
+                  maxlength="50"
+                  required="true"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item class="mi-item-2">
+                <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+                <ion-input
+                  [type]="showPassword ? 'text' : 'password'"
+                  [clearOnEdit]="false"
+                  placeholder="Contraseña"
+                  formControlName="password"
+                  maxlength="20"
+                ></ion-input>
+                <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"> </ion-icon>
+              </ion-item>
+              <div
+                *ngIf="emailForm.controls['password'].invalid && (emailForm.controls['password'].dirty || emailForm.controls['password'].touched)"
+                class="alert-password"
+              >
+                <div *ngIf="emailForm.controls['password'].errors?.['pattern']">
+                  La contraseña debe contener al menos una mayúscula, una minúscula, un dígito y un carácter especial.
+                </div>
+                <div *ngIf="emailForm.controls['password']?.errors?.['minlength']" >La contraseña debe tener al menos 8 caracteres.</div>
+              </div>
+
+              <ion-item class="mi-item-2">
+                <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+                <ion-input
+                  [type]="showPasswordConfirm ? 'text' : 'password'"
+                  [clearOnEdit]="false"
+                  placeholder="Confirma tu contraseña"
+                  formControlName="confirm"
+                  maxlength="20"
+                ></ion-input>
+                <ion-icon slot="end" [name]="passwordConfirmToggleIcon" (click)="togglePasswordConfirm()"> </ion-icon>
+              </ion-item>
+            </form>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="container-submit">
+        <ion-button 
+          class="eH-btn-green" 
+          (click)="emailStep()" 
+          [disabled]="emailForm.invalid" 
+          [disabled]="disableFormButton"
+        >
+          CREATE AN ACCOUNT
+        </ion-button>
+        <ion-button 
+          class="eH-btn-white" 
+          [disabled]="true"
+        >
+          <ion-img [src]="google" style="margin-left: -13px; width: 8%"></ion-img>
+          SIGNUP WITH GOOGLE
+        </ion-button>
+        <a class="switch-auth-form" routerLink="/login">Already have an account?</a>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- <ion-item class="mi-item">
+  <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+  <ion-input [(ngModel)]="user.email" required type="text" placeholder="Email addres"></ion-input>
+</ion-item>
+
+<ion-item class="mi-item-2">
+  <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+  <ion-input [(ngModel)]="password" id="password" required type="password" placeholder="********"></ion-input>
+  <ion-img (click)="togglePassword()" class="show-password" slot="end" [src]="eye"></ion-img>
+</ion-item> -->
+
+<!-- <ion-item class="mi-item-3">
+  <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+  <ion-label>********</ion-label>
+  <ion-input [(ngModel)]="passwordConf" id="pass-sr" required type="password"></ion-input>
+  <ion-img (click)="togglePassword()" class="show-password" slot="end" [src]="eye[0]"></ion-img>
+</ion-item> -->
+
+<!-- <ion-button (click)="validateSingup()" id="login-button">
+  CREATE AN ACCOUNT
+</ion-button>
+<a (click)="resetPassword()" id="forgot-password">already have an account?</a>
+
+<ion-button id="login-wallet-button" routerLink="/login">
+  LOGIN WITH WALLET
+</ion-button> -->
+
+<!-- <h1>Crear una cuenta</h1>
+<ion-item>
+  <ion-label position="floating">Nombre completo</ion-label>
+  <ion-input [(ngModel)]="user.name"
+    required
+    type="text">
+  </ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Email</ion-label>
+  <ion-input [(ngModel)]="user.email"
+    required
+    type="text">
+  </ion-input>
+</ion-item>
+<ion-item>
+  <ion-text slot="start" id="prefix">+569</ion-text>
+  <ion-label position="floating">Teléfono</ion-label>
+  <ion-input [(ngModel)]="phone"
+    maxlength="8"
+    required
+    type="tel">
+  </ion-input>
+</ion-item> -->
+<!--
+<ion-item>
+  <ion-label position="floating">Dirección</ion-label>
+  <ion-input [(ngModel)]="user.address"
+    required
+    type="text">
+  </ion-input>
+</ion-item>
+-->
+<!--
+<a>¿Para qué se necesita mi dirección?</a>
+-->
+<!-- <p id="password-policy">La contraseña debe tener cómo mìnimo 8 caracteres, una letra mayúscula (A&#8209;Z) un número (0&#8209;9)</p>
+<ion-item>
+  <ion-label position="floating">Crea tu contraseña</ion-label>
+  <ion-input [(ngModel)]="password"
+    id="pass-su"
+    required
+    type="password">
+  </ion-input>
+  <ion-img (click)="togglePassword(0)" class="show-password" slot="end" [src]="eye[0]">
+  </ion-img>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Repetir contraseña</ion-label>
+  <ion-input [(ngModel)]="passwordConf"
+    id="pass-sr"
+    required
+    type="password">
+  </ion-input>
+  <ion-img (click)="togglePassword(1)" class="show-password" slot="end" [src]="eye[1]">
+  </ion-img>
+</ion-item>
+<ion-item>
+  <ion-checkbox [(ngModel)]="ToS"></ion-checkbox>
+  &nbsp;
+  <ion-label style="font-size: 11px;">
+    Acepto y he leído los <a href="https://www.acotsystems.com/politica-firecatch.html">Terminos y condiciones</a></ion-label>
+</ion-item>
+
+<ion-button expand="block" (click)="validateSingup()">Continuar</ion-button> -->

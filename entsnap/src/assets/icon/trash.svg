@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.106" height="24.619" viewBox="0 0 22.106 24.619">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="trash" transform="translate(1 1)">
+    <path id="trash-2" data-name="trash" class="cls-1" d="M11.54,13.053v7.54m5.026-7.54v7.54M4,8.026H24.106m-1.257,0L21.76,23.284a2.513,2.513,0,0,1-2.507,2.335H8.853a2.513,2.513,0,0,1-2.507-2.335L5.257,8.026Zm-5.026,0V4.257A1.257,1.257,0,0,0,16.566,3H11.54a1.257,1.257,0,0,0-1.257,1.257v3.77Z" transform="translate(-4 -3)"/>
+  </g>
+</svg>

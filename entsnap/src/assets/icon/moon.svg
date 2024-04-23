@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.894" height="25.887" viewBox="0 0 25.894 25.887">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="moon" transform="translate(1.016 1)">
+    <path id="moon-2" data-name="moon" class="cls-1" d="M19.783,20.406a12.389,12.389,0,0,0,7.1-.644A12.386,12.386,0,1,1,10.769,3.646a12.388,12.388,0,0,0,9.014,16.76Z" transform="translate(-3.007 -3.646)"/>
+  </g>
+</svg>

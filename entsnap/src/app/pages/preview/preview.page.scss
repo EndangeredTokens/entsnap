@@ -1,0 +1,34 @@
+ion-button {
+    --background: linear-gradient(to right, #139EBF, #19829B);
+    --border-radius: 27pt;
+    --color: #FFFFFF;
+    display: block;
+    font-size: 17px;
+    font-weight: 400;
+    height: 54px;
+    margin: auto;
+    text-align: center;
+    text-transform: none;
+    width: 115px;
+}
+
+.custom-button {
+    background-color: #505E41;
+    border: none;
+    border-radius: 30px;
+    padding: 0;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 1000;
+}
+
+.custom-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.custom-icon-background {
+    position: absolute;
+    z-index: 10;
+}

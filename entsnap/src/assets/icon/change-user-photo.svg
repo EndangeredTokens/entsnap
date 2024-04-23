@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <g id="change-user-photo" transform="translate(-138 -89)">
+    <g id="Grupo_66" data-name="Grupo 66" transform="translate(-60.516 -59.516)">
+      <circle id="Elipse_22" data-name="Elipse 22" cx="50" cy="50" r="50" transform="translate(198.516 148.516)" fill="#f4f4f5"/>
+      <g id="camera_filled" data-name="camera filled" transform="translate(229.516 181.516)">
+        <path id="camera_filled-2" data-name="camera filled" d="M6.6,7.6a4.6,4.6,0,0,0-4.6,4.6V30.628a4.6,4.6,0,0,0,4.6,4.6H34.232a4.6,4.6,0,0,0,4.6-4.6V12.209a4.6,4.6,0,0,0-4.6-4.6H30.581a2.3,2.3,0,0,1-1.628-.675L26.372,4.349A4.6,4.6,0,0,0,23.117,3h-5.4a4.6,4.6,0,0,0-3.255,1.349L11.884,6.93a2.3,2.3,0,0,1-1.628.675ZM20.418,28.325A6.907,6.907,0,1,0,15.535,26.3,6.906,6.906,0,0,0,20.418,28.325Z" transform="translate(-2 -3)" fill="#b8b8b8" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+</svg>

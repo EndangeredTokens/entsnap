@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.214" height="21.806" viewBox="0 0 24.214 21.806">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="volume-up" transform="translate(1 1.028)">
+    <path id="volume-up-2" data-name="volume-up" class="cls-1" d="M18.47,9.509a6.17,6.17,0,0,1,0,8.727M21.96,6.019a11.107,11.107,0,0,1,0,15.707M6.191,17.575H4.234A1.234,1.234,0,0,1,3,16.341V11.4a1.234,1.234,0,0,1,1.234-1.234H6.191L12,4.362a1.234,1.234,0,0,1,2.107.872V22.512A1.234,1.234,0,0,1,12,23.384Z" transform="translate(-3 -3.998)"/>
+  </g>
+</svg>

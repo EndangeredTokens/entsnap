@@ -1,0 +1,17 @@
+<svg id="dots-circle-filled" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="dots-circle-horizontal" class="cls-1" d="M27,15a12,12,0,1,1-3.515-8.485A12,12,0,0,1,27,15Z" transform="translate(-3 -3)"/>
+  <circle id="Elipse_6" data-name="Elipse 6" class="cls-2" cx="1" cy="1" r="1" transform="translate(11 11)"/>
+  <circle id="Elipse_7" data-name="Elipse 7" class="cls-2" cx="1" cy="1" r="1" transform="translate(17 11)"/>
+  <circle id="Elipse_8" data-name="Elipse 8" class="cls-2" cx="1" cy="1" r="1" transform="translate(5 11)"/>
+</svg>

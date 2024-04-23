@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.184" height="29.406" viewBox="0 0 21.184 29.406">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="microphone" transform="translate(1 1)">
+    <path id="microphone-2" data-name="microphone" class="cls-1" d="M24.184,14.333a9.592,9.592,0,0,1-9.592,9.592m0,0A9.592,9.592,0,0,1,5,14.333m9.592,9.592v5.481m0,0H9.111m5.481,0h5.481M14.592,18.444a4.111,4.111,0,0,1-4.111-4.111V6.111a4.111,4.111,0,0,1,8.222,0v8.222a4.111,4.111,0,0,1-4.111,4.111Z" transform="translate(-5 -2)"/>
+  </g>
+</svg>

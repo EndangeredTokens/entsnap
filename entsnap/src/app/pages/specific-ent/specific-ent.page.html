@@ -1,0 +1,47 @@
+<ion-content>
+  <img [src]="backIconBackground" class="custom-icon-background" />
+  <button class="custom-button" (click)="back()">
+    <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+  </button>
+  <div class="ion-padding">
+    <h1>
+      <span class="ent">ENT </span>
+      <span>{{id}} </span>
+    </h1>
+    <ion-row >
+      <ion-col size="12">
+        <h2>photos</h2>
+        <div class="horizontal-scroll">
+          <div class="image-container">
+            <img [attr.src]="frontal_image" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [attr.src]="leaf_image" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [attr.src]="trunk_image" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [attr.src]="scale_image" id="list-img" />
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="col-description">
+        <h2>info</h2>
+        <button class="edit-button">edit</button>
+        <ion-item class="mi-item">
+          <ion-label class="mi-label">{{ tree_type }}</ion-label>
+        </ion-item>
+        <ion-item class="mi-item">
+          <ion-label class="mi-label">{{ trunk_diameter }}</ion-label>
+        </ion-item>
+        <ion-item class="mi-item">
+          <ion-label class="mi-label">{{ surrounding_desc }}</ion-label>
+        </ion-item>
+        <ion-item class="mi-item">
+          <ion-label class="mi-label">{{ poem }}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="5" viewBox="0 0 26 5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="dots-horizontal" transform="translate(1 1)">
+    <path id="dots-horizontal-2" data-name="dots-horizontal" class="cls-1" d="M5.5,12.5h.015M16,12.5h.015m10.485,0h.015M7,12.5a1.5,1.5,0,1,1-.439-1.061A1.5,1.5,0,0,1,7,12.5Zm10.5,0a1.5,1.5,0,1,1-.439-1.061A1.5,1.5,0,0,1,17.5,12.5Zm10.5,0a1.5,1.5,0,1,1-.439-1.061A1.5,1.5,0,0,1,28,12.5Z" transform="translate(-4 -11)"/>
+  </g>
+</svg>

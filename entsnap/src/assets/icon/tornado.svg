@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="31" viewBox="0 0 34 31">
+  <g id="tornado" transform="translate(1 1)">
+    <path id="Trazado_123" data-name="Trazado 123" d="M33.813,21.064a5.438,5.438,0,0,0,.247.945C37.454,22.493,40,24.472,40,28a7,7,0,0,1-7,7H15a7,7,0,0,1-1-13.93.849.849,0,0,1,.184-.006,10,10,0,0,1,19.625,0Z" transform="translate(-8 -13)" fill="none" fill-rule="evenodd"/>
+    <path id="Trazado_124" data-name="Trazado 124" d="M33,35h.412a6.409,6.409,0,0,0,.9-12.773,10.4,10.4,0,0,0-20.322-1.741A7.311,7.311,0,0,0,15,34.982" transform="translate(-8 -13)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Trazado_125" data-name="Trazado 125" d="M17,30H28.2a1.5,1.5,0,0,1,1.248.668h0a1.5,1.5,0,0,1,0,1.664h0A1.5,1.5,0,0,1,28.2,33H20.8a1.5,1.5,0,0,0-1.248.668h0a1.5,1.5,0,0,0,0,1.664h0A1.5,1.5,0,0,0,20.8,36H26.2a1.5,1.5,0,0,1,1.248.668h0a1.5,1.5,0,0,1,0,1.664h0A1.5,1.5,0,0,1,26.2,39H22.8a1.5,1.5,0,0,0-1.248.668h0a1.5,1.5,0,0,0,0,1.664h0A1.5,1.5,0,0,0,22.8,42H25" transform="translate(-8 -13)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

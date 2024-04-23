@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="164" height="164" viewBox="0 0 164 164">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f4f4f5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#139ebf"/>
+      <stop offset="1" stop-color="#115a6f"/>
+    </linearGradient>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#093242" stop-opacity="0.722"/>
+      <stop offset="0.36" stop-color="#0e505f" stop-opacity="0.631"/>
+      <stop offset="0.535" stop-color="#105e6d" stop-opacity="0.478"/>
+      <stop offset="0.753" stop-color="#13707f" stop-opacity="0.239"/>
+      <stop offset="1" stop-color="#168493" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="message-verification-unlock" transform="translate(-106 -252)">
+    <circle id="Elipse_91" data-name="Elipse 91" cx="82" cy="82" r="82" transform="translate(106 252)" fill="url(#linear-gradient)"/>
+    <path id="Trazado_297" data-name="Trazado 297" d="M2377.271,1222.422H2344.63v-8.167a12.24,12.24,0,0,1,24.095-3.047,4.084,4.084,0,0,0,7.9-2.048,20.406,20.406,0,0,0-40.165,5.095v8.167a8.179,8.179,0,0,0-8.166,8.166v20.4a8.179,8.179,0,0,0,8.166,8.166h40.807a8.18,8.18,0,0,0,8.167-8.166v-20.4A8.18,8.18,0,0,0,2377.271,1222.422Zm-8.642,12.356-11.309,12.452a2.089,2.089,0,0,1-2.9.191c-.024-.024-.048-.024-.071-.048l-.072-.071a.912.912,0,0,1-.214-.214l-5.857-6.928a2.113,2.113,0,0,1,.262-2.976,2.239,2.239,0,0,1,1.356-.476,2.076,2.076,0,0,1,1.619.738l4.357,5.167,9.714-10.666a2.107,2.107,0,0,1,3.119,2.833Z" transform="translate(-2169.368 -903.727)" fill="url(#linear-gradient-2)"/>
+    <ellipse id="Elipse_92" data-name="Elipse 92" cx="44.5" cy="7.5" rx="44.5" ry="7.5" transform="translate(143 362.875)" opacity="0.9" fill="url(#radial-gradient)"/>
+  </g>
+</svg>

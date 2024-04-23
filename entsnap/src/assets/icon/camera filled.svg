@@ -1,0 +1,11 @@
+<svg id="camera_filled" data-name="camera filled" xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="camera_filled-2" data-name="camera filled" class="cls-1" d="M5,6A3,3,0,0,0,2,9V21a3,3,0,0,0,3,3H23a3,3,0,0,0,3-3V9a3,3,0,0,0-3-3H20.621a1.5,1.5,0,0,1-1.061-.44L17.879,3.879A3,3,0,0,0,15.758,3H12.242a3,3,0,0,0-2.121.879L8.439,5.56A1.5,1.5,0,0,1,7.379,6Zm9,13.5a4.5,4.5,0,1,0-3.182-1.318A4.5,4.5,0,0,0,14,19.5Z" transform="translate(-2 -3)"/>
+</svg>

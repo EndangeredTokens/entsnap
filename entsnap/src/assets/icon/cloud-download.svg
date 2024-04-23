@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.008" height="29.019" viewBox="0 0 26.008 29.019">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="cloud-download" transform="translate(1.004 1.015)">
+    <path id="cloud-download-2" data-name="cloud-download" class="cls-1" d="M8.332,20.641A5.33,5.33,0,0,1,7.159,10.109,6.665,6.665,0,0,1,20.192,7.315h.133a6.663,6.663,0,0,1,1.333,13.193M11,24.639l4,4m0,0,4-4m-4,4V12.645" transform="translate(-2.995 -2.047)"/>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<ion-content class="ion-justify-around">
+  <!-- Opened menu -->
+  <div class="opened-menu-container" [class.show]="show">
+    <img [src]="backIconBackgroundBig" class="background" *ngIf="show"/>
+    <div class="box" *ngIf="show">
+      <img class="btn-close-menu" [src]="exitIcon" (click)="menu()" *ngIf="show" />
+      <div class="content">
+        <ion-button routerLink="/tabs/ents" class="my-button">my ENTS</ion-button>
+        <ion-button class="my-button">my wallet</ion-button>
+        <ion-button routerLink="/tabs/profile" class="my-button">my profile</ion-button>
+        <ion-button class="my-button">account settings</ion-button>
+        <!-- <ion-button (click)="logout()" class="my-button">Logout</ion-button> -->
+      </div>
+    </div>
+  </div>
+
+  <ion-grid class=top>
+    <ion-row class="ion-justify-content-between ion-align-items-end">
+      <img id="logo" src="../../../assets/icon/logo_ents_home.svg" />
+      <div class="closed-menu-container">
+        
+        <!-- Open menu icon -->
+        <img class="box-opener" [src]="menuIcon" (click)="menu()" *ngIf="!show" />
+        
+        <!-- Closed menu -->
+        <img [src]="backIconBackground" class="custom-icon-background" *ngIf="!show"/>
+
+      </div>
+    </ion-row>
+    <ion-row class="ion-justify-content-start">
+      <h1>Hi, {{ user.name }}</h1>
+    </ion-row>
+    <ion-row class="ion-justify-content-around squares">
+      <div class="square">
+        <span class="num">3</span>
+        <span class="description">Tres found</span>
+      </div>
+      <div class="square">
+        <span class="num">1</span>
+        <span class="description">Trees minted</span>
+      </div>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="bottom">
+    <ion-col size="12">
+      <ion-row>
+        <h2 class="verify-text">Trees near you. Verify them!</h2>
+      </ion-row>
+      <ion-row class="ion-justify-content-between">
+        <ion-col class="tree-card">
+          <ion-img class="img-tree" src="../../../assets/img/tree-example.png"></ion-img>
+          <span class="txt-distance">2 km</span>
+        </ion-col>
+        <ion-col class="tree-card">
+          <ion-img class="img-tree" src="../../../assets/img/tree-example.png"></ion-img>
+          <span class="txt-distance">1 km</span>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+  <!-- <app-report-opt></app-report-opt> -->
+</ion-content>

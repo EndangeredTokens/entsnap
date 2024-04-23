@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.774" height="20.667" viewBox="0 0 26.774 20.667">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="mail" transform="translate(1.387 1)">
+    <path id="mail-2" data-name="mail" class="cls-1" d="M3,9l10.52,7.013a2.667,2.667,0,0,0,2.96,0L27,9M5.667,23.667H24.333A2.667,2.667,0,0,0,27,21V7.667A2.667,2.667,0,0,0,24.333,5H5.667A2.667,2.667,0,0,0,3,7.667V21a2.667,2.667,0,0,0,2.667,2.667Z" transform="translate(-3 -5)"/>
+  </g>
+</svg>

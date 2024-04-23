@@ -1,0 +1,49 @@
+.custom-button {
+    background-color: #505E41;
+    border: none;
+    border-radius: 30px;
+    padding: 0;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    z-index: 1000;
+}
+
+.custom-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.custom-icon-background {
+    position: absolute;
+    z-index: 10;
+}
+
+h1 {
+    position: relative;
+    top: 100%;
+    color: #DCD8B7;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.ent {
+    font-weight: 700;
+}
+
+ion-content {
+    // --background: linear-gradient(to top right, #093242, #19829B);
+    --background: #505E41;
+}
+
+ion-text {
+    position: relative;
+    top: 100%;
+    color: #DCD8B7;
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+}

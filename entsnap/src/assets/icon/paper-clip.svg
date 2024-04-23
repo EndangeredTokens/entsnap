@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.414" height="28.11" viewBox="0 0 26.414 28.11">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="paper-clip" transform="translate(1 1)">
+    <path id="paper-clip-2" data-name="paper-clip" class="cls-1" d="M20.25,8.8l-9.579,9.579a2.909,2.909,0,1,0,4.113,4.113l9.329-9.579a5.818,5.818,0,0,0-8.227-8.227L6.556,14.26A8.728,8.728,0,1,0,18.9,26.6l9.1-9.08" transform="translate(-4 -3.049)"/>
+  </g>
+</svg>

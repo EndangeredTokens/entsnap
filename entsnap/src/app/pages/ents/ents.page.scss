@@ -1,0 +1,127 @@
+#logo {
+    height: 31px;
+    margin-left: 24px;
+    width: auto;
+}
+
+#menu {
+    height: 15px;
+    margin-right: 24px;
+    margin-top: 5px;
+    width: auto;
+}
+
+#refresh {
+    margin-left: 50%;
+    text-decoration: none;
+}
+
+h1 {
+    color: #505E41;
+    font-size: 25px;
+    font-weight: 400;
+    margin-left: 16px;
+    line-height: 35px;
+    text-align: right;
+    padding-bottom: 10%;
+}
+
+.ent {
+    font-weight: 700;
+}
+
+ion-card {
+    --ion-background-color: #FFFFFF;
+    border-radius: 12pt 12pt 0pt 0pt;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+ion-content {
+    --background: #DCD8B7;
+}
+
+.ion-padding {
+    padding-top: 20%;
+    padding-bottom: 30%;
+}
+
+ion-label {
+    color: #093242;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.custom-button {
+    background-color: #505E41;
+    border: none;
+    border-radius: 30px;
+    padding: 0;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 1000;
+}
+
+.custom-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.custom-icon-background {
+    position: absolute;
+    z-index: 10;
+}
+
+.drafts {
+  height: 220px;
+  background-color: #949C79;
+  border-radius: 10px;
+  padding: 4px;
+  overflow-x: auto;
+}
+
+.drafts-row {
+  display: flex;
+}
+
+.draft-card {
+  width: 150px;
+  margin-right: 10px;
+}
+
+.draft-card-title {
+  font-weight: 500;
+  color: Black;
+}
+
+.draft-card-image {
+  border-radius: 10px;
+  height: 150px;
+}
+
+.draft-card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-draft-button {
+  border-radius: 100px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #f2a62a;
+  font-weight: bold;
+}
+
+.delete-draft-button {
+  border-radius: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #ef4444;
+  font-weight: bold;
+}

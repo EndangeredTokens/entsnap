@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.341" height="25.341" viewBox="0 0 25.341 25.341">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="search" transform="translate(1 1)">
+    <path id="search-2" data-name="search" class="cls-1" d="M25.927,25.927l-7.642-7.642m2.547-6.369a8.916,8.916,0,1,1-2.611-6.3A8.918,8.918,0,0,1,20.832,11.916Z" transform="translate(-3 -3)"/>
+  </g>
+</svg>

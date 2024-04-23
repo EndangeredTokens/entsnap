@@ -1,0 +1,11 @@
+<svg id="microphone-filled" xmlns="http://www.w3.org/2000/svg" width="22.46" height="28.877" viewBox="0 0 22.46 28.877">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="microphone-filled-2" data-name="microphone-filled" class="cls-1" d="M9.417,5.813a4.813,4.813,0,0,1,9.626,0V12.23a4.813,4.813,0,0,1-9.626,0Zm6.417,17.535A11.232,11.232,0,0,0,25.46,12.23a1.6,1.6,0,0,0-3.209,0,8.021,8.021,0,0,1-16.043,0A1.6,1.6,0,1,0,3,12.23a11.231,11.231,0,0,0,9.626,11.117v3.321H7.813a1.6,1.6,0,0,0,0,3.209H20.647a1.6,1.6,0,0,0,0-3.209H15.834Z" transform="translate(-3 -1)"/>
+</svg>

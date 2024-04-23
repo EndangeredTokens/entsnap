@@ -1,0 +1,16 @@
+<svg id="Clock_Filled" data-name="Clock Filled" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <circle id="Elipse_2" data-name="Elipse 2" class="cls-1" cx="12" cy="12" r="12"/>
+  <path id="Trazado_2" data-name="Trazado 2" class="cls-2" d="M7.984,3.81A1.179,1.179,0,0,0,6.857,5.035v6.258a1.341,1.341,0,0,0,.013.19,1.254,1.254,0,0,0,.563,1.106l5.38,3.38a1.078,1.078,0,0,0,1.539-.449,1.287,1.287,0,0,0-.412-1.675L9.11,10.812V5.035A1.179,1.179,0,0,0,7.984,3.81Z" transform="translate(3.613 1.652)"/>
+</svg>

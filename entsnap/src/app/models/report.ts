@@ -1,0 +1,48 @@
+import { Comment } from './comment';
+
+export enum ReportImage {
+    FRONTAL_IMAGE = "frontal_image",
+    LEAF_IMAGE = "leaf_image",
+    TRUNK_IMAGE = "trunk_image",
+    SCALE_IMAGE = "scale_image"
+}
+export interface Report {
+    id?: number,
+    UserId: number,
+    acot_validation: number,
+    conaf_validation: number,
+    type: number,
+    user_name: string,
+    user_avatar: string,
+    short_description: string,
+    description: string,
+    date?: Date
+    latitude: number,
+    longitude: number,
+    address_type: number,
+    address: string,
+    street_number: string,
+    street_name: string,
+    city: string,
+    province: string,
+    county: string,
+    country: string,
+    map: string,
+    frontal_image: string,
+    leaf_image: string,
+    trunk_image: string,
+    scale_image: string,
+    stage: number,
+    foliage: number,
+    tree_type: string,
+    trunk_diameter: string,
+    surrounding_desc: string,
+    poem: string,
+    completed: boolean,
+    validated: boolean,
+    minted: boolean,
+    endangered: boolean,
+    hidden: boolean,
+    comments: Comment[],
+    is_draft: boolean,
+}

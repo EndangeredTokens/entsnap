@@ -1,0 +1,101 @@
+<ion-content>
+  <div class="ion-padding">
+    <h1>
+      <span class="add">ADD </span>
+      <span class="ent">ENT</span>
+    </h1>
+    <ion-row>
+      <ion-col size="12">
+        <h2>photos</h2>
+        <div class="horizontal-scroll">
+          <div class="image-container">
+            <img [attr.src]="getLocalStorageItem(getStepLocalStorageKey(0))" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [attr.src]="getLocalStorageItem(getStepLocalStorageKey(1))" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [attr.src]="getLocalStorageItem(getStepLocalStorageKey(2))" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [attr.src]="getLocalStorageItem(getStepLocalStorageKey(3))" id="list-img" />
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-list class="list">
+      <h2>stage</h2>
+      <ion-item class="item-img">
+        <ion-segment [(ngModel)]="formData.stage">
+          <ion-segment-button value="tree">
+            <div class="img-option">
+              <img [src]="treeOption" alt="Tree">
+              <ion-label class="label-color">Tree</ion-label>
+            </div>
+          </ion-segment-button>
+          <ion-segment-button value="sapling">
+            <div class="img-option">
+              <img [src]="saplingOption" alt="Sapling">
+              <ion-label class="label-color">Sapling</ion-label>
+            </div>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+
+      <h2>foliage</h2>
+      <ion-item class="item-img">
+        <ion-segment [(ngModel)]="formData.foliage">
+          <ion-segment-button value="evergreen">
+            <div class="img-option">
+              <ion-img [src]="evergreenOption" alt="Evergreen"></ion-img>
+              <ion-label class="label-color">Evergreen</ion-label>
+            </div>
+          </ion-segment-button>
+          <ion-segment-button value="deciduous">
+            <div class="img-option">
+              <ion-img [src]="decidiousOption" alt="Deciduous"></ion-img>
+              <ion-label class="label-color">Deciduous</ion-label>
+            </div>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+
+      <div class="location-container">
+        <h3 *ngIf="report.city;else elseBlock">Location: {{ report.city }}</h3>
+        <ng-template #elseBlock><h3 >Location: Not Defined</h3></ng-template>
+        <button class="submit-button" (click)="viewMap()" *ngIf="!isOfflineMode()">Change</button>
+      </div>
+
+      <div class="location-container">
+        <h2>Inputs</h2>
+        <button class="submit-button" (click)="identifyTree()" *ngIf="!isOfflineMode()">Identify</button>
+      </div>
+      <ion-item class="mi-item">
+        <ion-input [(ngModel)]="formData.treeType" placeholder="Type of tree"></ion-input>
+      </ion-item>
+
+      <ion-item class="mi-item">
+        <ion-input [(ngModel)]="formData.trunkDiameter" type="number" placeholder="Trunk diameter in cm"></ion-input>
+      </ion-item>
+
+      <ion-item class="mi-item">
+        <ion-input [(ngModel)]="formData.description" placeholder="Description of surroundings"></ion-input>
+      </ion-item>
+
+      <ion-item class="mi-item">
+        <ion-input [(ngModel)]="formData.poem" placeholder="Poem"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button class="submit-button" expand="block" [hidden]="isOfflineMode()" (click)="submitForm()" [disabled]="isDisableButton">SUBMIT</button>
+    <button class="submit-button" expand="block" [hidden]="!isOfflineMode()" (click)="saveAsDraft()">DRAFT</button>
+  </div>
+
+  <ion-alert
+  [isOpen]="shouldTriggerAlert()"
+  header="Tree report in progress"
+  message="Would you like to continue the report?"
+  [buttons]="alertButtons"
+  backdropDismiss="false"
+></ion-alert>
+</ion-content>

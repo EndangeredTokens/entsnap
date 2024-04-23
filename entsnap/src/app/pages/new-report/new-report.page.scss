@@ -1,0 +1,96 @@
+#new-report{
+    --background: transparent !important;
+}
+
+
+.camera-preview {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    --background: transparent !important; 
+    
+    .header{
+        position: absolute;
+        top: 4%;
+        left: 10%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .icons{
+        top: 5%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        height: 80%;
+
+        .frame{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6rem;
+        }
+    }
+
+    .camera{
+        position: absolute;
+        top: 0;
+    }
+
+    .buttons{
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: end;        
+
+        .btn-take-image{
+            z-index: 999;
+            background: none;
+            border: none;
+            position: absolute;
+            left: 40%;
+        }
+
+
+        .btn-next{
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: none;
+            padding: .7rem 1.5rem;
+            text-align: center;
+            font-weight: 500;
+            color: #fff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            right: 0;
+            text-transform: uppercase;
+        }
+
+        .btn-retake{
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: none;
+            padding: .7rem 1.5rem;
+            text-align: center;
+            font-weight: 500;
+            color: #fff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    .img-captured{
+        height: 100%;
+    }
+}

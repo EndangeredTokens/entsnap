@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828" viewBox="0 0 9.414 16.828">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="chevron-left" transform="translate(1 1.414)">
+    <path id="chevron-left-2" data-name="chevron-left" class="cls-1" d="M15,19,8,12l7-7" transform="translate(-8 -5)"/>
+  </g>
+</svg>

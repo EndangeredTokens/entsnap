@@ -1,0 +1,83 @@
+<ion-content id="new-report" class="new-report">
+  <div id="camera-preview" class="camera-preview">
+    <div  class="header">
+      <img 
+        [ngStyle]="{'display': isFirstStep() ? 'none' : 'block'}"
+        [src]="backIcon"
+        (click)="previousStep()" 
+        alt="back button" 
+        class="back-button" 
+      />
+    </div>
+    
+    <div class="icons">
+
+      <!-- Frame top borders -->
+      <div 
+        class="frame"
+      >
+        <img width="100" [src]="topLeftFrame" alt="left top frame corner">
+        <img width="100" [src]="topRightFrame" alt="right top frame corner">
+      </div>
+
+      <img class="step-icon" width="89"  [src]="getCurrentStepIcon()" />
+      <img class="img-frontal" [src]="getCurrentStepText()" />
+      
+      <!-- Frame bottom borders -->
+      <div 
+        class="frame"
+      >
+        <img width="100" [src]="bottomLeftFrame" alt="left bottom frame corner">
+        <img width="100" [src]="bottomRightFrame" alt="right bottom frame corner">
+      </div>
+
+      <!-- Take picture icon -->
+      <div class="buttons">
+        <button 
+          *ngIf="!isCurrentStepCaptured()"
+          class="btn-take-image"
+          (click)="captureImage()"
+          [disabled]="isCurrentStepCaptured()"
+        >
+          <img 
+            type="button"
+            class="img-logo" 
+            [src]="takePictureIcon" 
+          />
+        </button>
+        <button
+          *ngIf="isCurrentStepCaptured()"
+          class="btn-retake"
+          (click)="retryImage()"
+          [disabled]="!isCurrentStepCaptured()">
+          Retry
+        </button>
+        <button 
+          *ngIf="isCurrentStepCaptured()"
+          class="btn-next"
+          (click)="nextStep()"
+          [disabled]="!isCurrentStepCaptured()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
+      <!-- Image captured -->
+      <img
+        class="img-captured" 
+        *ngIf="isCurrentStepCaptured()" 
+        [src]="getCurrentStepImage()" 
+        [alt]="getCurrentStepText() + 'image'"
+      >
+  </div>
+  
+  <!-- <app-report-image></app-report-image> -->
+  <ion-alert
+  [isOpen]="shouldTriggerAlert()"
+  header="Tree report in progress"
+  message="Would you like to continue the report?"
+  [buttons]="alertButtons"
+  backdropDismiss="false"
+></ion-alert>
+</ion-content>

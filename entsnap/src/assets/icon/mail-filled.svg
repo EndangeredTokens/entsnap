@@ -1,0 +1,11 @@
+<svg id="mail-filled" xmlns="http://www.w3.org/2000/svg" width="27.458" height="20.593" viewBox="0 0 27.458 20.593">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+      }
+    </style>
+  </defs>
+  <path id="Trazado_13" data-name="Trazado 13" class="cls-1" d="M2,7.472l13.723,7.367L29.45,7.472A3.806,3.806,0,0,0,28.379,5a3.309,3.309,0,0,0-2.356-1H5.43A3.309,3.309,0,0,0,3.074,5,3.805,3.805,0,0,0,2,7.472Z" transform="translate(-1.998 -4)"/>
+  <path id="Trazado_14" data-name="Trazado 14" class="cls-1" d="M29.458,8.118,15.729,15.033,2,8.118V18.287a3.471,3.471,0,0,0,1.005,2.445,3.419,3.419,0,0,0,2.427,1.013H26.026a3.419,3.419,0,0,0,2.427-1.013,3.471,3.471,0,0,0,1.005-2.445Z" transform="translate(-2 -1.151)"/>
+</svg>

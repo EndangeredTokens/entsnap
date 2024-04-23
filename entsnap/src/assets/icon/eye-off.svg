@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="25.463" viewBox="0 0 26 25.463">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="eye-off" transform="translate(1 1.414)">
+    <path id="eye-off-2" data-name="eye-off" class="cls-1" d="M16.815,22.9A12.6,12.6,0,0,1,2.457,14.317a12.537,12.537,0,0,1,1.965-3.809m7.366,1.142a3.773,3.773,0,0,1,5.335,5.335M11.789,11.65l5.335,5.335M11.789,11.65l5.334,5.333m0,0,4.138,4.137m-9.471-9.471L7.654,7.514m0,0L3.14,3M7.654,7.514a12.579,12.579,0,0,1,18.8,6.8,12.606,12.606,0,0,1-5.2,6.8M7.654,7.514,21.261,21.121m0,0,4.513,4.513" transform="translate(-2.457 -3)"/>
+  </g>
+</svg>

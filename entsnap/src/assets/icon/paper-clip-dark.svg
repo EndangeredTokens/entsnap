@@ -1,0 +1,11 @@
+<svg id="paper-clip-dark" xmlns="http://www.w3.org/2000/svg" width="24" height="27.429" viewBox="0 0 24 27.429">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="paper-clip-dark-2" data-name="paper-clip-dark" class="cls-1" d="M11.571,5.429a5.143,5.143,0,0,0-5.143,5.143v6.857a8.571,8.571,0,0,0,17.143,0V10.571a1.714,1.714,0,0,1,3.429,0v6.857a12,12,0,1,1-24,0V10.571a8.571,8.571,0,0,1,17.143,0v6.857a5.143,5.143,0,0,1-10.286,0V10.571a1.714,1.714,0,1,1,3.429,0v6.857a1.714,1.714,0,0,0,3.429,0V10.571a5.143,5.143,0,0,0-5.143-5.143Z" transform="translate(-3 -2)"/>
+</svg>

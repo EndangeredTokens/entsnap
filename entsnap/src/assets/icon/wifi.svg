@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27.941" height="19.757" viewBox="0 0 27.941 19.757">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="wifi" transform="translate(1.414 1)">
+    <path id="wifi-2" data-name="wifi" class="cls-1" d="M9.346,18.5a6.511,6.511,0,0,1,9.208,0m-4.6,4.257h.012M5.58,14.387a11.837,11.837,0,0,1,16.74,0M1.394,10.2a17.759,17.759,0,0,1,25.112,0" transform="translate(-1.394 -5)"/>
+  </g>
+</svg>

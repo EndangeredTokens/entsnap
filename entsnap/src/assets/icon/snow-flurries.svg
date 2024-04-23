@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="27" viewBox="0 0 34 27">
+  <g id="snow-flurries" transform="translate(1 1)">
+    <path id="Trazado_109" data-name="Trazado 109" d="M33.813,21.064a5.438,5.438,0,0,0,.247.945C37.454,22.493,40,24.472,40,28a7,7,0,0,1-7,7H15a7,7,0,0,1-1-13.93.849.849,0,0,1,.184-.006,10,10,0,0,1,19.625,0Z" transform="translate(-8 -13)" fill="none" fill-rule="evenodd"/>
+    <path id="Trazado_110" data-name="Trazado 110" d="M33,35h.412a6.409,6.409,0,0,0,.9-12.773,10.4,10.4,0,0,0-20.322-1.741A7.311,7.311,0,0,0,15,34.982" transform="translate(-8 -13)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Trazado_111" data-name="Trazado 111" d="M23.274,32.875a.875.875,0,0,1,1.75,0v1.11l.961-.555a.875.875,0,0,1,.875,1.516L25.9,35.5l.961.555a.875.875,0,0,1-.875,1.516l-.961-.555v1.109a.875.875,0,0,1-1.75,0v-1.11l-.961.555a.875.875,0,0,1-.875-1.516L22.4,35.5l-.961-.555a.875.875,0,0,1,.875-1.516l.961.555Z" transform="translate(-8 -13)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+</svg>

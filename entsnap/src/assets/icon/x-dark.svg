@@ -1,0 +1,11 @@
+<svg id="x-dark" xmlns="http://www.w3.org/2000/svg" width="22.819" height="22.796" viewBox="0 0 22.819 22.796">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="x-dark-2" data-name="x-dark" class="cls-1" d="M4.556,4.568a1.9,1.9,0,0,1,2.686,0L15.4,12.723l8.155-8.155a1.9,1.9,0,1,1,2.686,2.686l-8.155,8.155,8.155,8.155a1.9,1.9,0,0,1-2.686,2.686L15.4,18.1,7.243,26.251a1.9,1.9,0,0,1-2.686-2.686l8.155-8.155L4.556,7.254a1.9,1.9,0,0,1,0-2.686Z" transform="translate(-4 -3.988)"/>
+</svg>

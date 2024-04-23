@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="31" viewBox="0 0 34 31">
+  <g id="thunderstroms" transform="translate(1 1)">
+    <path id="Trazado_119" data-name="Trazado 119" d="M33.813,21.064a5.438,5.438,0,0,0,.247.945C37.454,22.493,40,24.472,40,28a7,7,0,0,1-7,7H15a7,7,0,0,1-1-13.93.849.849,0,0,1,.184-.006,10,10,0,0,1,19.625,0Z" transform="translate(-8 -13)" fill="none" fill-rule="evenodd"/>
+    <path id="Trazado_120" data-name="Trazado 120" d="M33,35h.412a6.409,6.409,0,0,0,.9-12.773,10.4,10.4,0,0,0-20.322-1.741A7.311,7.311,0,0,0,15,34.982" transform="translate(-8 -13)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Trazado_121" data-name="Trazado 121" d="M26.866,37.562a1.093,1.093,0,0,1-.283-1.51l2.333-4.041a1.012,1.012,0,1,1,1.732,1l-2.333,4.041A1.093,1.093,0,0,1,26.866,37.562Z" transform="translate(-8 -13)" fill="#fff" fill-rule="evenodd"/>
+    <path id="Trazado_122" data-name="Trazado 122" d="M25.981,33.187a.334.334,0,0,0-.265-.224l-3.721-.552,1.707-3.93a.352.352,0,0,0-.025-.326A.329.329,0,0,0,23.4,28H18.2a.336.336,0,0,0-.331.33l-.239,6.984a.339.339,0,0,0,.284.351l2.587.384-3.461,6.445a.349.349,0,0,0,.1.443.323.323,0,0,0,.194.064.326.326,0,0,0,.244-.111l8.337-9.356A.35.35,0,0,0,25.981,33.187Z" transform="translate(-8 -13)" fill="#fff"/>
+  </g>
+</svg>

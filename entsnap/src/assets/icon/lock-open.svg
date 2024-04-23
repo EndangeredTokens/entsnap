@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="29" viewBox="0 0 26 29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #3f3f46;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="lock-open" transform="translate(1 1)">
+    <path id="lock-open-2" data-name="lock-open" class="cls-1" d="M10,15V9A6,6,0,0,1,22,9M16,21v3M7,30H25a3,3,0,0,0,3-3V18a3,3,0,0,0-3-3H7a3,3,0,0,0-3,3v9a3,3,0,0,0,3,3Z" transform="translate(-4 -3)"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg id="moon-filled" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+      }
+    </style>
+  </defs>
+  <path id="moon-filled-2" data-name="moon-filled" class="cls-1" d="M26,19.321A12.556,12.556,0,0,1,9.387,2.707,12.557,12.557,0,1,0,26,19.321Z" transform="translate(-2.001 -2.707)"/>
+</svg>

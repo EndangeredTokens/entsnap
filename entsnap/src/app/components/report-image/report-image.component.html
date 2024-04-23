@@ -1,0 +1,107 @@
+<div class="container-image">
+  <div id="cameraPreview" class="cameraPreview">
+    <!-- Subir foto frontal -->
+    <div *ngIf="!uploadedFrontal" id="photoFrontal">
+      <button class="custom-button" routerLink="/tabs/home" (click)="stopCamera()">
+        <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+      </button>
+      <div class="center">
+        <img class="step-icon" width="89"  [src]="frontalIcon" />
+        <img class="img-frontal" [src]="frontalText" />
+        <img class="img-logo" (click)="takePicture('frontal')" src="../../../assets/icon/load-photo.svg" />
+      </div>
+      <!-- <img id="logoSecundary" (click)="openCamera()" *ngIf="!cameraActive" src="../../../assets/icon/load-photo.svg" /> -->
+    </div>
+    <!-- Subir foto leaf -->
+    <div *ngIf="uploadedFrontal && !uploadedLeaf" id="photoLeaf">
+      <button class="custom-button" (click)="back('frontal')">
+        <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+      </button>
+      <div class="center">
+        <img class="step-icon" [src]="leafIcon" />
+        <img class="img-frontal" [src]="leafText" />
+        <img class="img-logo" (click)="takePicture('leaf')" src="../../../assets/icon/load-photo.svg" />
+        <!-- <img id="logoSecundary" (click)="openCamera()" *ngIf="!cameraActive" src="../../../assets/icon/load-photo.svg" /> -->
+      </div>
+      <br />
+      <img [attr.src]="addUrlNew('frontal')" />
+    </div>
+    <!-- Subir foto trunk -->
+    <div *ngIf="uploadedLeaf && !uploadedTrunk" id="photoTrunk">
+      <button class="custom-button" (click)="back('leaf')">
+        <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+      </button>
+      <div class="center">
+        <img class="step-icon" [src]="trunkIcon" />
+        <img class="img-frontal" [src]="trunkText" />
+        <img class="img-logo" (click)="takePicture('trunk')" src="../../../assets/icon/load-photo.svg" />
+        <!-- <img id="logoSecundary" (click)="openCamera()" *ngIf="!cameraActive" src="../../../assets/icon/load-photo.svg" /> -->
+      </div>
+      <br />
+      <img [attr.src]="addUrlNew('leaf')" />
+    </div>
+    <!-- Subir foto scale -->
+    <div *ngIf="uploadedTrunk && !uploadedScale" id="photoScale">
+      <button class="custom-button" (click)="back('trunk')">
+        <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+      </button>
+      <div class="center">
+        <img class="step-icon" [src]="scaleIcon" />
+        <img class="img-frontal" [src]="scaleText" />
+        <img class="img-logo" (click)="takePicture('scale')" src="../../../assets/icon/load-photo.svg" />
+        <br />
+        <img [attr.src]="addUrlNew('trunk')" />
+      </div>
+      <!-- <img id="logoSecundary" (click)="openCamera()" *ngIf="!cameraActive" src="../../../assets/icon/load-photo.svg" /> -->
+    </div>
+    <!--  -->
+    <div *ngIf="uploadedScale">
+      <button class="custom-button" (click)="back('scale')">
+        <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+      </button>
+      <img [attr.src]="addUrlNew('scale')" />
+    </div>
+
+    <!-- <div *ngIf="cameraActive">
+      <ion-button (click)="stopCamera()" expand="full" id="close">
+        <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="flipCamera()" expand="full" id="flip">
+        <ion-icon name="repeat" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div> -->
+    <ion-footer>
+      <br>
+      <!-- <button *ngIf="!uploadedFrontal" (click)="takePicture('frontal')" id="upload">
+        <ion-label for="fileInput">
+          UPLOAD
+        </ion-label>
+        <ion-input (change)="processFile($event, 'frontal')" accept="image/*" id="fileInput" type="file">
+        </ion-input>
+      </button>
+      <button *ngIf="uploadedFrontal && !uploadedLeaf" (click)="takePicture('leaf')" id="upload">
+        <ion-label for="fileInput">
+          UPLOAD
+        </ion-label>
+        <ion-input (change)="processFile($event, 'leaf')" accept="image/*" id="fileInput" type="file">
+        </ion-input>
+      </button>
+      <button *ngIf="uploadedLeaf && !uploadedTrunk" (click)="takePicture('trunk')" id="upload">
+        <ion-label for="fileInput">
+          UPLOAD
+        </ion-label>
+        <ion-input (change)="processFile($event, 'trunk')" accept="image/*" id="fileInput" type="file">
+        </ion-input>
+      </button>
+      <button *ngIf="uploadedTrunk && !uploadedScale" (click)="takePicture('scale')" id="upload">
+        <ion-label for="fileInput">
+          UPLOAD
+        </ion-label>
+        <ion-input (change)="processFile($event, 'scale')" accept="image/*" id="fileInput" type="file">
+        </ion-input>
+      </button> -->
+      <img id="logo" [src]="logo" />
+      <button (click)="postReport()" id="continue" *ngIf="uploadedScale">NEXT</button>
+    </ion-footer>
+  </div>
+</div>

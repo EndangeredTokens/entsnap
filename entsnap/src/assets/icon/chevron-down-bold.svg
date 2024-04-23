@@ -1,0 +1,11 @@
+<svg id="chevron-down-bold" xmlns="http://www.w3.org/2000/svg" width="18.129" height="10.886" viewBox="0 0 18.129 10.886">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3f3f46;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="chevron-down-bold-2" data-name="chevron-down-bold" class="cls-1" d="M5.53,7.541a1.811,1.811,0,0,1,2.56,0L14.053,13.5l5.963-5.963a1.811,1.811,0,1,1,2.56,2.56l-7.243,7.243a1.811,1.811,0,0,1-2.56,0L5.53,10.1a1.811,1.811,0,0,1,0-2.56Z" transform="translate(-5 -6.988)"/>
+</svg>
