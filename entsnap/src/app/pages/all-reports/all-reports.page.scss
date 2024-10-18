@@ -1,0 +1,154 @@
+ion-content {
+    --background: var(--color-default-ocre);
+
+    .top-side {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--color-default-ocre);
+
+        .top-side-elements {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 20px;
+            margin-right: 20px;
+            /* background: Yellow; */
+            /* use full size*/
+            height: 100%;
+            width: calc(100% - 40px);
+
+            .header-elements {
+                display: flex;
+                align-items: center;
+
+                .go-back-logo {
+                    height: 48px;
+                    width: 48px;
+                }
+            }
+
+            .page-title-container {
+                .page-title-text {
+                    color: var(--color-primary);
+                    font-family: 'Gotham';
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .reports-grid {
+        /* background: Blue; */
+        margint-top: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        .report-cards-row {
+            margin-bottom: 1rem;
+            .report-card {
+                /* background: Blue; */
+                background: var(--color-ocre-2);
+                border-radius: 1.25rem;
+
+                .report-card-grid {
+                    .report-card-row {
+                        .report-image {
+                            img {
+                                border-radius: 0.625rem;
+                                height: 10.625rem;
+                                min-height: 10.625rem;
+                                max-height: 10.625rem;
+                            }
+                        }
+
+                        .report-data-container {
+                            .report-options-button {
+                                display: flex;
+                                justify-content: end;
+                                margin-bottom: 0.5rem;
+                                .draft-badge {
+                                    background: var(--color-green-4);
+                                    border-radius: 24px;
+                                    font-family: 'Aller';
+                                    font-weight: normal;
+                                    font-size: 12px;
+                                    color: White;
+                                    padding-top: 6px;
+                                    padding-bottom: 6px;
+                                    padding-left: 20px;
+                                    padding-right: 20px;
+                                }
+
+                                button {
+                                    background: transparent;
+                                }
+                            }
+
+                            .report-title {
+                                display: flex;
+                                .report-validated-badge {
+                                    margin-right: 0.5rem;
+                                }
+
+                                .report-title-id {
+                                    font-family: 'Gotham';
+                                    font-weight: bold;
+                                    font-size: 20px;
+                                    color: var(--color-primary);
+                                }
+                            }
+
+                            .report-date,
+                            .report-specie,
+                            .report-location,
+                            .report-validated-status,
+                            .draft-status {
+                                font-family: 'Aller';
+                                font-size: 16px;
+                                color: var(--color-primary);
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.report-actions-modal {
+    --border-radius: 30px;
+    .report-actions-content {
+        --background: var(--color-green-4);
+
+        .action-buttons-grid {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-top: 2rem;
+            background: rgba(80, 94, 65, 0.3);
+            border-radius: 24px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            .button-row {
+                margin-bottom: 0.5rem;
+                .icon {
+                }
+
+                .text {
+                    font-family: 'Aller';
+                    font-size: 16px;
+                    color: var(--color-default-ocre);
+                }
+            }
+        }
+    }
+}

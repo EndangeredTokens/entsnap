@@ -17,13 +17,13 @@ Welcome to the repository for the EntSnap mobile DAPP! EntSnap is a cutting-edge
 - **Tree Identification**: Utilize an image-based identification service to identify tree species directly through the app, enhancing environmental awareness.
 - **Map Exploration**: Explore accepted reports of trees with a sleek map integration, providing an immersive user experience.
 - **Account Administration**: Manage account credentials, web3 linked accounts, and third-party integrations effortlessly within the app.
+* **Proof-of-Life**: Peer Validation module for existing trees/ENTS reports, allowing users to validate and verify the life of any report with various blockchain incentives, fostering community engagement and trust.
 
 ## Coming Soon
 
 * **ENTS Minting (NFT)**: Mint your validated tree reports (ENTS) directly as NFTs on the blockchain, creating digital assets linked to real-world environmental data.
 * **Gitcoint Passport Integration**: Link your web3 account to your Gitcoint passport for enhanced integration and identity verification, streamlining user interactions.
 * **ENTS Wiki**: Access a comprehensive collection of detailed tree information integrated with the app, enhancing the Tree Identification feature and promoting environmental education.
-* **Proof-of-Life**: Peer Validation module for existing trees/ENTS reports, allowing users to validate and verify the life of any report with various blockchain incentives, fostering community engagement and trust.
 
 ## Installation
 
@@ -34,28 +34,27 @@ To run the EntSnap mobile DAPP, follow these steps:
    git clone https://github.com/EndangeredTokens/entsnap
    ```
 
-2. **Google Maps API Key**: Update the Maps JavaScript API load script in [index.html](./entsnap/src/index.html) with a valid API key. Replace `[YOUR-API-KEY]` with your API key:
-   ```html
-   <script async defer
-     src="https://maps.googleapis.com/maps/api/js?key=[YOUR-API-KEY]&libraries=places&region=419&language=es"
-     type="text/javascript">
-   </script>
+2. **Google Maps API Key**: Update the `googleMapsApiKey` with your API key in the [environment.prod.ts](./entsnap/src/environments/environment.prod.ts) and [environment.ts](./entsnap/src/environments/environment.ts) files:
+   ```ts
+   export const environment = {
+      ...
+      googleMapsApiKey: "YOUR-API-KEY"
+      ...
+   }
    ```
 
-3. **Backend Configuration**: Update the backend endpoint in [environment.ts](./entsnap/src/environments/environment.ts) and [environment.prod.ts](./entsnap/src/environments/environment.prod.ts) with the provided public endpoint route.
-
-4. **Install Dependencies**: Navigate to the `entsnap` directory and install npm packages:
+3. **Install Dependencies**: Navigate to the `entsnap` directory and install npm packages:
    ```bash
    cd entsnap
    npm install
    ```
 
-5. **Run Development Mode**: Start the development server using Ionic CLI:
+4. **Run Development Mode**: Start the development server using Ionic CLI:
    ```bash
    npx ionic serve
    ```
 
-6. **Build Android APK**: Build the Android APK using Ionic CLI and Capacitor:
+5. **Build Android APK**: Build the Android APK using Ionic CLI and Capacitor:
    ```bash
    npx ionic build
    npx cap sync

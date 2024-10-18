@@ -1,0 +1,127 @@
+ion-modal {
+  --ion-background-color: #949C79;
+  --border-radius: 20px;
+}
+// ion-button {
+//     --background: linear-gradient(to right, #F77E6D, #FB2558);
+//     --border-radius: 24pt;
+//     height: 48px;
+//     left: 78vw;
+//     position: fixed;
+//     text-transform: none;
+//     top: 132vh;
+//     transform: translate(-50vw, -50vh);
+//     width: 155px;
+//     z-index: 4;
+// }
+
+ion-segment {
+    --background: #F4F4F5;
+    color: #115A6F;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 50%;
+    z-index: 4;
+}
+
+#mapProofOfLife {
+    height: 100vh;
+}
+
+.modal-title {
+  color: #505E41;
+  font-weight: bold;
+}
+
+ion-img::part(image) {
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+ion-img {
+  height: 140px;
+  width: 90px;
+  background-color: #979797;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-body {
+  display: flex
+}
+
+.user-icon {
+  font-size: 30px
+}
+
+.modal-content {
+  margin-left: 10px;
+}
+
+.modal-username {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-username-name {
+  padding-bottom: 0px;
+  margin-left: 4px;
+  font-weight: normal;
+}
+
+ion-icon {
+  font-size: 25px;
+}
+
+.modal-button {
+  background-color: #F2A62A;
+  padding: 8px 15px 8px 15px;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.modal-username-icon {
+  color: #cbd5e1
+}
+
+.compass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 14%;
+  right: 20px;
+  z-index: 2;
+  
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  #compass-pointer {
+    position: absolute;
+    z-index: 4;
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 5%;
+  left: 20px;
+  z-index: 2;
+  border: 3px solid white;
+  border-radius: 20px;
+  background: #949C79;
+  padding: 10px;
+}

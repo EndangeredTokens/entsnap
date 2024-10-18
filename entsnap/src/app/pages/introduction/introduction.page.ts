@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 import { StorageService } from 'src/app/services/storage.service';
+import { MultiLanguageService } from 'src/app/services/multi-language.service';
 register();
 
 
@@ -14,7 +15,8 @@ export class IntroductionPage  implements OnInit {
 
   constructor(
     private router: Router,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private multiLanguageService: MultiLanguageService,
   ) { }
 
   async ngOnInit() {

@@ -1,0 +1,197 @@
+<ion-header></ion-header>
+<ion-content [fullscreen]="true">
+    <div class="top-side">
+        <img
+            src="../../../assets/icons/headers/all-reports-header-vector.svg"
+            alt=""
+        />
+
+        <div class="top-side-elements">
+            <div class="header-elements">
+                <div class="go-back-logo" (click)="goBackUrlHistory()">  
+                    <img
+                        src="../../../assets/icons/basics/chevron-left-white.svg"
+                        alt=""
+                    />
+                </div>
+            </div>
+            <div class="page-title-container">
+                <div class="page-title-text">{{ titleText }}</div>
+            </div>
+        </div>
+    </div>
+    <ion-grid
+        class="reports-grid"
+        *ngIf="draftReports.length > 0 && showDrafts"
+    >
+        <ion-row *ngFor="let report of draftReports" class="report-cards-row">
+            <ion-col size="12" class="report-card">
+                <ion-grid class="report-card-grid">
+                    <ion-row class="report-card-row">
+                        <ion-col size="4" class="report-image">
+                            <img
+                                class="image"
+                                [src]="report.imagePreview"
+                                alt="Image not found"
+                            />
+                        </ion-col>
+                        <ion-col size="8" class="report-data-container">
+                            <div class="report-options-button ion-text-end">
+                                <div class="draft-badge">{{ 'all_reports.draft' | translate }}</div>
+                                <button (click)="openDraftActionsModal(report)">
+                                    <img
+                                        src="../../../assets/icons/basics/triple-point.svg"
+                                        alt=""
+                                    />
+                                </button>
+                            </div>
+                            <div class="report-title ion-margin-start">
+                                <div class="report-validated-badge">
+                                    <img alt="" />
+                                </div>
+                                <div class="report-title-id">{{ 'all_reports.title_DRAFT' | translate }}</div>
+                            </div>
+                            <div
+                                class="report-specie ion-margin-start ion-margin-top"
+                            >
+                            {{ 'all_reports.specie_tree' | translate }}: {{ report.report_data?.specie || 'N/A' }}
+                            </div>
+                            <div
+                                class="report-location ion-margin-start ion-margin-top"
+                            >
+                            {{ 'all_reports.Location' | translate }}: {{ report.gps_geocoder &&
+                                report.gps_geocoder.route ?
+                                report.gps_geocoder.route : 'N/A' }}
+                            </div>
+                            <div
+                                class="draft-status ion-margin-start ion-margin-top"
+                            >
+                            {{ 'all_reports.status_draft' | translate }}
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid class="reports-grid">
+        <ion-row
+            *ngFor="let report of reportsToIterate"
+            class="report-cards-row"
+        >
+            <ion-col size="12" class="report-card">
+                <ion-grid class="report-card-grid">
+                    <ion-row class="report-card-row">
+                        <ion-col
+                            size="4"
+                            class="report-image"
+                            routerLink="{{ specificPageToGo }}/{{ report.id }}"F
+                        >
+                            <img
+                                class="image"
+                                [src]="report?.images?.[0]?.image?.image_small ? report?.images?.[0]?.image?.image_small : '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="8" class="report-data-container">
+                            <div class="report-options-button ion-text-end">
+                                <button (click)="openActionsModal()">
+                                    <img
+                                        src="../../../assets/icons/basics/triple-point.svg"
+                                        alt=""
+                                    />
+                                </button>
+                            </div>
+                            <div class="report-title ion-margin-start" 
+                                routerLink="{{ specificPageToGo }}/{{ report.id }}"
+                            >
+                                
+                                <div
+                                    *ngIf="report.status_id === 3"
+                                    class="report-validated-badge"
+                                >
+                                    <img
+                                        src="../../../assets/icons/basics/shield-check.svg"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="report-title-id">
+                                    {{ 'all_reports.tree' | translate }} {{ report.id.toString().padStart(4,
+                                    "0") }}
+                                </div>
+                            </div>
+                            <div
+                                class="report-specie ion-margin-start ion-margin-top"
+                                routerLink="{{ specificPageToGo }}/{{ report.id }}"
+                            >
+                            {{ 'all_reports.specie_tree' | translate }}: {{ report.data?.specie }}
+                            </div>
+                            <div
+                                class="report-location ion-margin-start ion-margin-top"
+                                routerLink="{{ specificPageToGo }}/{{ report.id }}"
+                            >
+                            {{ 'all_reports.Location' | translate }}: {{ report.gps_geocoder &&
+                                report.gps_geocoder.route ?
+                                report.gps_geocoder.route : 'N/A' }}
+                            </div>
+                            <div
+                                class="report-date ion-margin-start ion-margin-top ion-text-lowercase"
+                                routerLink="{{ specificPageToGo }}/{{ report.id }}"
+                            >
+                            {{ 'all_reports.date' | translate }}: {{ report.created_at ? (report.created_at
+                                | date: 'yyyy-MM-dd') : 'N/A' }}
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-modal class="report-actions-modal" [initialBreakpoint]="0.25">
+        <ng-template>
+            <ion-content class="report-actions-content" scroll-y="false">
+                <ion-grid class="action-buttons-grid">
+                    <ion-row class="button-row ion-align-items-center">
+                        <ion-col size="2" class="icon">
+                            <img
+                                src="../../../assets/icons/basics/share-default-ocre.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="10" class="text">{{ 'all_reports.share' | translate }}</ion-col>
+                    </ion-row>
+                    <ion-row
+                        *ngIf="isSelectedReportDraft"
+                        class="button-row ion-align-items-center"
+                    >
+                        <ion-col size="2" class="icon">
+                            <img
+                                src="../../../assets/icons/basics/edit-pencil-default-ocre.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col
+                            size="10"
+                            class="text"
+                            (click)="redirectToContinueDraft()"
+                            >{{ 'all_reports.edit' | translate }}</ion-col
+                        >
+                    </ion-row>
+                    <ion-row class="button-row ion-align-items-center">
+                        <ion-col size="2" class="icon">
+                            <img
+                                src="../../../assets/icons/basics/trash-amarillo-palido.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col (click)="deleteDraft()" size="10" class="text"
+                            >{{ 'all_reports.delete' | translate }}</ion-col
+                        >
+                    </ion-row>
+                </ion-grid>
+            </ion-content>
+        </ng-template>
+    </ion-modal>
+</ion-content>

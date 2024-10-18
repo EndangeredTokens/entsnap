@@ -74,6 +74,18 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** IOS FIX **/
+  --ion-safe-area-bottom: 14px;
+
+  /** Customize default font config **/
+  --ion-font-family: Aller, sans-serif;
+  --ion-font-size: 12px;
+}
+
+.ios{
+  --ion-safe-area-top: -1 !important;
+  --ion-safe-area-bottom: 14px;
 }
 
 @media (prefers-color-scheme: dark) {

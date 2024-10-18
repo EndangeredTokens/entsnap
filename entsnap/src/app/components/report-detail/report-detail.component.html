@@ -26,37 +26,51 @@
     <ion-list class="list">
       <h2>stage</h2>
       <ion-item class="item-img">
-        <ion-segment [(ngModel)]="formData.stage">
-          <ion-segment-button value="tree">
+        <ion-segment [(ngModel)]="formData.stage_id">
+          <ion-segment-button *ngFor="let stage of stages" [value]="stage.id">
             <div class="img-option">
-              <img [src]="treeOption" alt="Tree">
-              <ion-label class="label-color">Tree</ion-label>
+              <!-- Display stage image or icon -->
+              <img [src]="stage.image" alt="{{ stage.name }}">
+              <ion-label class="label-color">{{ stage.name }}</ion-label>
             </div>
           </ion-segment-button>
-          <ion-segment-button value="sapling">
-            <div class="img-option">
-              <img [src]="saplingOption" alt="Sapling">
-              <ion-label class="label-color">Sapling</ion-label>
-            </div>
-          </ion-segment-button>
+          <!-- <ion-segment-button value="1"> -->
+          <!--   <div class="img-option"> -->
+              <!-- <img [src]="treeOption" alt="Tree"> -->
+          <!--     <ion-label class="label-color">Tree</ion-label> -->
+          <!--   </div> -->
+          <!-- </ion-segment-button> -->
+          <!-- <ion-segment-button value="2"> -->
+          <!--   <div class="img-option"> -->
+          <!--     <img [src]="saplingOption" alt="Sapling"> -->
+          <!--     <ion-label class="label-color">Sapling</ion-label> -->
+          <!--   </div> -->
+          <!-- </ion-segment-button> -->
         </ion-segment>
       </ion-item>
 
       <h2>foliage</h2>
       <ion-item class="item-img">
-        <ion-segment [(ngModel)]="formData.foliage">
-          <ion-segment-button value="evergreen">
+        <ion-segment [(ngModel)]="formData.foliage_id">
+          <ion-segment-button *ngFor="let foliage of foliages" [value]="foliage.id">
             <div class="img-option">
-              <ion-img [src]="evergreenOption" alt="Evergreen"></ion-img>
-              <ion-label class="label-color">Evergreen</ion-label>
+              <!-- Display stage image or icon -->
+              <img [src]="foliage.image" alt="{{ foliage.name }}">
+              <ion-label class="label-color">{{ foliage.name }}</ion-label>
             </div>
           </ion-segment-button>
-          <ion-segment-button value="deciduous">
-            <div class="img-option">
-              <ion-img [src]="decidiousOption" alt="Deciduous"></ion-img>
-              <ion-label class="label-color">Deciduous</ion-label>
-            </div>
-          </ion-segment-button>
+          <!-- <ion-segment-button value="1"> -->
+          <!--   <div class="img-option"> -->
+          <!--     <ion-img [src]="evergreenOption" alt="Evergreen"></ion-img> -->
+          <!--     <ion-label class="label-color">Evergreen</ion-label> -->
+          <!--   </div> -->
+          <!-- </ion-segment-button> -->
+          <!-- <ion-segment-button value="2"> -->
+          <!--   <div class="img-option"> -->
+          <!--     <ion-img [src]="decidiousOption" alt="Deciduous"></ion-img> -->
+          <!--     <ion-label class="label-color">Deciduous</ion-label> -->
+          <!--   </div> -->
+          <!-- </ion-segment-button> -->
         </ion-segment>
       </ion-item>
 
@@ -71,15 +85,15 @@
         <button class="submit-button" (click)="identifyTree()" *ngIf="!isOfflineMode()">Identify</button>
       </div>
       <ion-item class="mi-item">
-        <ion-input [(ngModel)]="formData.treeType" placeholder="Type of tree"></ion-input>
+        <ion-input [(ngModel)]="formData.tree_type" placeholder="Type of tree"></ion-input>
       </ion-item>
 
       <ion-item class="mi-item">
-        <ion-input [(ngModel)]="formData.trunkDiameter" type="number" placeholder="Trunk diameter in cm"></ion-input>
+        <ion-input [(ngModel)]="formData.trunk_diameter" type="number" placeholder="Trunk diameter in cm"></ion-input>
       </ion-item>
 
       <ion-item class="mi-item">
-        <ion-input [(ngModel)]="formData.description" placeholder="Description of surroundings"></ion-input>
+        <ion-input [(ngModel)]="formData.surrounding_desc" placeholder="Description of surroundings"></ion-input>
       </ion-item>
 
       <ion-item class="mi-item">
@@ -99,3 +113,4 @@
   backdropDismiss="false"
 ></ion-alert>
 </ion-content>
+<app-tree-options-modal />

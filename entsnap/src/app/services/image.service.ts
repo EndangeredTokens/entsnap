@@ -1,10 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import { CameraPhoto } from '@capacitor/camera';
 import { routes } from './routes';
 import { Base64Img } from '../models/base64img';
 import { Observable } from 'rxjs';
 import { TreeDetection } from '../models/treeDetection';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,14 @@ export class ImageService {
   defaultImage = 'Firecatch_blankImage.png';
   lastUploadedName?: string;
 
+  authToken!: string | null;
+  headers!: HttpHeaders;
+
+
   constructor(
     private http: HttpClient,
-    private routes: routes
+    private routes: routes,
+    private authService: AuthService,
   ) { }
 
   addUrl(image: string): string {
@@ -78,7 +84,13 @@ export class ImageService {
   uploadImage(file: File): void {
     const formData = new FormData();
     formData.append('file', file);
-    this.http.post<any>(this.routes.imagesUrl(), formData)
+
+    this.authToken = this.authService.getAuthToken();
+    this.headers = new HttpHeaders({
+      Authorization: 'Bearer '+this.authToken || '',
+    });
+
+    this.http.post<any>(this.routes.imagesUrl(), formData, { headers: this.headers })
       .subscribe(
         (res) => {
           console.log("Filename", res.filename);
@@ -105,7 +117,12 @@ export class ImageService {
   // }
 
   uploadBase64Image(base64img: Base64Img): void {
-    this.http.post<any>(`${this.routes.imagesUrl()}/base64`, base64img)
+    this.authToken = this.authService.getAuthToken();
+    this.headers = new HttpHeaders({
+      Authorization: 'Bearer '+this.authToken || '',
+    });
+    
+    this.http.post<any>(`${this.routes.imagesUrl()}/base64`, base64img, { headers: this.headers })
       .subscribe(
         (res) => {
           console.log("Filename", res.filename);
@@ -116,18 +133,54 @@ export class ImageService {
   }
 
   newUploadImage( base64img: Base64Img ): Observable<any> {
-    return this.http.post<any>(`${this.routes.imagesUrl()}/base64`, base64img);
+    this.authToken = this.authService.getAuthToken();
+    this.headers = new HttpHeaders({
+      Authorization: 'Bearer '+this.authToken || '',
+    });
+
+    return this.http.post<any>(`${this.routes.imagesUrl()}/base64`, base64img, { headers: this.headers });
+  }
+
+  newUploadImageV3( base64img: Base64Img, type_id: number ): Observable<any> {
+    this.authToken = this.authService.getAuthToken();
+    this.headers = new HttpHeaders({
+      Authorization: 'Bearer '+this.authToken || '',
+    });
+
+    return this.http.post<any>(
+      `${this.routes.imagesUrl()}/base64`,
+      {
+        img: base64img.img, 
+        latitude: base64img.lat, 
+        longitude: base64img.lng, 
+        type_id: type_id, 
+        user_id: this.authService.user.id, 
+        capture_date: Date.now()
+      }, 
+      { headers: this.headers }
+    );
   }
 
   identifyTree(base64img: Base64Img): Observable<TreeDetection[]>{
-    return this.http.post<TreeDetection[]>(`${this.routes.plantnetUrl()}/detect`, base64img)
+    this.authToken = this.authService.getAuthToken();
+    this.headers = new HttpHeaders({
+      Authorization: 'Bearer '+this.authToken || '',
+    });
+
+    console.log("[image service - identifyTree] headers:", this.headers);
+    return this.http.post<TreeDetection[]>(`${this.routes.plantnetUrl()}/detect`, base64img, {headers: this.headers})
   }
 
   async uploadPhotoNew(imageData: string): Promise<void> {
+    this.authToken = this.authService.getAuthToken();
+    this.headers = new HttpHeaders({
+      Authorization: 'Bearer '+this.authToken || '',
+    });
+
     const blob = await this.convertImageToBlob(imageData);
     const formData = new FormData();
     formData.append('file', blob);
-    this.http.post<any>(this.routes.imagesUrl(), formData)
+    this.http.post<any>(this.routes.imagesUrl(), formData, { headers: this.headers })
       .subscribe(
         (res) => {
           console.log("Filename", res.filename);

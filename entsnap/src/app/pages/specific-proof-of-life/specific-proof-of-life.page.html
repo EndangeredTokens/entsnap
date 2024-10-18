@@ -1,0 +1,108 @@
+<ion-header></ion-header>
+<ion-content [fullscreen]="true">
+    <div class="top-side">
+        <img
+            src="../../../assets/icons/headers/all-reports-header-vector.svg"
+            alt=""
+        />
+
+        <div class="top-side-elements">
+            <div class="header-elements">
+                <div class="go-back-logo" (click)="goBackUrlHistory()">
+                    <img
+                        src="../../../assets/icons/basics/chevron-left-white.svg"
+                        alt=""
+                    />
+                </div>
+            </div>
+            <div class="page-title-container">
+                <div class="page-title-text">{{ 'es_prooflife.title' | translate }}</div>
+            </div>
+        </div>
+    </div>
+    <ion-grid class="report-grid">
+        <ion-row class="report-data-row">
+            <ion-col class="report-data-container">
+                <ion-grid class="report-data-grid">
+                    <ion-row class="header-row">
+                        <ion-col size="11" class="ent-id"
+                            >ENT {{ proofOfLife.id ?
+                            proofOfLife.id.toString().padStart(4, "0") :
+                            'N/A'}}</ion-col
+                        >
+                        <ion-col
+                            *ngIf="proofOfLife.type_id === 3"
+                            size="1"
+                            class="validated-badge"
+                        >
+                            <img
+                                src="../../../assets/icons/basics/shield-check.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="title-row">
+                        <ion-col>
+                            {{ 'es_prooflife.specie_tree' | translate }}: {{entName}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="subtitle-row">
+                        <ion-col>Endangered Species:{{ proofOfLife.data.specie || ' ' }}</ion-col>
+                    </ion-row>
+                    <ion-row class="location-row ion-align-items-center">
+                        <ion-col size="1" class="location-icon">
+                            <img
+                                src="../../../assets/icons/basics/marker-default-amarillo.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="11" class="location-text">
+                            {{ proofOfLife.gps_geocoder &&
+                            proofOfLife.gps_geocoder.route ?
+                            proofOfLife.gps_geocoder.route : 'N/A' }} {{
+                            proofOfLife.gps_geocoder &&
+                            proofOfLife.gps_geocoder.country ? (', ' +
+                            proofOfLife.gps_geocoder.country) : ',N/A' }}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <ion-row class="report-images-row">
+            <ion-col size="8">
+                <img
+                    [src]="proofOfLife?.images?.[0]?.image?.image ? proofOfLife?.images?.[0]?.image?.image : '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col size="8">
+                <img
+                    [src]="proofOfLife?.images?.[1]?.image?.image ? proofOfLife?.images?.[0]?.image?.image : '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col size="8">
+                <img
+                    [src]="proofOfLife?.images?.[2]?.image?.image ? proofOfLife?.images?.[0]?.image?.image : '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col size="8">
+                <img
+                    [src]="proofOfLife?.images?.[3]?.image?.image ? proofOfLife?.images?.[0]?.image?.image : '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+        </ion-row>
+        <ion-row class="button-row ion-justify-content-center">
+            <ion-col size="auto" class="button-container">
+                <button
+                    class="see-tree-profile-button"
+                    routerLink="/tabs/tree-page/{{proofOfLife?.parent_report_id}}"
+                >
+                {{ 'es_prooflife.see_profile' | translate }}
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

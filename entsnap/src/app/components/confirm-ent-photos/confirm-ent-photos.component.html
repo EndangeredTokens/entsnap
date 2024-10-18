@@ -1,0 +1,144 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="goBackUrlHistory()">
+                <img src="/assets/icons/basics/chevron-left-white.svg" alt=""
+            /></ion-button>
+        </ion-buttons>
+        <ion-title>{{ 'confirm_ent_photos.proof_life' | translate }}</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button class="preview-subtitle"> {{ 'confirm_ent_photos.preview' | translate }}</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid class="content-grid">
+        <ion-row class="top-row">
+            <ion-col size="6" class="image-name ion-justify-content-center"
+                ><h3>{{ selectedImageStepName }}</h3></ion-col
+            >
+            <ion-col
+                (click)="setSelectedImageStepName('frontal')"
+                class="image"
+            >
+                <img
+                    [ngClass]="{
+                        selected: selectedImageStepName === 'frontal',
+                    }"
+                    [src]="frontal"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col (click)="setSelectedImageStepName('leaf')" class="image">
+                <img
+                    [ngClass]="{ selected: selectedImageStepName === 'leaf' }"
+                    [src]="leaf"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col (click)="setSelectedImageStepName('trunk')" class="image">
+                <img
+                    [ngClass]="{ selected: selectedImageStepName === 'trunk' }"
+                    [src]="trunk"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col (click)="setSelectedImageStepName('scale')" class="image">
+                <img
+                    [ngClass]="{ selected: selectedImageStepName === 'scale' }"
+                    [src]="scale"
+                    alt=""
+                />
+            </ion-col>
+        </ion-row>
+        <ion-row class="current-image-row">
+            <ion-col class="current-image-container">
+                <ion-img [attr.src]="getSelectedImage()"></ion-img>
+                <button class="retry-button" (click)="retrySpecificStep()">
+                    <img
+                        class="retry-icon"
+                        src="../../../assets/icons/basics/refresh-white.svg"
+                        alt=""
+                    />
+                    <div class="retry-text">{{ 'confirm_ent_photos.retry' | translate }}</div>
+                </button>
+            </ion-col>
+        </ion-row>
+        <ion-row class="submit-button-row ion-justify-content-center">
+            <ion-col>
+                <ion-button (click)="submitValidation()"
+                    >{{ 'confirm_ent_photos.make_Proof_of_life' | translate }}</ion-button
+                >
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<!-- <ion-content class="ion-content"> -->
+<!--   <ion-grid [fixed]="true"> -->
+<!--     <ion-row class="ion-justify-content-center"> -->
+<!--       <ion-col> -->
+<!--         <ion-progress-bar [value]=".25" ></ion-progress-bar> -->
+<!--       </ion-col> -->
+<!--     </ion-row> -->
+<!--     <ion-row class="ion-justify-content-center top-row"> -->
+<!--       <ion-col size="auto"> -->
+<!--         <div class="img-container"> -->
+<!--           <!-- <ion-img src="../../../assets/img/arbolvertical.jpg" alt=""/> -->
+<!--           <ion-img [attr.src]="getLocalStorageItem('frontal')" id="list-img" /> -->
+<!--           <button class="img-button" (click)="this.retrySpecificStep(0)"> -->
+<!--             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+<!--               <path d="M1.39648 1.81658V7.06035H2.0073M2.0073 7.06035C2.70336 5.33767 3.95191 3.89457 5.55715 2.95737C7.16239 2.02016 9.03351 1.64187 10.8771 1.8818C12.7207 2.12174 14.4324 2.96634 15.7438 4.28315C17.0553 5.59996 17.8923 7.31449 18.1236 9.15786M2.0073 7.06035H6.64404M18.1886 18.5966V13.3529H17.5789M17.5789 13.3529C16.8831 15.0761 15.6346 16.5197 14.0292 17.4573C12.4238 18.3949 10.5523 18.7734 8.70837 18.5334C6.86445 18.2934 5.15241 17.4486 3.84085 16.1314C2.5293 14.8142 1.69243 13.0991 1.46155 11.2554M17.5789 13.3529H12.9411" stroke="#505E41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> -->
+<!--             </svg> -->
+<!--           </button> -->
+<!--         </div> -->
+<!--         <div class="img-subtitle">frontal</div> -->
+<!--       </ion-col> -->
+<!--       <ion-col size="auto" offset="2"> -->
+<!--         <div class="img-container"> -->
+<!--           <ion-img [attr.src]="getLocalStorageItem('leaf')" id="list-img" /> -->
+<!--           <button class="img-button" (click)="this.retrySpecificStep(1)" > -->
+<!--             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+<!--               <path d="M1.39648 1.81658V7.06035H2.0073M2.0073 7.06035C2.70336 5.33767 3.95191 3.89457 5.55715 2.95737C7.16239 2.02016 9.03351 1.64187 10.8771 1.8818C12.7207 2.12174 14.4324 2.96634 15.7438 4.28315C17.0553 5.59996 17.8923 7.31449 18.1236 9.15786M2.0073 7.06035H6.64404M18.1886 18.5966V13.3529H17.5789M17.5789 13.3529C16.8831 15.0761 15.6346 16.5197 14.0292 17.4573C12.4238 18.3949 10.5523 18.7734 8.70837 18.5334C6.86445 18.2934 5.15241 17.4486 3.84085 16.1314C2.5293 14.8142 1.69243 13.0991 1.46155 11.2554M17.5789 13.3529H12.9411" stroke="#505E41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> -->
+<!--             </svg> -->
+<!--           </button> -->
+<!--         </div> -->
+<!--         <div class="img-subtitle">leaf</div> -->
+<!--       </ion-col> -->
+<!--     </ion-row> -->
+<!--     <ion-row class="ion-justify-content-center"> -->
+<!--       <ion-col size="auto"> -->
+<!--         <div class="img-container"> -->
+<!--           <ion-img [attr.src]="getLocalStorageItem('trunk')" id="list-img" /> -->
+<!--           <button class="img-button" (click)="this.retrySpecificStep(2)"> -->
+<!--             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+<!--               <path d="M1.39648 1.81658V7.06035H2.0073M2.0073 7.06035C2.70336 5.33767 3.95191 3.89457 5.55715 2.95737C7.16239 2.02016 9.03351 1.64187 10.8771 1.8818C12.7207 2.12174 14.4324 2.96634 15.7438 4.28315C17.0553 5.59996 17.8923 7.31449 18.1236 9.15786M2.0073 7.06035H6.64404M18.1886 18.5966V13.3529H17.5789M17.5789 13.3529C16.8831 15.0761 15.6346 16.5197 14.0292 17.4573C12.4238 18.3949 10.5523 18.7734 8.70837 18.5334C6.86445 18.2934 5.15241 17.4486 3.84085 16.1314C2.5293 14.8142 1.69243 13.0991 1.46155 11.2554M17.5789 13.3529H12.9411" stroke="#505E41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> -->
+<!--             </svg> -->
+<!--           </button> -->
+<!--         </div> -->
+<!--         <div class="img-subtitle">trunk</div> -->
+<!--       </ion-col> -->
+<!--       <ion-col size="auto" offset="2"> -->
+<!--         <div class="img-container"> -->
+<!--           <ion-img [attr.src]="getLocalStorageItem('scale')" id="list-img" /> -->
+<!--           <button class="img-button" (click)="this.retrySpecificStep(3)"> -->
+<!--             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+<!--               <path d="M1.39648 1.81658V7.06035H2.0073M2.0073 7.06035C2.70336 5.33767 3.95191 3.89457 5.55715 2.95737C7.16239 2.02016 9.03351 1.64187 10.8771 1.8818C12.7207 2.12174 14.4324 2.96634 15.7438 4.28315C17.0553 5.59996 17.8923 7.31449 18.1236 9.15786M2.0073 7.06035H6.64404M18.1886 18.5966V13.3529H17.5789M17.5789 13.3529C16.8831 15.0761 15.6346 16.5197 14.0292 17.4573C12.4238 18.3949 10.5523 18.7734 8.70837 18.5334C6.86445 18.2934 5.15241 17.4486 3.84085 16.1314C2.5293 14.8142 1.69243 13.0991 1.46155 11.2554M17.5789 13.3529H12.9411" stroke="#505E41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> -->
+<!--             </svg> -->
+<!--           </button> -->
+<!--         </div> -->
+<!--         <div class="img-subtitle">scale</div> -->
+<!--       </ion-col> -->
+<!--     </ion-row> -->
+<!--     <ion-row> -->
+<!--       <ion-col> -->
+<!--       </ion-col> -->
+<!--       <ion-col> -->
+<!--         <ion-button (click)="goToValidateSuccessful()" class="next-button"> -->
+<!--           Next -->
+<!--         </ion-button> -->
+<!--       </ion-col> -->
+<!--     </ion-row> -->
+<!--   </ion-grid> -->
+<!---->
+<!-- </ion-content> -->

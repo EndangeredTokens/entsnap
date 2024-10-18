@@ -1,6 +1,11 @@
-<ion-content>
-  <div #map id="map"></div>
-  <!-- <app-notifications
-    *ngIf="currentSlide === 'list'">
-  </app-notifications> -->
+<ion-content [fullscreen]="true">
+  <div class="compass">
+    <img src="../../../assets/icon/compass-background.svg">
+    <img id="compass-pointer" [ngStyle]="{'transform': 'rotate(' + (45 - orientationAngle!) + 'deg)'}" src="../../../assets/icon/compass-pointer.svg">
+  </div>
+  <div #map id="map" class="map"></div>
+  <app-ent-modal/>
 </ion-content>
+<!-- <app-notifications -->
+<!-- *ngIf="currentSlide === 'list'"> -->
+<!-- </app-notifications> -->

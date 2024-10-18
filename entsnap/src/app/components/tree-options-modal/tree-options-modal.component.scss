@@ -1,0 +1,12 @@
+.tree-item {
+  margin-bottom: 16px;
+  background-color: #383838;
+  // display: flex;
+  // flex-direction: column;
+  // background-color: red;
+}
+
+.tree-item:hover {
+  background-color: #555; /* Change background color on hover */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}

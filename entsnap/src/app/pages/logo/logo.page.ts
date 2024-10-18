@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { FileService } from 'src/app/services/file.service';
+import { VersionsService } from 'src/app/services/version.service';
 // import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -23,9 +25,22 @@ export class LogoPage implements OnInit {
 
   constructor(
     private router: Router,
+    private fileService: FileService,
+    private versionService: VersionsService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    // make a clean of not used files
+    console.log('[login.page.ngOnInit] clear not used pictures');
+    await this.fileService.mkPicturesDir().then(async () => {
+      await this.fileService.clearNotUsedPictures();
+    });
+
+    console.log("Removing photos from local storage.");
+    localStorage.removeItem('frontal');
+    localStorage.removeItem('leave');
+    localStorage.removeItem('trunk');
+    localStorage.removeItem('scale');
     console.log("logo");
     setTimeout(() => {
       this.router.navigateByUrl('/login');

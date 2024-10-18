@@ -14,6 +14,8 @@ export class PreviewPage {
   backIcon = "../../../assets/icon/back_button.svg";
   backIconBackground = "../../../assets/icon/esquina_izq.svg";
 
+  @ViewChild (ReportDetailComponent) reportDetailComponent!: ReportDetailComponent;
+
   public alertButtons = [
     {
       text: 'Reset',
@@ -48,12 +50,8 @@ export class PreviewPage {
     return this.reportStepsService.shouldTriggerAlert()
   }
 
-  async ionViewWillEnter() {
-    await this.locationService.startPositionWatcher()
-  }
-
-  async ionViewWillLeave() {
-    await this.locationService.stopPositionWatcher()
+  ionViewWillEnter() {
+    this.reportDetailComponent.setReportPosition()
   }
 
 }

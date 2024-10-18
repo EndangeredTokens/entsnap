@@ -10,8 +10,6 @@ ion-content {
 }
 
 
-
-
 #password-policy {
     color: #B8B8B8;
     font-size: 8px;
@@ -244,16 +242,6 @@ ion-item {
                 --color: #03010d;
             }
 
-            // ion-input {
-                // font-size: 0.9rem;
-                // font-weight: 500;
-                // --placeholder-font-weight: 500;
-                // --placeholder-opacity: 30%;
-                // --padding-top: 6px;
-                // --padding-bottom: 6px;
-                // --color: #03010d;
-            // }
-
             ion-select {
                 font-size: 0.9rem;
                 font-weight: 500;
@@ -338,4 +326,8 @@ ion-item {
         --background: #ffffff !important;
         --background-activated: unset !important;
     }
+}
+
+.mi-item-totp-token-valid {
+  --background: #c2c1a1 !important;
 }

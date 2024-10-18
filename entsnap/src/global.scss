@@ -10,31 +10,42 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+@import '@ionic/angular/css/core.css';
 
 /* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+@import '@ionic/angular/css/normalize.css';
+@import '@ionic/angular/css/structure.css';
+@import '@ionic/angular/css/typography.css';
+@import '@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
+@import '@ionic/angular/css/padding.css';
+@import '@ionic/angular/css/float-elements.css';
+@import '@ionic/angular/css/text-alignment.css';
+@import '@ionic/angular/css/text-transformation.css';
+@import '@ionic/angular/css/flex-utils.css';
 
-html, body, .ion-app, .ion-content {
+html,
+body,
+.ion-app,
+.ion-content {
     background-color: transparent;
 }
 
+ion-header {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+    // padding-top: 40px; // for debuging on web only
+    background-color: #172d0c; // default color
+}
+
 * {
-    font-family: 'Roboto', sans-serif;
+    // font-family: 'Aller', sans-serif;
+    font-size: 15px;
 }
 
 .reset-address {
-    --background: #FFFFFF;
+    --background: #ffffff;
     --border-radius: 50%;
     height: 60px;
     margin: 0 10px 60px 0;
@@ -42,17 +53,18 @@ html, body, .ion-app, .ion-content {
 }
 
 .reset-location {
-    --background: #FFFFFF;
+    --background: #ffffff;
     --border-radius: 50%;
     position: absolute;
-    top: 3%;
-    right: 3%;
-    height: 45px;
-    margin-right: 10px;
-    width: 45px;
+    top: 5%;
+    right: 20px !important;
+    height: 50px;
+    width: 50px;
+    bottom: 0px !important;
 }
 
-.reset-location>img, .reset-address>img {
+.reset-location > img,
+.reset-address > img {
     height: 28px;
     width: 28px;
 }
@@ -64,4 +76,166 @@ html, body, .ion-app, .ion-content {
     margin-left: 150px;
     width: 40px;
     border-bottom: none;
+}
+
+// Not working
+@font-face {
+    font-family: 'Gotham';
+    src: url('assets/fonts/gotham/GothamBlack.ttf');
+    font-weight: black;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('assets/fonts/gotham/GothamBold.ttf');
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('assets/fonts/gotham/GothamMedium.ttf');
+    font-weight: medium;
+    font-style: medium;
+}
+
+@font-face {
+    font-family: 'Aller';
+    src: url('assets/fonts/aller/Aller_Std_Rg.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aller';
+    src: url('assets/fonts/aller/Aller_Std_Lt.ttf');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aller';
+    src: url('assets/fonts/aller/Aller_Std_Bd.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --color-primary: #505e41;
+    --color-secondary: #2f4320;
+    --color-background: #dcd8b7;
+    --color-text: #3b292c;
+    --color-light: #f4f2db;
+    --color-muted: #979797;
+    --color-subtitles: ##e4eed1;
+
+    // Primary palette
+    --color-default-green: #505e41;
+    --color-green-1: #f2f6e7;
+    --color-green-2: #e4eed1;
+    --color-green-3: #bfcea8;
+    --color-green-4: #949c79;
+    --color-green-5: #2f4320;
+    --color-green-6: #172d0c;
+
+    // Secondary palette
+    --color-default-ocre: #dcd8b7;
+    --color-ocre-1: #fdfcf4;
+    --color-ocre-2: #f4f2db;
+    --color-ocre-3: #bdb685;
+    --color-ocre-4: #7f753a;
+    --color-default-amarillo: #f2a62a;
+    --color-amarillo-palido: #fbd57e;
+
+    // Neutrals palette
+    --color-light-grey: #f6f6f6;
+    --color-medium-light-grey: #c3c3c3;
+    --color-medium-grey: #979797;
+    --color-medium-dark-grey: #525252;
+    --color-dark-grey: #2e312c;
+    --color-black-grey: #171816;
+
+    --color-input-error: #ff7c70;
+    --color-input-success: #a5b639;
+
+    // Extra
+    --color-dark-button: #1e1e1e;
+    --color-tab-menu: #d1cdae;
+}
+
+.alert-wrapper .sc-ion-alert-ios {
+    background: #505E41;
+
+    [aria-checked=true].sc-ion-alert-ios .alert-radio-label.sc-ion-alert-ios {
+        color: #FBD57E;
+    }
+
+    [aria-checked=true].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios {
+        border-color: #FBD57E;
+    }
+    
+    .alert-button.ion-focusable.ion-activatable.alert-button-role-cancel.sc-ion-alert-ios {
+        color: #FBD57E;
+    }
+
+    .alert-button.ion-focusable.ion-activatable.sc-ion-alert-ios {
+        color: #F2A62A;
+    }
+}
+
+.ent-modal-pane {
+    .pane {
+      background: #949C79E5 !important;
+      width: 319px !important;
+      height: fit-content !important;
+      padding: 0 !important;
+      bottom: 50%;
+    }
+    
+}
+
+.outdated-version-alert {
+    .alert-wrapper {
+        pointer-events: auto !important;
+        background: #505E41;
+        border-radius: 16px;
+        
+        .alert-head {
+            h2 {
+                font-size: 16px;
+                font-weight: 700;
+                font-family: 'Aller';
+                text-align: center;
+                color: #FDFCF4;
+            }
+        }
+
+        .alert-message {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'Aller';
+            text-align: center;
+            color: #FDFCF4;
+        }
+
+        .alert-button-group {
+            justify-content: center;
+            button {
+                font-size: 16px;
+                font-weight: 700;
+                font-family: 'Aller';
+                text-align: center;
+                color: #F2A62A;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.outdated-version-alert {
+    ion-backdrop {
+        pointer-events: none !important;
+    }
+    
 }

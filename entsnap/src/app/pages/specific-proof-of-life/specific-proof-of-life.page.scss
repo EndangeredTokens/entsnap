@@ -1,0 +1,122 @@
+ion-content {
+    --background: var(--color-default-ocre);
+    overflow-y: auto;
+
+    .top-side {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--color-default-ocre);
+
+        .top-side-elements {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 20px;
+            margin-right: 20px;
+            /* background: Yellow; */
+            /* use full size*/
+            height: 100%;
+            width: calc(100% - 40px);
+
+            .header-elements {
+                display: flex;
+                align-items: center;
+
+                .go-back-logo {
+                    height: 48px;
+                    width: 48px;
+                }
+            }
+
+            .page-title-container {
+                .page-title-text {
+                    color: var(--color-primary);
+                    font-family: 'Gotham';
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .report-grid {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        .report-data-row {
+            .report-data-container {
+                background: var(--color-light);
+                border-radius: 25px;
+                .report-data-grid {
+                    .header-row {
+                        .ent-id {
+                            font-family: 'Aller';
+                            font-size: 14px;
+                            color: var(--color-text);
+                        }
+                    }
+
+                    .title-row {
+                        ion-col {
+                            font-family: 'Gotham';
+                            font-weight: bold;
+                            font-size: 24px;
+                            color: var(--color-primary);
+                        }
+                    }
+
+                    .subtitle-row {
+                        ion-col {
+                            font-family: 'Aller';
+                            font-weight: bold;
+                            font-size: 14px;
+                            color: var(--color-text);
+                        }
+                    }
+
+                    .location-row {
+                        .location-text {
+                            font-family: 'Aller';
+                            font-size: 14px;
+                            color: var(--color-primary);
+                        }
+                    }
+                }
+            }
+        }
+        .report-images-row {
+            margin-top: 1rem;
+            flex-wrap: nowrap;
+            overflow-x: scroll !important;
+            overflow-y: hidden;
+
+            ion-col {
+                img {
+                    height: 40vh;
+                    min-height: 40vh;
+                    border-radius: 0.625rem;
+                }
+            }
+        }
+
+        .button-row {
+            margin-top: 2rem;
+            .button-container {
+                .see-tree-profile-button {
+                    font-family: 'Aller';
+                    border-radius: 48px;
+                    background: var(--color-green-4);
+                    color: 'White';
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { Report } from '../../models/report';
@@ -16,6 +16,9 @@ import { LocationV2Service } from 'src/app/services/location.v2.service';
 import { GeneralUtilityService } from 'src/app/services/general-utility.service';
 import { DraftReportService } from 'src/app/services/draft-report.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { TreePropertiesService } from 'src/app/services/tree-properties.service';
+import { TreeOptionsModalComponent } from '../tree-options-modal/tree-options-modal.component';
+import { TreeSelectionService } from '../../services/tree-selection.service';
 
 @Component({
   selector: 'app-report-detail',
@@ -47,6 +50,8 @@ export class ReportDetailComponent implements OnInit {
     },
   ];
 
+  @ViewChild (TreeOptionsModalComponent) treeOptionsModalComponent!: TreeOptionsModalComponent;
+
   comments?: Comment[];
   report: Report = this.reportService.generateEmptyReport()!;
   icon: string = "assets/icon/forest-fire-icon.svg";
@@ -66,13 +71,17 @@ export class ReportDetailComponent implements OnInit {
   decidiousOption = "../../../assets/icon/decidious_option.svg";
 
   formData = {
-    stage: '',
-    foliage: '',
-    treeType: '',
-    trunkDiameter: '',
-    description: '',
+    stage_id: '',
+    foliage_id: '',
+    tree_type: '',
+    trunk_diameter: '',
+    surrounding_desc: '',
     poem: ''
   };
+
+  stages: any[] = []
+  foliages: any[] = []
+
 
   constructor(
     public actionSheetController: ActionSheetController,
@@ -87,13 +96,23 @@ export class ReportDetailComponent implements OnInit {
     private generalUtilityService: GeneralUtilityService,
     private draftReportService: DraftReportService,
     private authService: AuthService,
+    private treePropertiesService: TreePropertiesService,
+    private treeSelectionService: TreeSelectionService
   ) { }
 
   async ngOnInit() {
     this.reportStepsService.previewFromCache()
     this.report = this.reportStepsService.getPreview()!
+    this.getStages()
+    this.getFoliages()
 
-    await this.setReportPosition().catch((error) => console.log("error in setReportPosition:", error))
+    this.treeSelectionService.selectedTree.subscribe(tree => {
+      if (tree) {
+
+        this.formData.tree_type = tree.scientificName;
+      }
+    });
+    // await this.setReportPosition().catch((error) => console.log("error in setReportPosition:", error))
   }
 
   shouldTriggerAlert() {
@@ -185,22 +204,43 @@ export class ReportDetailComponent implements OnInit {
   }
 
   async identifyTree() {
-    // call the endpoint to identify the tree
-    this.loadingService.show()
+    let showTreeOptionsModal = true
     try {
       let treeDetections = await this.reportStepsService.identifyTree()
-
-      // tree detections is a list of possible objects with image examples
-      // in the future we could produce a modal that displays the possible options and let the user decide
-      // which fit best, since the detection model is not the best
-      // but for now we will just use the first (highest score) detection
-      this.formData.treeType = treeDetections[0].scientificName
-      this.loadingService.dismiss()
+      if (treeDetections) {
+        if (treeDetections[0].score > 0.5) {
+          this.formData.tree_type = treeDetections[0].scientificName
+          showTreeOptionsModal = false
+        }
+      }
+      console.log("Tree detections:", treeDetections)
+      this.treeOptionsModalComponent.setTreeMatches(treeDetections.slice(0, 4))
     } catch (error) {
       console.error("failed to identify tree, error:", error)
       this.loadingService.dismiss()
       this.loadingService.notificationErrorShow("Failed to identify tree")
     }
+    if (showTreeOptionsModal) {
+      await this.treeOptionsModalComponent.presentModal()
+    }
+    // this.getStages()
+    // call the endpoint to identify the tree
+    // this.loadingService.show()
+    // try {
+    //   let treeDetections = await this.reportStepsService.identifyTree()
+    //   console.log("Tree Detections:", treeDetections)
+    //
+    //   // tree detections is a list of possible objects with image examples
+    //   // in the future we could produce a modal that displays the possible options and let the user decide
+    //   // which fit best, since the detection model is not the best
+    //   // but for now we will just use the first (highest score) detection
+    //   this.formData.treeType = treeDetections[0].scientificName
+    //   this.loadingService.dismiss()
+    // } catch (error) {
+    //   console.error("failed to identify tree, error:", error)
+    //   this.loadingService.dismiss()
+    //   this.loadingService.notificationErrorShow("Failed to identify tree")
+    // }
   }
 
   validateForm(): boolean {
@@ -212,28 +252,39 @@ export class ReportDetailComponent implements OnInit {
     // this.isDisableButton = true;  // disable button
     console.log("details: ", this.formData);
     if (this.validateForm()) {
-      this.stage = 1;
-      if (this.formData.stage === 'sapling') {
-        this.stage = 2;
-      }
-      this.foliage = 1;
-      if (this.formData.foliage === 'decidous') {
-        this.foliage = 2;
-      }
+      // this.stage = 1;
+      // if (this.formData.stage === 'sapling') {
+      //   this.stage = 2;
+      // }
+      // this.foliage = 1;
+      // if (this.formData.foliage === 'decidous') {
+      //   this.foliage = 2;
+      // }
       this.reportStepsService.updateReportInfo(this.formData)
       this.report = this.reportStepsService.getPreview()!
       this.reportStepsService.updateReportDraftCondition(false)
+      const reportData = this.formData
+      const street_adress = this.report.address
+      const country = this.report.country
       console.log("reporte luego de actualizar condicion draft", this.reportStepsService.getPreview()!)
       // first upload all the images from memory
 
-      let allUploaded = await this.reportStepsService.uploadImages()
+      let {allUploaded, imageIds} = await this.reportStepsService.uploadImagesV3()
       if (allUploaded) {
-        this.reportService.addReport(this.reportStepsService.getPreview()!)
+        console.log("After upload")
+        console.log("Uploaded images ids:", imageIds)
+        this.reportService.addReportV3(
+          this.reportStepsService.getPreview()!.user_id, imageIds,
+          this.report.gps_geocoder,
+          reportData
+        )
           .subscribe({
             next: (result) => {
               console.log("pushReport");
               console.log("result: ", result);
-            this.reportStepsService.resetSteps()
+              this.reportStepsService.resetSteps()
+              this.resetFormData()
+              this.treeSelectionService.setSelectedTree("")
               this.router.navigateByUrl(`/form-submitted`);
             },
             error: (e) => console.log("failed to add report, err:", e),
@@ -246,12 +297,12 @@ export class ReportDetailComponent implements OnInit {
 
   resetFormData() {
     this.formData = {
-      stage: '',
-      foliage: '',
-      treeType: '',
-      trunkDiameter: '',
-      description: '',
-      poem: ''
+      stage_id: '',
+      foliage_id: '',
+      tree_type: '',
+      trunk_diameter: '',
+      poem: '',
+      surrounding_desc: ''
     };
   }
 
@@ -262,8 +313,8 @@ export class ReportDetailComponent implements OnInit {
     }
 
     // Assign proper values to stage and foliage
-    this.stage = this.formData.stage === "sapling" ? 2 : 1
-    this.foliage = this.formData.foliage === "decidous" ? 2 : 1
+    // this.stage = this.formData.stage === "sapling" ? 2 : 1
+    // this.foliage = this.formData.foliage === "decidous" ? 2 : 1
 
     // this.formData contains tree_type, trunk_diameter, surrounding_desc, poem
     this.reportStepsService.updateReportInfo(this.formData) // Update report with formData values
@@ -303,6 +354,7 @@ export class ReportDetailComponent implements OnInit {
       this.reportStepsService.setReportAddress(this.locationService.address)
       this.report = this.reportStepsService.getPreview()!
     })
+    console.log("REPORTE CON POSITION ACTUALIZADO", this.reportStepsService.getPreview()!)
   };
 
   getStepLocalStorageKey(step: number): string {
@@ -311,6 +363,30 @@ export class ReportDetailComponent implements OnInit {
 
   isOfflineMode() {
     return this.authService.isOfflineMode()
+  }
+
+  getStages(): void {
+    this.treePropertiesService.getStages().subscribe(
+      data => {
+        this.stages = data
+        console.log("Obtenido stages", this.stages)
+      },
+      error => {
+        console.error('Error obteniendo stages:', error);
+      }
+    )
+  }
+
+  getFoliages(): void {
+    this.treePropertiesService.getFoliages().subscribe(
+      data => {
+        this.foliages = data
+        console.log("Obtenido foliages", this.stages)
+      },
+      error => {
+        console.error('Error obteniendo foliages:', error);
+      }
+    )
   }
 
 }

@@ -1,5 +1,7 @@
 import { Comment } from './comment';
 
 export interface Base64Img {
-    img: string,
+    img: string;
+    lat?: number;
+    lng?: number;
 }

@@ -167,6 +167,14 @@ export class Web3Service {
   
   }
 
+  getWalletAddress() {
+    if(this.web3auth && this.web3auth.connected){
+      const web3 = new Web3(this.provider as any);
+      return web3.eth.getAccounts();
+    }
+    return null;
+  }
+
   isConnected() {
     return this.web3auth?.connected;
   }

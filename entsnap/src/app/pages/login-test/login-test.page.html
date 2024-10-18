@@ -1,0 +1,84 @@
+<ion-header></ion-header>
+<ion-content>
+  <div id="container">
+    <ion-grid>
+      <ion-row >
+        <ion-col>
+          <div class="car-icon">
+            <img [src]="logoPrincipal" />
+          </div>
+          <ion-row>
+            <ion-col>
+              <ion-row class="container-form">
+                <form [formGroup]="emailForm">
+                  <ion-item class="mi-item">
+                    <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+                    <ion-input formControlName="email" inputmode="email" required type="text"
+                      placeholder="Email"></ion-input>
+                  </ion-item>
+
+                  <ion-item class="mi-item-2">
+                    <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+                    <ion-input formControlName="password" id="password" inputmode="text" required type="password"
+                      placeholder="Contraseña"></ion-input>
+                    <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"> </ion-icon>
+                  </ion-item>
+                  <ion-item>
+                    <a class="switch-auth-form" (click)="resetPassword()">Forgot password?</a>
+                  </ion-item>
+                  <!-- <div
+                    *ngIf="emailForm.controls.password.invalid && (emailForm.controls.password.dirty || emailForm.controls.password.touched)"
+                    class="alert-password"
+                  >
+                    <div *ngIf="emailForm.controls.password.errors.pattern">
+                      La contraseña debe contener al menos una mayúscula, una minúscula, un dígito y un carácter especial.
+                    </div>
+                    <div *ngIf="emailForm.controls.password.errors.minlength">La contraseña debe tener al menos 8 caracteres.</div>
+                  </div> -->
+
+                  <!-- <ion-item class="mi-item-2">
+                    <ion-img class="candado" slot="start" [src]="candado"></ion-img>
+                    <ion-input [type]="showPasswordConfirm ? 'text' : 'password'" [clearOnEdit]="false"
+                      placeholder="Confirma tu contraseña" formControlName="confirm" maxlength="20"></ion-input>
+                    <ion-icon slot="end" [name]="passwordConfirmToggleIcon" (click)="togglePasswordConfirm()"> </ion-icon>
+                  </ion-item> -->
+                </form>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="container-submit">
+              <ion-button class="eH-btn-green" (click)="checkCredentials()" id="login-button">
+                SIGN IN
+              </ion-button>
+              <ion-button class="eH-btn-white" (click)="loginWeb3()" id="google-button">
+                <ion-img [src]="wallet" ></ion-img>
+                SIGN IN WITH WALLET
+              </ion-button>
+              <ion-button class="eH-btn-white" (click)="googleSignUp()" id="google-button">
+                <ion-img [src]="google" ></ion-img>
+                SIGN UP WITH GOOGLE
+              </ion-button>
+              <a class="switch-auth-form" routerLink="/signup">Don't have an account?</a>
+              <ion-button class="eH-btn-gray" (click)="enterOfflineMode()" id="google-button">
+                OFFLINE MODE
+              </ion-button>
+
+            <!-- <ion-button id="login-wallet-button" routerLink="/singup">
+              LOGIN WITH WALLET
+            </ion-button> -->
+            <!-- <ion-button class="eH-btn-green" (click)="emailStep()" [disabled]="emailForm.invalid"
+              [disabled]="disableFormButton">CREATE AN ACCOUNT</ion-button> -->
+            <!-- <ion-button class="eH-btn-white" [disabled]="true">
+              <ion-img [src]="google" style="margin-left: -13px; width: 8%"></ion-img>
+              SIGNUP WITH GOOGLE
+            </ion-button> -->
+          </ion-row>
+          <p class="version">Version {{ getVersionApp() }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- <app-login-form></app-login-form> -->
+  </div>
+</ion-content>

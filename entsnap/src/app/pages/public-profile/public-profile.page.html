@@ -1,0 +1,103 @@
+<ion-header></ion-header>
+<ion-content>
+  <div class="top-container">
+    <div class="custom-icon-background">
+      <img id="back-icon-bg" [src]="backIconBackground">
+      <img (click)="goBack()" id="go-back-icon" src="../../../assets/icon/back_button.svg">
+      <img id="logo" [src]="logo" />
+      <ion-col class="main-info-container">
+        <h1>{{ user?.name ? user?.name: 'Unknown' }}</h1>
+        <p>{{ countries[user?.country_id - 1] ? countries[user?.country_id - 1].name: 'Unknown' }}</p>
+      </ion-col>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="section-header">
+      <span class="ent">
+        {{ 'public_profile.personal' | translate }}
+      </span>
+    </div>
+    <div class="data-section">
+      <div>
+        <h2>{{ 'public_profile.name' | translate }}</h2>
+        <p>{{ user?.name ? user?.name: 'Unknown' }}</p>
+      </div>
+      <div>
+        <h2>{{ 'public_profile.last_name' | translate }}</h2>
+        <p>{{ user?.last_name ? user?.last_name: 'Unknown' }}</p>
+      </div>
+      <div>
+        <h2>{{ 'public_profile.tag' | translate }}</h2>
+        <p>{{ user?.tag_name ? user?.tag_name: user?.email }}</p>
+      </div>
+      <div>
+        <h2>{{ 'public_profile.email' | translate }}</h2>
+        <p>{{ user?.email ? user?.email: 'Unknown' }}</p>
+      </div>
+      <div>
+        <h2>{{ 'public_profile.country' | translate }}</h2>
+        <p>{{ countries[user?.country_id - 1] ? countries[user?.country_id - 1].name: 'Unknown' }}</p>
+      </div>
+    </div>
+    <div class="section-header">
+      <span class="ent">
+        {{ 'public_profile.tree_regis' | translate }}
+      </span>
+    </div>
+    <ion-row class="trees-near-you-cards-row">
+      <ng-container *ngIf="userReports && userReports.length > 0; else noMarkers">
+        <ion-col
+          *ngFor="let userReport of userReports"
+          size="12"
+          class="tree-card"
+          routerLink="/tabs/tree-page/{{userReport.id}}"
+        >
+          <div class="tree-image">
+            <img
+              [src]="getFrontalImg(userReport.images)"
+              alt=""
+            />
+          </div>
+          <div class="tree-data">
+            <div class="tree-name">
+              {{ 'public_profile.tree' | translate }} {{ userReport.id }}
+            </div>
+            <div class="tree-distance">
+              {{ 'public_profile.type_of_tree' | translate }}: {{ userReport.data.specie }}
+              <br>
+              {{ 'public_profile.location' | translate }}: {{ 
+                userReport.gps_geocoder?.administrative_area_level_3+', '+
+                userReport.gps_geocoder?.administrative_area_level_2
+               }}
+              <br>
+              {{ 'public_profile.status' | translate }}: {{ userReport.status.name }}
+            </div>
+          </div>
+          </ion-col>
+      </ng-container>
+      <ng-template #noMarkers>
+        <ion-col size="4" class="tree-card">
+          <div class="tree-image"></div>
+          <div class="tree-data">
+            <div class="tree-name">{{" "}}</div>
+            <div class="tree-distance">{{" "}}</div>
+          </div>
+        </ion-col>
+        <ion-col size="4" class="tree-card">
+          <div class="tree-image"></div>
+          <div class="tree-data">
+            <div class="tree-name">{{" "}}</div>
+            <div class="tree-distance">{{" "}}</div>
+          </div>
+        </ion-col>
+        <ion-col size="4" class="tree-card">
+          <div class="tree-image"></div>
+          <div class="tree-data">
+            <div class="tree-name">{{" "}}</div>
+            <div class="tree-distance">{{" "}}</div>
+          </div>
+        </ion-col>
+      </ng-template>
+    </ion-row>
+  </div>
+</ion-content>

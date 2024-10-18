@@ -1,0 +1,22 @@
+<ion-modal [initialBreakpoint]="0.8">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Tree Matches</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-grid >
+        <ion-row *ngFor="let treeMatch of treeMatches" class="tree-item" (click)="selectTreeMatch(treeMatch)">
+          <ion-col size="12">
+            🌳 {{treeMatch.scientificName}}
+          </ion-col>
+          <ion-col size="12">
+            &#11088; Score: {{treeMatch.score * 100}}%
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>

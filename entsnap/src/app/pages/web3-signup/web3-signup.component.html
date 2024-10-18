@@ -1,0 +1,55 @@
+<ion-header></ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <img [src]="logoPrincipal"/>
+    </ion-row>
+  </ion-grid>
+
+  <ion-alert
+    [isOpen]="errorModalConfig.visible"
+    [header]="errorModalConfig.header"
+    [message]="errorModalConfig.message"
+    [buttons]="errorModalConfig.buttons"
+    (didDismiss)="setErrorModalOpen(false)"
+  ></ion-alert>
+
+  <ion-grid class="ion-justify-content-center">
+    <form [formGroup]="emailForm">
+      <ion-item class="email-item">
+        <ion-input
+          type="email"
+          [clearOnEdit]="false"
+          [placeholder]="'web3.email' | translate "
+          formControlName="email"
+          maxlength="50"
+          required="true"
+        ></ion-input>
+      </ion-item>
+    </form>
+  </ion-grid>
+
+  <ion-grid class="ion-justify-content-center ">
+    <ion-col>
+      <ion-row class="ion-justify-content-center">
+        <ion-button
+        class="btn-create"
+        (click)="onCreate()"
+        [disabled]="emailForm.invalid"
+        [disabled]="isButtonDisabled"
+      >
+      {{'web3.create' | translate}}
+      </ion-button>
+      </ion-row>
+      <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-button
+        class="btn-cancel"
+        fill="outline"
+        (click)="onCancel()"
+      >
+      {{'web3.cancel' | translate}}
+      </ion-button>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

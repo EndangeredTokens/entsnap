@@ -1,0 +1,26 @@
+<ion-content class="white-background">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Verify your email</ion-title>
+    </ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-button (click)="redirectToLogin()">
+          <ion-icon name="arrow-back"></ion-icon>
+          Back to Login
+        </ion-button>
+      </ion-buttons>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="message">
+      We just sent you the OTP code to your email. Enter it below to verify your email.
+    </div>
+    <ion-item class="otp-input-item">
+      <ion-label position="floating">OTP Code</ion-label>
+      <ion-input type="text" maxlength="6" inputmode="numeric" [(ngModel)]="otpCodeInput"></ion-input>
+    </ion-item>
+    <div style="color: Black" *ngIf="this.invalidCodeMessage">
+      {{this.invalidCodeMessage}}
+    </div>
+    <ion-button color="success" expand="block" (click)="verifyOtpCodeInput()">Verify</ion-button>
+  </ion-content>
+</ion-content>

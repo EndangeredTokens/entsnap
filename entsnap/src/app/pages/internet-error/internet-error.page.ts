@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { MultiLanguageService } from 'src/app/services/multi-language.service';
 @Component({
   selector: 'app-internet-error',
   templateUrl: './internet-error.page.html',
@@ -12,6 +12,7 @@ export class InternetErrorPage implements OnInit {
 
   constructor(
     private router: Router,
+    private multiLanguageService: MultiLanguageService
   ) { }
 
   ngOnInit() {

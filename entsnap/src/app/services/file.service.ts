@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Platform } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { UserService } from './user.service';
-import { routes } from './routes';
-import { Observable, of } from 'rxjs';
-import { User } from "../models/userShort";
-import { HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpParams } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Network } from '@capacitor/network';
-import { Filesystem, Directory, Encoding, WriteFileResult, ReadFileResult, ReaddirResult} from '@capacitor/filesystem';
-import { DraftReportService } from './draft-report.service';
+import { Filesystem, Directory, ReadFileResult, ReaddirResult, Encoding} from '@capacitor/filesystem';
+import { Base64Img } from '../models/base64img';
+//import { DraftReportService } from './draft-report.service';
+// import { DraftReportService } from './draft-report.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,42 +12,49 @@ export class FileService {
     basePath = "pictures/"
 
     constructor(
-        private draftReportService: DraftReportService
     ){}
 
     async savePicture(pictureBase64: string, filename: string): Promise<string>{
+        console.log("[file service - save picture] base64 picture:", pictureBase64);
         const savedFile = await Filesystem.writeFile({
             path: this.basePath + filename,
             data: pictureBase64,
             directory: this.directory,
-            recursive: true
+            recursive: true,
+            encoding: Encoding.UTF8
         }).catch((err) => {
             console.log("[savePicture] failed to save picture to file, error:", err)
             return {uri: "default.jpg"} // this file does not exist now
         })
+        console.log("savedFile DATA:", savedFile);
         console.log("picture saved to file", filename, "with filepath uri", savedFile.uri)
         return filename
     }
 
-    async loadPicture(filename: string): Promise<string>{
+    async loadPicture(filename: string): Promise<Base64Img>{
         const readFile: ReadFileResult = await Filesystem.readFile({
             path: this.basePath + filename,
-            directory: this.directory
+            directory: this.directory,
+            encoding: Encoding.UTF8
         }).catch((err) => {
             console.log("[loadPicture] failed to load picture from file, error:", err)
             return {data: ""}
         })
-        console.log("read data is", readFile.data)
+
+        console.log("[File service - loadPicture] loading data: ", readFile);
+
+        const data = JSON.parse(readFile.data.toString());
+        console.log("img is", data.img);
         // check if the data has the header 'data:image/jpeg;base64, '
         // it seems is deleting this header
         try {
-            if (!readFile.data.toString().startsWith('data:image/jpeg;base64, ')){
+            if (!data.img.startsWith('data:image/jpeg;base64, ')){
                 readFile.data = 'data:image/jpeg;base64, ' + readFile.data.toString()
             }
         } catch (error) {
             console.log("failed to fix header of saved picture, error:", error)
         }
-        return readFile.data.toString()
+        return data;
     }
 
     async deletePicture(filename: string){
@@ -120,17 +120,36 @@ export class FileService {
         return permission.publicStorage === "granted"
     }
 
+    private initializeDraftKeysList() {
+        if (!localStorage.getItem("draftKeysList")) {
+        localStorage.setItem("draftKeysList", JSON.stringify([]))
+        console.log("Initialized a new draft keys list")
+        }
+    }
+
+    private getDraftKeysList() {
+        if (!localStorage.getItem("draftKeysList")) {
+            this.initializeDraftKeysList()
+        }
+        return JSON.parse(localStorage.getItem("draftKeysList")!)
+    }
+
+    private getDraft(draftKey: string) {
+        console.log("getDraft")
+        return JSON.parse(localStorage.getItem(draftKey)!)
+    }
+
     async clearNotUsedPictures(){
         // scan the folder for pictures that are not being used
         // and remove them.
         // a picture is being used if is path is stored in local storage
         // we should call this function in specific times.
         // maybe every time a user log in with valid credentials
-        const draftKeyList = this.draftReportService.getDraftKeysList()
+        const draftKeyList = this.getDraftKeysList()
         const dirFiles = await this.readPicturesDir()
         let usedFiles = []
         for (let draftKey of draftKeyList){
-            let draft = this.draftReportService.getDraft(draftKey)
+            let draft = this.getDraft(draftKey)
             usedFiles.push(draft.frontal_image)
             usedFiles.push(draft.leaf_image)
             usedFiles.push(draft.scale_image)
@@ -143,6 +162,5 @@ export class FileService {
                 this.deletePicture(file.name)
             }
         }
-
-    }
+        }
 }

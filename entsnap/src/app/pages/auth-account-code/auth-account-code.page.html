@@ -1,0 +1,50 @@
+<ion-header></ion-header>
+<ion-content [fullscreen]="true" class="ent-snap-content">
+    <div class="back-button" routerLink="{{ goBackUrl }}">
+        <img src="../../../assets/icons/basics/chevron-left-white.svg" alt="" />
+    </div>
+    <div>
+        <div class="logo-container">
+            <ion-img
+                src="./assets/images/entsapp/entsapp_logo_1.png"
+                alt="Logo Imagen"
+                class="logo"
+            />
+        </div>
+        <div class="subtitle">{{ 'auth_account.title' | translate }}</div>
+    </div>
+    <div class="code-sent-message">
+        {{ 'auth_account.subtitle' | translate }}
+    </div>
+
+    <ion-row lines="none" class="otp-inputs ion-justify-content-center">
+        <div>
+            <input type="tel" maxlength="6" [(ngModel)]="otpCode" value="{{ otpCode }}" (input)="validateCode()">
+        </div>
+    </ion-row>
+    <div class="error-message-container">
+        <img
+            *ngIf="otpCodeErrorMessage"
+            class="error-icon"
+            src="./assets/icons/basics/exclamation-circle-filled.svg"
+            alt=""
+        />
+        <div class="error-message">{{ otpCodeErrorMessage | translate}}</div>
+    </div>
+    <ion-button
+        (click)="continue()"
+        expand="block"
+        shape="round"
+        class="login-button"
+        [disabled]="disableLogin"
+        >{{ this.continueButtonText }}</ion-button
+    >
+
+    <div class="resend-container">
+        <a (click)="sendCode()" class="resend">
+            <div [ngClass]="{'disabled': timerRunning}">{{ 'auth_account.resend' | translate }}</div>
+            <div [ngClass]="{'disabled': timerRunning}">{{ 'auth_account.in' | translate }}</div>
+            <div [ngClass]="{'disabled': timerRunning}">{{ timer }}</div>
+        </a>
+    </div>
+</ion-content>

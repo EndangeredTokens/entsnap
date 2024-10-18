@@ -1,0 +1,290 @@
+{
+    "login": {
+        "title": "By Endangered Tokens DAO",
+        "language":"Language",
+        "version": "Version {{version}}",
+        "login-email": "Login with e-mail",
+        "create-account": "Create an account",
+        "login-gmail": "Continue with Google",
+        "login-wallet": "Continue with Wallet",
+        "offline-mode": "Offline mode"
+    },
+    "login_email":{
+        "title": "By Endangered Tokens DAO",
+        "email":"email address",
+        "password":"password",
+        "forgot":"forgot password?",
+        "login": "Login",
+        "wrong_pass":"Wrong password. Try again or press Forgot password to reset it.",
+        "password_error": "Password must be at least 8 characters",
+        "email_error": "Invalid email",
+        "email_short":"Email length is too short"
+    },
+    "internet_error":{
+        "sorry":"Im sorry",
+        "check":"Check your connection."
+
+    },
+    "forgot":{
+        "title": "By Endangered Tokens DAO",
+        "email":"Please enter your email",
+        "email_error": "The email is not valid. Please try again",
+        "email_short":"Email length is too short",
+        "continue":"Continue"
+    },
+    "web3":{
+        "email":"Email",
+        "create":"Create",
+        "cancel":"Cancel"
+    },
+    "create_acount":{
+        "title": "By Endangered Tokens DAO",
+        "continue":"Continue",
+        "alredy":"Already have an account?",
+        "confirm":"Confirm Password",
+        "password":"Password",
+        "email":"Email address",
+        "password_error": "Password must be at least 8 characters",
+        "confirmpassword_error": "Confirm password must be at least 8 characters",
+        "email_error": "Invalid email address",
+        "password_mismatch": "Passwords do not match",
+        "email_short":"Email length is too short"
+    },
+    "create_new_pass":{
+        "title": "By Endangered Tokens DAO",
+        "alredy":"Already have an account?",
+        "password_error": "Password must have at least 8 characters",
+        "message":"Passwords did not match"
+    },
+    "introduction":{
+        "page01": "Biodiversity assets",
+        "subpage01": "for the Future",
+        "page02": "Collect ENTS",
+        "subpage02": "Preserve Biodiversity",
+        "subsubpage02": "Earn $ROOTS",
+        "page03": "Verify trees",
+        "subpage03": "Capture natural value",
+        "subsubpage03": "Invest in NRWA",
+        "started": "get started"
+
+
+    },
+    "home":{
+        "welcome":"Hi",
+        "unknown":"Unknown",
+        "points": "$ROOTS Points",
+        "register_tree":"Trees registered",
+        "no_register_tree":"You've not made any report yet",
+        "proof_life":"Proof of life",
+        "trees_near_you":"Trees near you. Verify them!",
+        "missions":"Missions",
+        "earn_$Roots_PresNature":"Earn $Roots, Preserve Nature",
+        "register_new_tree":"Register a new tree",
+        "invite_friend":"Invite a friend",
+        "make_Proof_of_life":"Make the Proof of life",
+        "Load_Trees":"Loading nearby trees...",
+        "No_register":"There are no registered trees nearby yet."
+
+    },
+    "registertree":{
+        "title":"ALMOST THERE!",
+        "specie":"Specie of tree",
+        "Scientific_name":"Scientific name",
+        "Common_name":"Common name",
+        "identify_IA":"Identify with IA",
+        "stage":"Stage",
+        "select_stage": "Select tree stage",
+        "select_ecosystem":"Select ecosystem surroundings",
+        "En_exposition":"Environment exposition",
+        "Eco_surroundings":"Ecosystem surroundings",
+        "Location":"Location",
+        "Specify_location":"Specify location",
+        "Regis_tree":"Register tree",
+        "Confirm":"confirm",
+        "probability":"probability",
+        "retry":"Retry",
+        "register_btn_alert_header":"Are you sure?",
+        "register_btn_alert_message": "You cannot edit the content of a report once it is registered. Do you still wish to continue?",
+        "register_btn_alert_button_save": "Save as draft",
+        "register_btn_alert_button_register": "Register",
+        "HEADER": "Are you sure?",
+        "MESSAGE": "You cannot edit the content of a registered report, do you still want to register?",
+        "SAVE_DRAFT": "Save as a draft",
+        "REGISTER": "Register",
+        "fetching":"Fetching detections",
+        "No_trees":"No trees identified",
+        "failed_identify_tree":"Failed to identify tree"
+    },
+    "es_prooflife":{
+        "title":"MY PROOF OF LIFE",
+        "specie_tree":"Specie of tree",
+        "see_profile":"See tree profile"
+
+    },
+    "auth_account":{
+        "title": "By Endangered Tokens DAO",
+        "subtitle":"We have sent a code to your email to verify your account",
+        "resend":"Resend code",
+        "in":"in",
+        "CONTINUE":"CONTINUE",
+        "LOGIN":"LOGIN",
+        "invalid_code": "The code is incorrect, try again or request a new one."   
+    },
+    "my_collection":{
+        "title":"MY COLLECTION",
+        "tre_regis":"TREE REGISTERED",
+        "tree":"TREE",
+        "specie_tree":"Specie of tree",
+        "Location":"Location",
+        "status":"Status",
+        "your_proof":"YOUR PROOF OF LIFE",
+        "date":"date",
+        "Adopted":"ENTS ADOPTED",
+        "coming":"Coming Soon!",
+        "share":"Share",
+        "delete":"Delete",
+        "all":"all"
+
+    },
+    "profile":{
+        "per_infor":"Personal Information",
+        "edit":"Edit",
+        "name":"Name",
+        "last_name":"Last name",
+        "tag":"Tag",
+        "alredy_used":"is already used.",
+        "email":"Email address",
+        "select_country": "Select your country",
+        "country":"Country",
+        "confirm":"Confirm",
+        "Privacy":"Privacy and Security",
+        "password":"Password",
+        "new_password":"New password",
+        "confirm_new_pass":"Confirm new password",
+        "pass_not_match":"Passwords do not match. Please try again",
+        "criteria":"Please ensure your password meets the following criteria: minimum length of 8 characters, includes at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 symbol.",
+        "forgot":"Forgot password?",
+        "current_pass":"To continue, please enter your current password",
+        "enter_current":"Enter your current password",
+        "wrong_pass":"Wrong password. Try again or press forgot password to reset it.",
+        "changed_pass":"Your password has been changed succesfully",
+        "credencialas":"My Credentials",
+        "connected":"Connected",
+        "not_connected":"Connected",
+        "offline":"Offline Mode",
+        "logout":"Logout",
+        "LOGOUT":"LOGOUT",
+        "wallet":"Wallet",
+        "unknown":"Unknown"
+    },
+    "tree_page":{
+        "specie":"Specie",
+        "stage":"Stage",
+        "en_status":"Endangered Status",
+        "endangered":"Endangered (EN)",
+        "envi_expo":"Environment Exposition",
+        "eco_surro":"Ecosystem Surroundings",
+        "about":"about",
+        "details":"Details",
+        "regis_by":"Registered by",
+        "regis_date":"Register date",
+        "verified":"Verified",
+        "Location":"Location",
+        "share":"Share",
+        "delete":"Delete",
+        "sorrymsg":"Sorry! We don’t have information about this tree yet",
+        "status_unknown":"Unknown at this moment"
+
+    },
+    "all_reports":{
+        "my_proof_of_life":"MY PROOF OF LIFE",
+        "my_trees": "MY TREES",
+        "draft":"draft",
+        "title_DRAFT":"DRAFT",
+        "specie_tree":"Specie of tree",
+        "Location":"Location",
+        "status_draft":"status draft",
+        "tree":"TREE",
+        "date":"Date",
+        "share":"Share",
+        "delete":"Delete",
+        "edit":"Edit",
+        "offline_alert_header": "You are in offline mode",
+        "offline_alert_message": "If you want to edit a draft, you have to be logged in.",
+        "offline_alert_button": "Dismiss",
+        "confirm_alert_header": "Please confirm if this draft is a new report or a proof-of-life",
+        "confirm_alert_message": "We found that some reports are really near to this draft and can cause conflict.",
+        "confirm_alert_button_proof_of_life": "Make proof-of-life",
+        "confirm_alert_button_report": "Make report"
+    },
+    "new_report":{
+        "title":"Register new tree",
+        "retry":"retry",
+        "next":"next",
+        "skip":"skip",
+        "header":"Tree report in progress",
+        "message01":"Would you like to continue the report?",
+        "message02":"Are you sure you want to abandon the process?",
+        "no_continue":"No, continue",
+        "reset":"Reset",
+        "confirm":"Confirm",
+        "continue":"No, continue",
+        "exit":"Yes, exit",
+        "PROOF_OF_LIFE":"PROOF OF LIFE"
+    },
+    "form_sub":{
+        "title":"MAGNIFICENT",
+        "sub_title":"You have registered a new tree",
+        "sub_titleproof":"you’ve made a proof of life of a tree",
+        "sub_titlenewtree":"You have registered a new tree",
+        "sub_titledraft":"you’ve saved a draft",
+        "seetreeregis":"SEE TREE REGISTERED",
+        "seetree":"SEE TREE",
+        "gohome":"GO TO HOME",
+        "buttom":"Share it !",
+        "register":"REGISTER ANOTHER TREE",
+        "makeproof":"MAKE ANOTHER PROOF OF LIFE"
+    },
+    "confirm_ent_photos":{
+        "proof_life":"Proof of life",
+        "preview":"preview",
+        "retry":"retry",
+        "make_Proof_of_life":"Make Proof of Life"
+    },
+    "ent_modal":{
+        "proof_of_life":"PROOF OF LIFE"
+    },
+    "pop_up_poofoflife":{
+        "message":"You’re so close!",
+        "message01":"Walk a few more steps to",
+        "message02":"activate proof of life"
+    },
+    "public_profile":{
+        "personal":"Personal Information",
+        "name":"Name",
+        "last_name":"Last name",
+        "tag":"Tag",
+        "email":"Email address",
+        "country":"Country",
+        "tree_regis":"Trees Registered",
+        "tree":"TREE",
+        "type_of_tree":"Type of tree",
+        "location":"Location",
+        "status":"Status"
+    },
+    "loading_service":{
+        "LOADING": "Loading...",
+        "NO_CONNECTION": "No connection",
+        "CHECK_CONNECTION": "Check your Wi-Fi or mobile data connection",
+        "ERROR": "Error",
+        "DEFAULT_ERROR_MESSAGE": "An error has occurred, please try again later.",
+        "BAD_GPS_PRECISION": "You can't validate ents, your GPS precision is greater than 10 meters!",
+        "OUT_OF_ENT_RANGE": "Out of ent range for proof of life",
+        "ENT_REPORT_TOO_CLOSE": "An ent report exists too close to create a new one!",
+        "CONTINUE": "Continue"
+    }
+
+
+
+
+}

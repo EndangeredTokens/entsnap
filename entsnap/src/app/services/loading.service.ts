@@ -1,47 +1,100 @@
-import { Injectable } from "@angular/core";
-import { LoadingController } from "@ionic/angular";
-import { AlertController } from "@ionic/angular";
-
+import { Injectable } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 @Injectable({
-	providedIn: "root",
+    providedIn: 'root',
 })
 export class LoadingService {
-	private _loadingAnimation!: HTMLIonLoadingElement;
-	private _alertAnimation!: HTMLIonAlertElement;
+    private _loadingAnimation!: HTMLIonLoadingElement;
+    private _alertAnimation!: HTMLIonAlertElement;
 
-	constructor(private loadingController: LoadingController, private alertController: AlertController) {}
+    constructor(
+        private loadingController: LoadingController,
+        private alertController: AlertController,
+        private translate: TranslateService
+    ) {}
 
-	async show(): Promise<void> {
-		this._loadingAnimation = await this.loadingController.create({
-			cssClass: "transparent",
-			message: 'Loading...',
-			spinner: 'circles'
-		});
+    async show(): Promise<void> {
+        this._loadingAnimation = await this.loadingController.create({
+            cssClass: 'transparent',
+            message: this.translate.instant('loading_service.LOADING'),
+            spinner: 'circles',
+        });
 
-		return this._loadingAnimation.present();
-	}
+        return this._loadingAnimation.present();
+    }
 
-	async dismiss(): Promise<boolean> {
-		return this._loadingAnimation.dismiss();
-	}
+    async showCustomTextLoadingAnimation(textToShow: string): Promise<void> {
+        this.dismiss();
+        this._loadingAnimation = await this.loadingController.create({
+            cssClass: 'transparent',
+            message: textToShow,
+            spinner: 'circles',
+        });
 
-	async notificationShow(): Promise<void> {
-		this._alertAnimation = await this.alertController.create({
-			header: "Sin conexión",
-			subHeader: "Comprueba tu conexión Wi-Fi o de datos móviles",
-			buttons: ["OK"],
-		});
+        return this._loadingAnimation.present();
+    }
 
-		return this._alertAnimation.present();
-	}
+    async dismiss(): Promise<boolean> {
+        return this._loadingAnimation.dismiss();
+    }
 
-	async notificationErrorShow(text?: string): Promise<void> {
-		this._alertAnimation = await this.alertController.create({
-			header: "Error",
-			subHeader: text ? text : "Ha ocurrido un error, por favor intente de nuevo más tarde.",
-			buttons: ["OK"],
-		});
+    async notificationShow(): Promise<void> {
+        this._alertAnimation = await this.alertController.create({
+            header: this.translate.instant('loading_service.NO_CONNECTION'),
+            subHeader: this.translate.instant('loading_service.CHECK_CONNECTION'),
+            buttons: ['OK'],
+        });
 
-		return this._alertAnimation.present();
-	}
+        return this._alertAnimation.present();
+    }
+
+    async notificationErrorShow(text?: string): Promise<void> {
+        this._alertAnimation = await this.alertController.create({
+            header: this.translate.instant('loading_service.ERROR'),
+            subHeader: text
+                ? text
+                : this.translate.instant('loading_service.DEFAULT_ERROR_MESSAGE'),
+            buttons: ['OK'],
+        });
+
+        return this._alertAnimation.present();
+    }
+
+    async showNotificationBadGpsPrecision(): Promise<void> {
+        this._alertAnimation = await this.alertController.create({
+            cssClass: 'transparent',
+            message: this.translate.instant('loading_service.BAD_GPS_PRECISION'),
+        });
+        return this._alertAnimation.present();
+    }
+
+    async dismissNotification(): Promise<boolean> {
+        return this._alertAnimation.dismiss();
+    }
+
+    async showNotificatinNonIntersection(): Promise<void> {
+        this._alertAnimation = await this.alertController.create({
+            cssClass: 'transparent',
+            message: this.translate.instant('loading_service.OUT_OF_ENT_RANGE'),
+        });
+        return this._alertAnimation.present();
+    }
+
+    async showNotificationReportIntersection(): Promise<void> {
+        this._alertAnimation = await this.alertController.create({
+            cssClass: 'transparent',
+            message: this.translate.instant('loading_service.ENT_REPORT_TOO_CLOSE'),
+            buttons: [
+                {
+                    text: this.translate.instant('loading_service.CONTINUE'),
+                    handler: () => {
+                        this.dismissNotification();
+                    },
+                },
+            ],
+        });
+        return this._alertAnimation.present();
+    }
 }

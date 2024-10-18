@@ -1,0 +1,375 @@
+<!-- <ion-header></ion-header> -->
+<ion-header class="ion-no-border">
+    
+</ion-header>
+<ion-content class="content" [fullscreen]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="goBackUrlHistory()">
+            <ion-button>
+                <img src="/assets/icons/basics/chevron-left-white.svg" alt=""
+            /></ion-button>
+        </ion-buttons>
+        <ion-title>{{'registertree.title' | translate}}</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button *ngIf="allowDraftSave" (click)="saveReportAsDraft()">
+                <svg
+                    width="16"
+                    height="20"
+                    viewBox="0 0 16 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M2 1.9875H1.9875V2V16C1.9875 17.1115 2.88853 18.0125 4 18.0125H12C13.1115 18.0125 14.0125 17.1115 14.0125 16V9C14.0125 7.88853 13.1115 6.9875 12 6.9875H11C9.90233 6.9875 9.0125 6.09767 9.0125 5V4C9.0125 2.88853 8.11147 1.9875 7 1.9875H2ZM2 19.9875C1.45334 19.9875 0.98568 19.793 0.596339 19.4037C0.206998 19.0143 0.0125 18.5467 0.0125 18V2C0.0125 1.45334 0.206998 0.98568 0.596339 0.596339C0.98568 0.206998 1.45334 0.0125 2 0.0125H9.17157C9.69869 0.0125 10.2042 0.221897 10.5769 0.594625L15.4054 5.42305C15.7781 5.79578 15.9875 6.30131 15.9875 6.82843V18C15.9875 18.5467 15.793 19.0143 15.4037 19.4037C15.0143 19.793 14.5467 19.9875 14 19.9875H2Z"
+                        fill="#DCD8B7"
+                        stroke="#DCD8B7"
+                        stroke-width="0.025"
+                    />
+                </svg>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-modal
+        id="modal-chances"
+        class="modal-chances"
+        trigger="open-modal-chances"
+    >
+        <ng-template>
+            <div class="modal-chances-content">
+                <ion-grid class="chances-cards-grid">
+                    <ion-row class="chances-cards-row">
+                        <ion-col
+                            *ngFor="let treeOption of identifiedTreeOptions"
+                            size="11"
+                            class="chance-card"
+                        >
+                            <div class="card-container">
+                                <div class="chance-title">
+                                    {{ treeOption.scientificName}}
+                                    {{ treeOption.commonName}}
+                                </div>
+                                <div class="confirm-button-container">
+                                    <button
+                                        *ngIf="treeOption.scientificName" 
+                                        (click)="setAiOptionAsSpecie(treeOption.scientificName, treeOption.commonName)"
+                                    >
+                                        {{'registertree.Confirm' | translate}}
+                                    </button>
+                                </div>
+                                <div class="chance-green-vector">
+                                    <svg
+                                        width="116"
+                                        height="87"
+                                        viewBox="0 0 116 87"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M115.432 0.0178986V66.1677C115.432 77.2134 106.478 86.1677 95.4323 86.1677H0C0 86.1677 6.4513 81.4828 14.9762 72.6336C19.8147 67.6885 24.1924 62.2228 27.8788 56.2365C32.9477 48.4284 43.0855 33.8532 52.9929 24.2231C52.9929 24.2231 75.1116 -0.762917 115.432 0.0178986Z"
+                                            fill="#505E41"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="chance-container">
+                                    <div class="ion-text-end chance-number">
+                                        {{ treeOption.score | number: '1.0-2' }}
+                                        {{ treeOption.commonName}}
+                                    </div>
+                                    <div class="ion-text-end chance-text">
+                                        {{'registertree.probability' | translate}}
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <img
+                                    [src]="treeOption.exampleImageUrl"
+                                    alt=""
+                                />
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ng-template>
+    </ion-modal>
+
+    <ion-modal
+        class="modal-zoom"
+        #modal
+        [isOpen]="isSelectedImageModalOpen"
+        [backdropDismiss]="false"
+    >
+        <ng-template>
+            <div class="modal-container">
+                <div class="modal-close-button" (click)="closeModal()">
+                    <img
+                        src="../../../assets/icons/basics/x-circle-filled-primary.svg"
+                        alt=""
+                    />
+                </div>
+                <img
+                    class="modal-image"
+                    [src]="getLocalStorageImage(this.selectedImage)"
+                />
+                <div class="modal-image-overlay">
+                    <div class="modal-image-overlay-left">
+                        <button
+                            class="image-overlay-retry-button"
+                            (click)="retrySpecificStep()"
+                        >
+                            <div class="retry-icon">
+                                <img
+                                    src="../../../assets/icons/basics/refresh-white.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div>{{'registertree.retry' | translate}}</div>
+                        </button>
+                    </div>
+                    <div class="modal-green-svg">
+                        <svg
+                            width="193"
+                            height="97"
+                            viewBox="0 0 193 97"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M192.196 0.0201797V97H0.196045C0.196045 97 10.9266 91.7262 25.1062 81.7645C33.1541 76.1977 40.4356 70.0449 46.5673 63.3061C54.9984 54.5164 71.8607 38.1089 88.3398 27.2683C88.3398 27.2683 125.13 -0.858788 192.196 0.0201797Z"
+                                fill="#505E41"
+                            />
+                        </svg>
+                    </div>
+                    <div class="modal-image-overlay-right">
+                        <div class="modal-image-name-container">
+                            <div class="modal-image-name">
+                                {{ selectedImage | titlecase }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ion-modal>
+
+    <ion-grid class="images-grid">
+        <ion-row class="images-row">
+            <ion-col
+                *ngIf="getLocalStorageImage('frontal')"
+                size="3"
+                class="image-item"
+            >
+                <ion-img
+                    (click)="selectImage('frontal')"
+                    [src]="getLocalStorageImage('frontal')"
+                ></ion-img>
+            </ion-col>
+            <ion-col
+                *ngIf="getLocalStorageImage('leaf')"
+                size="3"
+                class="image-item"
+            >
+                <ion-img
+                    (click)="selectImage('leaf')"
+                    [src]="getLocalStorageImage('leaf')"
+                ></ion-img>
+            </ion-col>
+            <ion-col
+                *ngIf="getLocalStorageImage('trunk')"
+                size="3"
+                class="image-item"
+            >
+                <ion-img
+                    (click)="selectImage('trunk')"
+                    [src]="getLocalStorageImage('trunk')"
+                ></ion-img>
+            </ion-col>
+            <ion-col
+                *ngIf="getLocalStorageImage('scale')"
+                size="3"
+                class="image-item"
+            >
+                <ion-img
+                    (click)="selectImage('scale')"
+                    [src]="getLocalStorageImage('scale')"
+                ></ion-img>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="input-grid">
+        <ion-row class="item-input-row specie-input-row">
+            <div class="specie-top">
+                <div class="input-title"><h2>{{'registertree.specie' | translate}}</h2></div>
+                <ion-button
+                    (click)="getTreeAiOptions()"
+                    class="identify-tree-ai-btn custom-ion-button-identify"
+                    id="open-modal-chances"
+                >
+                {{'registertree.identify_IA' | translate}}
+                </ion-button>
+            </div>
+            <ion-input
+                [(ngModel)]="specieOfTree"
+                (ngModelChange)="updateStoredSpecie($event)"
+                class="input"
+                placeholder="E.g: Queule"
+            >
+            </ion-input>
+        </ion-row>
+        <!-- <ion-row class="item-input-row specie-input-row">
+            <div class="specie-top">
+                <div class="input-title"><h2>{{'registertree.Scientific_name' | translate}}</h2></div>
+            </div>
+            <ion-input
+                [(ngModel)]="specieOfTree"
+                (ngModelChange)="updateStoredSpecie($event)"
+                class="input"
+                placeholder="E.g: Queule"
+            >
+            </ion-input>
+        </ion-row> -->
+        <ion-row class="item-input-row specie-input-row">
+            <div class="specie-top">
+                <div class="input-title"><h2>{{'registertree.Common_name' | translate}} </h2></div>
+            </div>
+            <ion-input
+                [(ngModel)]="commonName"
+                (ngModelChange)="updateCommonName($event)"
+                class="input"
+                placeholder="E.g: tree"
+            >
+            </ion-input>
+        </ion-row>
+        <ion-row class="item-input-row stage-input-row">
+            <div class="input-title"><h2>{{'registertree.stage' | translate}}</h2></div>
+            <button
+                class="select-stage-btn dropdown-button"
+                (click)="openStageDropdown()"
+                [ngClass]="{ 'success': selectedStage.name }"
+            >
+                <div class="value-placeholder stage-placeholder">
+                    <img
+                        *ngIf="selectedStage.imageGreenSrc"
+                        [src]="selectedStage.imageGreenSrc"
+                        alt=""
+                    />
+                    <div
+                        class="stage-name"
+                        [ngClass]="{ 'success': selectedStage.name }"
+                    >
+                        {{ selectedStage.name || ('registertree.select_stage' | translate) }}
+                    </div>
+                </div>
+                <div class="value-placeholder stage-dropdown-icon">
+                    <svg
+                        width="15"
+                        height="16"
+                        viewBox="0 0 15 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M2.79201 4.42063C2.97916 4.17166 3.23289 4.03182 3.49744 4.03182C3.76199 4.03182 4.01572 4.17166 4.20286 4.42063L7.48915 8.79337L10.7754 4.41769C10.867 4.28823 10.9772 4.18457 11.0994 4.11285C11.2217 4.04113 11.3535 4.0028 11.487 4.00015C11.6206 3.99749 11.7532 4.03056 11.877 4.0974C12.0008 4.16423 12.1132 4.26347 12.2077 4.38923C12.3021 4.51499 12.3767 4.66472 12.4269 4.82954C12.477 4.99436 12.5019 5.17092 12.4999 5.34875C12.4979 5.52659 12.4691 5.70208 12.4152 5.86483C12.3614 6.02758 12.2835 6.17428 12.1863 6.29624L8.19458 11.6112C8.00743 11.8602 7.7537 12 7.48915 12C7.22461 12 6.97088 11.8602 6.78373 11.6112L2.79201 6.29844C2.60503 6.04925 2.5 5.71141 2.5 5.35917C2.5 5.00692 2.60503 4.66982 2.79201 4.42063Z"
+                            fill="#949C79"
+                        />
+                    </svg>
+                </div>
+            </button>
+            <div *ngIf="showStageOptions" class="stage-options">
+                <div
+                    *ngFor="let stage of stages"
+                    class="stage-option"
+                    (click)="selectStageOption(stage)"
+                >
+                    <div class="stage-img">
+                        <img [src]="stage.img_src" alt="" />
+                    </div>
+                    <div>{{ stage.stage_name }}</div>
+                </div>
+            </div>
+        </ion-row>
+        <ion-row class="item-input-row environment-input-row">
+            <div class="input-title"><h2>{{'registertree.En_exposition' | translate}}</h2></div>
+            <div class="environment-buttons">
+                <ion-button
+                    *ngFor="let option of environmentExpositionOptions"
+                    class="select-environment-btn custom-ion-button"
+                    [ngClass]="{ 'selected': option.id === selectedEnvironmentExpositionId }"
+                    (click)="selectEnvironmentExposition(option)"
+                >
+                    {{ option.name }}
+                </ion-button>
+            </div>
+        </ion-row>
+
+        <ion-row class="item-input-row ecosystem-input-row">
+            <div class="input-title"><h2>{{'registertree.Eco_surroundings' | translate}}</h2></div>
+            <button
+                class="select-ecosystem-surroundings-btn dropdown-button"
+                (click)="openEcosystemDropdown()"
+                [ngClass]="{ 'success': selectedEcosystem.name }"
+            >
+                <div class="value-placeholder">
+                    <div
+                        class="ecosystem-name"
+                        [ngClass]="{ 'success': selectedEcosystem.name }"
+                    >
+                        {{ selectedEcosystem.name || ('registertree.select_ecosystem' | translate)}}
+                    </div>
+                </div>
+                <div class="value-placeholder">
+                    <svg
+                        width="15"
+                        height="16"
+                        viewBox="0 0 15 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M2.79201 4.42063C2.97916 4.17166 3.23289 4.03182 3.49744 4.03182C3.76199 4.03182 4.01572 4.17166 4.20286 4.42063L7.48915 8.79337L10.7754 4.41769C10.867 4.28823 10.9772 4.18457 11.0994 4.11285C11.2217 4.04113 11.3535 4.0028 11.487 4.00015C11.6206 3.99749 11.7532 4.03056 11.877 4.0974C12.0008 4.16423 12.1132 4.26347 12.2077 4.38923C12.3021 4.51499 12.3767 4.66472 12.4269 4.82954C12.477 4.99436 12.5019 5.17092 12.4999 5.34875C12.4979 5.52659 12.4691 5.70208 12.4152 5.86483C12.3614 6.02758 12.2835 6.17428 12.1863 6.29624L8.19458 11.6112C8.00743 11.8602 7.7537 12 7.48915 12C7.22461 12 6.97088 11.8602 6.78373 11.6112L2.79201 6.29844C2.60503 6.04925 2.5 5.71141 2.5 5.35917C2.5 5.00692 2.60503 4.66982 2.79201 4.42063Z"
+                            fill="#949C79"
+                        />
+                    </svg>
+                </div>
+            </button>
+            <div *ngIf="showEcosystemOptions" class="ecosystem-options">
+                <div
+                    *ngFor="let ecosystem of ecosystems"
+                    class="ecosystem-option"
+                    (click)="selectEcosystemOption(ecosystem)"
+                >
+                    {{ ecosystem.name }}
+                </div>
+            </div>
+        </ion-row>
+        <ion-row class="item-input-row location-input-row">
+            <div class="input-title"><h2>{{'registertree.Location' | translate}}</h2></div>
+            <div class="location-data">
+                <div class="location-value">
+                    {{ storedReport.gps_geocoder?.street_address ||
+                    storedReport.gps_geocoder?.route || 'N/A' }}, {{
+                        storedReport.gps_geocoder?.country || 'N/A' }}
+                </div>
+                <div class="environment-buttons">
+                    <ion-button class="select-location-btn" [disabled]="!isOfflineMode" (click)="specifyLocation()">
+                        {{'registertree.Specify_location' | translate}}
+                    </ion-button>
+                </div>
+            </div>
+        </ion-row>
+        <ion-row class="register-tree-row">
+            <ion-button
+                (click)="this.registerBtn()"
+                class="register-btn"
+                [disabled]="allFieldsComplete()"
+            >
+            {{'registertree.Regis_tree' | translate}}
+            </ion-button>
+        </ion-row>
+    </ion-grid>
+</ion-content>

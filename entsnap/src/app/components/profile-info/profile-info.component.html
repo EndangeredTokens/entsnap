@@ -23,20 +23,25 @@
     <h2>Account</h2>
     <button class="edit-button">Edit</button>
     <ion-item class="mi-item">
-      <ion-label class="mi-label">{{user.wallet_address}}</ion-label>
+      <ion-label class="mi-label">{{user.email}}</ion-label>
     </ion-item>
     <ion-item class="mi-item">
       <ion-label class="mi-label">{{user.name}}</ion-label>
     </ion-item>
     <ion-item class="mi-item">
-      <ion-label class="mi-label">{{user.email}}</ion-label>
-    </ion-item>
-    <ion-item class="mi-item">
-      <ion-label class="mi-label">{{user.phone}}</ion-label>
+      <ion-label class="mi-label">{{user.wallet_address}}</ion-label>
     </ion-item>
     <ion-button (click)="logout()" class="btn-logout">
       <ion-icon name="log-in-outline"></ion-icon>
       LOGOUT
     </ion-button>
   </ion-col>
+
+  <ion-alert
+    [isOpen]="errorModalConfig.visible"
+    [header]="errorModalConfig.header"
+    [message]="errorModalConfig.message"
+    [buttons]="errorModalConfig.buttons"
+    (didDismiss)="setErrorModalOpen(false)"
+  ></ion-alert>
 </ion-row>

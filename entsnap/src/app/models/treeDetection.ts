@@ -1,5 +1,6 @@
 export interface TreeDetection {
-    score: number,
-    scientificName: string,
-    exampleImageUrl: string
+    score: number;
+    scientificName: string;
+    exampleImageUrl: string;
 }
+

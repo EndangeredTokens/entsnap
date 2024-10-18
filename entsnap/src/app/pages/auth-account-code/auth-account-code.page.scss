@@ -1,0 +1,134 @@
+ion-item {
+    --background: transparent;
+}
+
+.back-button {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 34px;
+    left: 28px;
+}
+
+.ent-snap-content {
+    --background: var(--color-primary);
+}
+
+.subtitle {
+    text-align: center;
+    font-family: 'Aller';
+    color: var(--color-subtitles);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    font-weight: lighter;
+}
+
+.code-sent-message {
+    text-align: center;
+    font-family: 'Aller';
+    color: var(--color-light-grey);
+    font-size: 12px;
+    margin-bottom: 2rem;
+    font-weight: lighter;
+}
+
+.login-button {
+    --background: #647152;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.resend-container {
+    text-align: center;
+    color: white;
+    margin-top: 1rem;
+
+    .resend {
+        color: white;
+        text-decoration: none;
+
+        div {
+            margin-top: 0.5rem;
+
+            &:first-child {
+                text-decoration: underline;
+            }
+
+            &.disabled {
+                color: var(--color-muted);
+            }
+        }
+    }
+}
+
+.input-item {
+    background: var(--color-default-ocre);
+    color: var(--color-medium-grey);
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 10px;
+    margin-right: 0.125rem;
+    margin-left: 0.125rem;
+    margin-bottom: 1rem;
+
+    &.success {
+        border: 1px solid var(--color-input-success);
+    }
+
+    &.error {
+        border: 1px solid var(--color-input-error);
+    }
+
+    .input-icon {
+        margin-right: 1rem;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+input {
+    width: 260px;
+    height: 46px;
+    background-color: #DCD8B7;
+    font-family: Aller;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 21.68px;
+    text-align: center;
+    color: #979797;
+    border-radius: 10px;
+}
+
+ion-input {
+    color: var(--color-medium-grey);
+    font-weight: bold;
+
+    &.success {
+        color: var(--color-input-success);
+    }
+
+    &.error {
+        color: var(--color-input-error);
+    }
+}
+
+.error-message-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 2rem;
+    justify-content: center;
+
+    .error-icon {
+        width: 13px;
+        height: 13px;
+        margin-right: 4px;
+    }
+
+    .error-message {
+        text-align: center;
+        font-size: 12px;
+        color: var(--color-input-error);
+    }
+}

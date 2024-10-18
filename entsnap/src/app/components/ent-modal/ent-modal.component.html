@@ -1,0 +1,28 @@
+<app-proof-of-life-pop-up />
+
+<div class="cupertino-pane">
+  <div class="modal-container">
+    <div (click)="goToEnt()" class="tree-img-container">
+      <img src="{{ getEntImage() }}">
+    </div>
+    <div class="info-container">
+      <div class="main-info">
+        <div id="tree-name">
+          <h1>{{ updateEntName()}}</h1>
+        </div>
+        <div id="distance-and-verified-container">
+          <h2 style="white-space: nowrap;">{{ getEntDistance() }}</h2>
+          <img src="../../../assets/icon/verified-user.svg">
+        </div>
+      </div>
+      <div class="tag-container">
+        <a (click)="goToPublicProfile()">{{ "@" + (report?.user.tag_name ? report?.user.tag_name : report?.user.email) }}</a>
+      </div>
+      <div class="proof-of-life-btn">
+        <button class="{{ proofOfLifeInRange ? 'in-range' : 'out-of-range' }}" (click)="validateEnt()">
+          {{ 'ent_modal.proof_of_life' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

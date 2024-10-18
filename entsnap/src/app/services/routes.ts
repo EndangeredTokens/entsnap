@@ -45,4 +45,24 @@ export class routes {
   weatherUrl(lat: number, lng: number): string {
     return `${this.getUrl("weather")}/${lat}/${lng}`;
   }
+
+  validationUrl(): string {
+    return this.getUrl("validate")
+  }
+
+  treeStageUrl(): string {
+    return this.getUrl("stages")
+  }
+
+  treeFoliagesUrl(): string {
+    return this.getUrl("foliages")
+  }
+
+  countriesUrl(): string {
+    return this.getUrl("countries");
+  }
+
+  versionUrl(): string {
+    return this.getUrl("version");
+  }
 }

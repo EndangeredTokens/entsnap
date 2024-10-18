@@ -1,5 +1,13 @@
 <ion-content>
-  <app-r-map-header></app-r-map-header>
+  <div class="compass">
+    <img src="../../../assets/icon/compass-background.svg">
+    <img id="compass-pointer" [ngStyle]="{'transform': 'rotate(' + (45 - orientationAngle!) + 'deg)'}" src="../../../assets/icon/compass-pointer.svg">
+  </div>
   <div #mapreport id="mapreport"></div>
+  <div class="continue-btn-container">
+    <button (click)="goToReportInput()">
+      Continue
+    </button>
+  </div>
   <!-- <app-map-comp></app-map-comp> -->
 </ion-content>

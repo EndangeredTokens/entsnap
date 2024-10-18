@@ -1,25 +1,209 @@
-<ion-content>
-  <img [src]="backIconBackground" class="custom-icon-background" />
-  <button class="custom-button" routerLink="/tabs/home">
-    <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
-  </button>
-  <div class="logo-container">
-    <img id="logo" [src]="logo" />
+<ion-header></ion-header>
+<ion-content [fullscreen]="true">
+ 
+  <div class="top-container">
+    <ion-toolbar class="customtoolbar">
+      <ion-buttons slot="end"> 
+        <ion-select class="customselect" [(ngModel)]="selectedLanguage" interface="popover" (ionChange)="changeLanguage($event)">
+          <ion-select-option value="en">en</ion-select-option>
+          <ion-select-option value="es">es</ion-select-option>
+          <ion-select-option value="pt">pt</ion-select-option>
+        </ion-select>
+      </ion-buttons>
+    </ion-toolbar>
+    <div class="custom-icon-background">
+      <img id="back-icon-bg" [src]="backIconBackground">
+      <img id="logo" [src]="logo" />
+      <ion-col class="main-info-container">
+        <h1>{{ user.name ? user.name: ('profile.unknown' | translate) }}</h1>
+        <p>{{ user.country_id ? countries[user.country_id - 1].name: ('profile.unknown' | translate) }}</p>
+      </ion-col>
+    </div>
   </div>
-  <div class="ion-padding" *ngIf="!isOfflineMode()">
-    <h1>
-      <span>MY </span>
-      <span class="ent">CREDENTIALS</span>
-    </h1>
-    <app-profile-info #profile></app-profile-info>
+  <div class="main-container" *ngIf="!isOfflineMode()">
+    <div class="section-header">
+      <span class="ent">
+        {{ 'profile.per_infor' | translate }}
+      </span>
+      <span>
+        <button class="edit-btn" (click)="editPersonalInfo()">
+          {{ 'profile.edit' | translate }}
+        </button>
+      </span>
+    </div>
+    <div class="data-section">
+      <div>
+        <h2>{{ 'profile.name' | translate }}</h2>
+        <p *ngIf="!editingPersonalInfo">{{ user.name ? user.name: ('profile.unknown' | translate) }}</p>
+        <input *ngIf="editingPersonalInfo" [(ngModel)]="user.name">
+      </div>
+      <div>
+        <h2>{{ 'profile.last_name' | translate }}</h2>
+        <p *ngIf="!editingPersonalInfo">{{ user.last_name ? user.last_name: ('profile.unknown' | translate) }}</p>
+        <input *ngIf="editingPersonalInfo" [(ngModel)]="user.last_name">
+      </div>
+      <div>
+        <h2>{{ 'profile.tag' | translate }}</h2>
+        <p *ngIf="!editingPersonalInfo">{{ "@" + (user.tag_name ? user.tag_name: user.email) }}</p>
+        <div class="input-check" *ngIf="editingPersonalInfo">
+          <input (input)="validateTag($event)" placeholder="{{ user.tag_name ? user.tag_name: user.email }}" [(ngModel)]="user.tag_name">
+          <div>
+            <img *ngIf="tagIsValid" class="check-icon" src="../../../assets/img/check-icon.svg">
+          </div>
+        </div>
+        <div class="invalid-tag-text" *ngIf="editingPersonalInfo && !tagIsUnique">
+          <p>{{ badTag }} {{ 'profile.alredy_used' | translate }}</p>
+        </div>
+      </div>
+      <div>
+        <h2>{{ 'profile.email' | translate }}</h2>
+        <p *ngIf="!editingPersonalInfo">{{ user.email ? user.email: ('profile.unknown' | translate) }}</p>
+        <div class="input-check" *ngIf="editingPersonalInfo">
+          <input disabled="true" [(ngModel)]="user.email">
+        </div>
+      </div>
+      <div>
+        <h2>{{ 'profile.country' | translate }}</h2>
+        <p *ngIf="!editingPersonalInfo">{{ user.country_id ? countries[user.country_id - 1].name : ('profile.unknown' | translate) }}</p>
+        <ion-list class="custom-list" *ngIf="editingPersonalInfo">
+          <ion-item>
+            <ion-select [label]="'profile.select_country' | translate" aria-label="country" [(ngModel)]="user.country_id">
+              <ion-select-option *ngFor="let country of countries" value="{{ country.id }}">{{ country.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div>
+        <button *ngIf="editingPersonalInfo" class="{{ tagIsValid ? 'confirm-btn': 'confirm-btn unclickable-confirm-btn' }}" (click)="confirmPersonalInfo()">
+          {{ 'profile.confirm' | translate }}
+        </button>
+      </div>
+    </div>
+    <div class="section-header">
+      <span class="ent">
+        {{ 'profile.Privacy' | translate }}
+      </span>
+      <span>
+        <button class="edit-btn" (click)="editPassword()">
+          {{ 'profile.edit' | translate }}
+        </button>
+      </span>
+    </div>
+    <div class="data-section">
+      <div>
+        <h2>{{ 'profile.password' | translate }}</h2>
+        <p *ngIf="!editingPassword">***********</p>
+        <div class="new-passwords-container" *ngIf="editingPassword">
+          <div class="input-check">
+            <input type="{{ showPassword ? 'text' : 'password' }}" (input)="validateNewPassword()" [(ngModel)]="newPassword" [placeholder]="'profile.new_password' | translate">
+            <div (click)="toggleShowPassword()">
+              <img class="eye-icon" src="{{ showPassword ? openedEyeIcon : closedEyeIcon }}">
+              <img *ngIf="newPasswordIsValid" class="check-icon" src="../../../assets/img/check-icon.svg">
+            </div>
+          </div>
+          <div class="input-check">
+            <input type="{{ showPassword ? 'text' : 'password' }}" (input)="validateNewPassword()" [(ngModel)]="newPasswordVerification" [placeholder]="'profile.confirm_new_pass' | translate">
+            <div (click)="toggleShowPassword()">
+              <img class="eye-icon" src="{{ showPassword ? openedEyeIcon : closedEyeIcon }}">
+              <img *ngIf="newPasswordVerificationIsValid" class="check-icon" src="../../../assets/img/check-icon.svg">
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="not-match-passwords" *ngIf="!newPasswordVerificationIsValid && editingPassword">
+            <img class="exclamation-circle-filled" src="{{ exclamationCircle }}">
+            <p>{{ 'profile.pass_not_match' | translate }}</p>
+          </div>
+          <div class="not-match-passwords" *ngIf="!newPasswordIsValid && editingPassword">
+            <img class="exclamation-circle-filled" src="{{ exclamationCircle }}">
+            <p>{{ 'profile.criteria' | translate }}</p>
+          </div>
+          <div *ngIf="editingPassword" class="forgot-password">
+            <a (click)="forgotPassword()">{{ 'profile.forgot' | translate }}</a>
+          </div>
+          <button #confirmPasswordBtn *ngIf="editingPassword" class="{{ newPasswordIsValid && newPasswordVerificationIsValid ? 'confirm-btn': 'confirm-btn unclickable-confirm-btn' }}" (click)="confirmPassword()">
+            {{ 'profile.confirm' | translate }}
+          </button>
+
+          <div #modalElement *ngIf="openModal" class="confirm-password-modal">
+            <div class="{{ !passwordIsCorrect && alreadyEnteredPassword ? 'error-message modal-inner-container' : 'modal-inner-container' }}" *ngIf="!passwordChangeIsOk">
+              <p>{{ 'profile.current_pass' | translate }}</p>
+              <div class="input-check">
+                <input type="{{ showPasswordModal ? 'text' : 'password' }}" [(ngModel)]="currentPassword" [placeholder]="'profile.enter_current' | translate">>
+                <div (click)="toggleShowPasswordModal()">
+                  <img class="eye-icon" src="{{ showPasswordModal ? openedEyeIcon : closedEyeIcon }}">
+                </div>
+              </div>
+              <div class="not-match-passwords" *ngIf="!passwordIsCorrect && alreadyEnteredPassword">
+                <img class="exclamation-circle-filled" src="{{ exclamationCircle }}">
+                <p>{{ 'profile.wrong_pass' | translate }}</p>
+              </div>
+              <div class="forgot-password" *ngIf="!passwordIsCorrect && alreadyEnteredPassword">
+                <a (click)="forgotPassword()">{{ 'profile.forgot' | translate }}</a>
+              </div>
+              <button class="confirm-btn modal-btn-clickable" (click)="confirmCurrentPassword()">
+                {{ 'profile.confirm' | translate }}
+              </button>
+            </div>
+            <div  class="modal-inner-container password-changed" *ngIf="passwordChangeIsOk">
+              <p>{{ 'profile.changed_pass' | translate }}</p>
+              <button class="confirm-btn modal-btn-clickable" (click)="closeModal()">
+                Ok
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="section-header">
+      <span class="ent">
+        {{ 'profile.credencialas' | translate }}
+      </span>
+    </div>
+    <div class="data-section">
+      <div class="credential-container">
+        <div class="credential-data">
+          <div class="img-wrapper">
+            <img src="../../../assets/icon/google-icon.svg">
+          </div>
+          <div>
+            <p class="credential-label">{{ 'profile.connected' | translate }}</p>
+            <p class="credential-content">{{user.email}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="credential-container">
+        <div class="credential-data">
+          <div class="img-wrapper">
+            <img src="../../../assets/icon/wallet_icon.svg">
+          </div>
+          <div>
+            <p class="credential-label">{{ (isWalletConnected() ? 'profile.connected' : 'profile.not_connected') | translate }}</p>
+            <p class="credential-content" *ngIf="!isWalletConnected()">{{ 'profile.wallet' | translate }}</p>
+            <p class="credential-content" *ngIf="isWalletConnected()">{{getFirstWalletAddress()}}</p>
+          </div>
+        </div>
+        <div class="credential-connect">
+          <button *ngIf="!isWalletConnected()" class="connect-wallet-btn" (click)="connectWallet()">
+            <p>
+              {{ 'profile.connected' | translate }}
+            </p>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="logout-section">
+      <a id="logout-text" (click)="logout()">{{ 'profile.logout' | translate }}</a>
+    </div>
   </div>
   <div class="ion-padding" *ngIf="isOfflineMode()">
     <h1>
-      <span> Offline Mode </span>
+      <span> {{ 'profile.offline' | translate }} </span>
     </h1>
     <ion-button (click)="offlineModeLogout()" class="btn-logout">
       <ion-icon name="log-in-outline"></ion-icon>
-      LOGOUT
+      {{ 'profile.LOGOUT' | translate }}
     </ion-button>
   </div>
 </ion-content>

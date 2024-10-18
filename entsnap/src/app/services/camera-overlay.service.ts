@@ -55,7 +55,7 @@ export class CameraOverlayService {
         await CameraPreview.capture(cameraPreviewCaptureOptions).then((result: any) => {
             console.log("result", result)
             image = `data:image/jpeg;base64, ${result.value}`
-            console.log("[_captureImage] image captured", image)
+            // console.log("[_captureImage] image captured", image)
         }).catch((err) => {
             console.error("[_captureImage] failed to capture, ERROR:", err)
         })

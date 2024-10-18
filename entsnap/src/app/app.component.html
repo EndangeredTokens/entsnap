@@ -1,3 +1,10 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-content *ngIf="showSplashScreen" class="content">
+      <div class="full-height">
+        <img src="/assets/img/ents-logo.png" alt="Ents splash screen" width="80%" height="auto">
+        <img src="/assets/img/entsnap-title.png" style="margin-top: -80px;" alt="Ents splash screen" width="50%" height="auto">
+        <p style="margin-top: -20px;">Ecosystem verification Dapp</p>
+      </div>
+  </ion-content>
+  <ion-router-outlet *ngIf="!showSplashScreen"></ion-router-outlet>
 </ion-app>

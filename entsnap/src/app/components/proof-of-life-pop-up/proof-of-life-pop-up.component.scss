@@ -1,0 +1,40 @@
+ion-modal#parent-pop-up-container {
+    --ion-background-color: #505E41;
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --min-height: 175px;
+    --border-radius: 16px;
+}
+
+.pop-up-container {
+    width: 250px;
+    height: 175px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .img-container {
+        width: 83px;
+        height: 83px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .text-container {
+        width: 164px;
+        text-align: center;
+        h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+}

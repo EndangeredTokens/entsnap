@@ -1,3 +1,4 @@
+<ion-header></ion-header>
 <ion-content>
   <img [src]="backIconBackground" class="custom-icon-background" />
   <button class="custom-button" (click)="back()">
@@ -5,41 +6,69 @@
   </button>
   <div class="ion-padding">
     <h1>
-      <span class="ent">ENT </span>
-      <span>{{id}} </span>
+      <span *ngIf="!this.isDraft" class="ent">ENT </span>
+      <span *ngIf="!this.isDraft">{{id}}</span>
     </h1>
     <ion-row >
       <ion-col size="12">
         <h2>photos</h2>
-        <div class="horizontal-scroll">
+
+        <div *ngIf="isDraft" class="horizontal-scroll">
           <div class="image-container">
-            <img [attr.src]="frontal_image" id="list-img" />
+            <img [src]="this.draftFrontalImage" id="list-img" />
           </div>
           <div class="image-container">
-            <img [attr.src]="leaf_image" id="list-img" />
+            <img [src]="this.draftLeafImage" id="list-img" />
           </div>
           <div class="image-container">
-            <img [attr.src]="trunk_image" id="list-img" />
+            <img [src]="this.draftTrunkImage" id="list-img" />
           </div>
           <div class="image-container">
-            <img [attr.src]="scale_image" id="list-img" />
+            <img [src]="this.draftScaleImage" id="list-img" />
           </div>
         </div>
+
+        <div *ngIf="!isDraft" class="horizontal-scroll">
+          <div class="image-container">
+            <img [src]="this.frontal_image" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [src]="this.leaf_image" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [src]="this.trunk_image" id="list-img" />
+          </div>
+          <div class="image-container">
+            <img [src]="this.scale_image" id="list-img" />
+          </div>
+        </div>
+        <!-- <div *ngIf="report" class="horizontal-scroll"> -->
+        <!--   <div class="image-container" *ngFor="let image of report?.images"> -->
+        <!--     <img [src]="image.image" id="list-img" /> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div *ngIf="!report" class="horizontal-scroll"> -->
+        <!--   <div class="image-container"> -->
+        <!--     <div class="no-image"> -->
+        <!--       <p>No images</p> -->
+        <!--     </div> -->
+        <!--   </div> -->
+        <!-- </div> -->
       </ion-col>
       <ion-col size="12" class="col-description">
         <h2>info</h2>
         <button class="edit-button">edit</button>
         <ion-item class="mi-item">
-          <ion-label class="mi-label">{{ tree_type }}</ion-label>
+          <ion-label class="mi-label">{{ this.tree_type ? this.tree_type : 'No tree type especified' }}</ion-label>
         </ion-item>
         <ion-item class="mi-item">
-          <ion-label class="mi-label">{{ trunk_diameter }}</ion-label>
+          <ion-label class="mi-label">{{ this.trunk_diameter ? this.trunk_diameter : 'No trunk diameter' }}</ion-label>
         </ion-item>
         <ion-item class="mi-item">
-          <ion-label class="mi-label">{{ surrounding_desc }}</ion-label>
+          <ion-label class="mi-label">{{ this.surrounding_desc ? this.surrounding_desc : 'No surrounding description' }}</ion-label>
         </ion-item>
         <ion-item class="mi-item">
-          <ion-label class="mi-label">{{ poem }}</ion-label>
+          <ion-label class="mi-label">{{ this.poem ? this.poem : 'No poem' }}</ion-label>
         </ion-item>
       </ion-col>
     </ion-row>

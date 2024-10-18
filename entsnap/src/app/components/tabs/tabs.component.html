@@ -1,19 +1,35 @@
 <ion-tabs id="ion-tabs" #tabs (ionTabsDidChange)="setCurrentTab(tabs)">
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" [disabled]="isOfflineMode()">
-      <img [src]="selectedTab === 'home' ? home.active : home.inactive" />
-    </ion-tab-button>
-    <ion-tab-button tab="tree">
-      <img [src]="selectedTab === 'tree' ? tree.active : tree.inactive" />
-    </ion-tab-button>
-    <ion-tab-button tab="map" [disabled]="isOfflineMode()">
-      <img [src]="selectedTab === 'map' ? map.active : map.inactive" />
-    </ion-tab-button>
-    <ion-tab-button tab="ents">
-      <img [src]="selectedTab === 'ents' ? ents.active : ents.inactive" />
-    </ion-tab-button>
-    <ion-tab-button tab="profile">
-      <img [src]="selectedTab === 'profile' ? profile.active : profile.inactive" />
-    </ion-tab-button>
-  </ion-tab-bar>
+    <ion-tab-bar
+        slot="bottom"
+        *ngIf="!hideTabs"
+        [ngClass]="{'current-map': selectedTab === 'map'}"
+    >
+        <ion-tab-button tab="home" [disabled]="isOfflineMode()">
+            <img [src]="selectedTab === 'home' ? home.active : home.inactive" />
+        </ion-tab-button>
+        <ion-tab-button tab="tree">
+            <img [src]="(selectedTab === 'tree' || selectedTab.includes('validate')) ? tree.active : tree.inactive" />
+        </ion-tab-button>
+        <ion-tab-button (click)="goToMap()" [disabled]="isOfflineMode()">
+            <img [src]="selectedTab === 'map' ? map.active : map.inactive" />
+        </ion-tab-button>
+        <ion-tab-button tab="my-collection">
+            <img
+                [src]="
+                    selectedTab === 'ents' || selectedTab === 'my-collection'
+                        ? ents.active
+                        : ents.inactive
+                "
+            />
+        </ion-tab-button>
+        <ion-tab-button tab="profile">
+            <img
+                [src]="
+                    selectedTab === 'profile'
+                        ? profile.active
+                        : profile.inactive
+                "
+            />
+        </ion-tab-button>
+    </ion-tab-bar>
 </ion-tabs>

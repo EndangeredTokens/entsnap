@@ -30,11 +30,25 @@ h1 {
     font-weight: 700;
 }
 
+.no-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #505E41;
+    border-radius: 12pt;
+    height: 170px;
+    margin-top: 10px;
+    width: 96px;
+
+    p{
+        color: #DCD8B7;
+    }
+}
+
 h2 {
     color: #505E41;
     font-size: 25px;
     font-weight: 700;
-    margin-left: 16px;
     line-height: 35px;
     text-align: left;
     display: inline-block;

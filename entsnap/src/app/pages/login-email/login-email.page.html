@@ -1,0 +1,103 @@
+<ion-header></ion-header>
+<ion-content [fullscreen]="true" class="ent-snap-content">
+    <div class="back-button" routerLink="/login">
+        <img src="../../../assets/icons/basics/chevron-left-white.svg" alt="" />
+    </div>
+    <div>
+        <div class="logo-container">
+            <ion-img
+                src="./assets/images/entsapp/entsapp_logo_1.png"
+                alt="Logo Imagen"
+                class="logo"
+            />
+        </div>
+        <div class="subtitle">{{'login_email.title' | translate}}</div>
+    </div>
+
+    <ion-item
+        lines="none"
+        class="input-item"
+        [ngClass]="{'active': emailActive, 'error': emailErrorMessage}"
+    >
+        <ion-icon
+            class="input-icon"
+            src="./assets/icons/basics/mail-filled.svg"
+            alt=""
+        />
+        <ion-input
+            [placeholder]="'login_email.email' | translate"
+            (ionInput)="onInputChange('email'); validateInputs()"
+            type="email"
+            [(ngModel)]="email"
+            [ngClass]="{'active': emailActive, 'success': emailSuccess}"
+        ></ion-input>
+        <ion-icon
+            [hidden]="!emailSuccess"
+            class="input-icon email-icon"
+            src="./assets/icons/basics/check-circle-filled-green.svg"
+        />
+    </ion-item>
+    <div class="error-message-container">
+        <img
+            [hidden]="!emailErrorMessage"
+            class="error-icon"
+            src="../../../assets/icons/basics/exclamation-circle-filled-error.svg"
+            alt=""
+        />
+        <div class="error-message">{{emailErrorMessage | translate}}</div>
+    </div>
+
+    <ion-item
+        lines="none"
+        class="input-item"
+        [ngClass]="{'active': passwordActive, 'error': passwordErrorMessage | translate}"
+    >
+        <ion-img
+            class="input-icon"
+            src="./assets/icons/basics/lock-closed.svg"
+            alt=""
+        />
+        <ion-input
+            [placeholder]="'login_email.password' | translate"
+            (ionInput)="onInputChange('password'); validateInputs()"
+            [type]="showPassword ? 'text' : 'password'"
+            [(ngModel)]="password"
+            clearOnEdit="false"
+            [ngClass]="{'active': passwordActive, 'success': passwordSuccess}"
+        ></ion-input>
+
+        <div class="password-icon-container" (click)="togglePasswordVisibility()">
+            <ion-icon
+                class="input-icon password-icon"
+                [src]="showPassword ? '../../../assets/icons/basics/eyefilled.svg' : './assets/icons/basics/eye-off-filled.svg'"
+            />
+            <ion-icon
+                [hidden]="!passwordSuccess"
+                class="input-icon password-icon"
+                [src]="passwordSuccess ? './assets/icons/basics/check-circle-filled-green.svg' : ''"
+            />
+        </div>
+    </ion-item>
+    <div class="error-message-container">
+        <img
+            [hidden]="!passwordErrorMessage"
+            class="error-icon"
+            src="../../../assets/icons/basics/exclamation-circle-filled-error.svg"
+            alt=""
+        />
+        <div class="error-message">{{ passwordErrorMessage | translate}}</div>
+    </div>
+
+    <ion-button
+        expand="block"
+        shape="round"
+        class="login-button"
+        [disabled]="disableLogin"
+        (click)="login()"
+        >{{ 'create_acount.continue' | translate }}</ion-button
+    >
+
+    <div class="forgot-password">
+        <a routerLink="/forgot-password">{{ 'login_email.forgot' | translate }}</a>
+    </div>
+</ion-content>

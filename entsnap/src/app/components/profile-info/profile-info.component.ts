@@ -15,7 +15,12 @@ export class ProfileInfoComponent implements OnInit {
   google = "../../../assets/icon/google.png";
   instagram = "../../../assets/icon/instagram.png";
   wallet = "../../../assets/icon/wallet.svg"
-  
+  errorModalConfig: any = {
+    header: '',
+    message: '',
+    buttons: [],
+    visible: false,
+  };
   user!: User;
 
   constructor(
@@ -31,26 +36,32 @@ export class ProfileInfoComponent implements OnInit {
   async connectWallet() {
     await this.web3Service.initWeb3Modal();
     this.web3Service.connectWallet().then((address) => {
-      console.log('USER ADDRESS', address);
       const user = this.userService.getCurrentUser();
-      console.log('sent user', user);
 
-      user.wallet_address = address;
-      console.log('user', user);
-      this.userService.updateUser(user).subscribe({
+      this.userService.updateUserWallet(user.id, { walletAddress: address}).subscribe({
         error: (err) => {
           console.log('ERROR while updating user wallet address', err);
+          if(err.status && err.status === 409) {
+            console.log('User wallet address already exists');
+            this.errorModalConfig = {
+              header: 'Error',
+              message: 'Wallet is already in use',
+              buttons: ['Accept'],
+              visible: true
+            }
+          }
         },
         next: (res) => {
           console.log('User wallet address updated successfully', res);
-          const newUser = res.user;
+          user.wallet_address = res.wallet_address;
+          const newUser = res;
           this.userService.setUserData(newUser);
           this.user = newUser;
         }
       })
     })
     .catch( err => {
-      
+      console.log('[PROFILE] connectWallet ERROR', err);
     })
   }
 
@@ -68,6 +79,10 @@ export class ProfileInfoComponent implements OnInit {
     localStorage.removeItem("auth_token");
     localStorage.removeItem("user");
     this.router.navigateByUrl('/login');
+  }
+
+  setErrorModalOpen(isVisible: boolean) {
+    this.errorModalConfig.visible = isVisible;
   }
 
 }

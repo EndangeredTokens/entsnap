@@ -1,0 +1,66 @@
+ion-content {
+    --background: #505E41;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .email-item {
+            padding-left: 2rem;
+            width: 90%;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-bottom: 4%;
+            margin-top: 4%;
+            border-radius: 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        ion-item {
+            --padding-start: 0;
+            --min-height: unset;
+            --border-width: 0;
+            --border-bottom-width: 0;
+            --border-color: transparent;
+            --highlight-color-focused: #94a1af;
+            --ripple-color: transparent;
+            --background: transparent;
+            --color: inherit;
+        }
+
+    }
+
+    .btn-create {
+        --border-radius: 15pt;
+        width: 90% !important;
+        min-height: 50px !important;
+        font-size: 0.8rem !important;
+        font-weight: 700 !important;
+        --color: #ffffff !important;
+        --background: linear-gradient(270deg, #2c9979 0%, #5ad2af 100%) !important;
+        --background-activated: unset !important;
+    }
+
+    .btn-cancel{
+        --border-radius: 15pt;
+        --border-color: white;
+        width: 90% !important;
+        min-height: 50px !important;
+        font-size: 0.8rem !important;
+        font-weight: 700 !important;
+        border-color: white;
+        --color: #ffffff !important;
+        --background: transparent;
+        --background-activated: unset !important;
+    }
+}

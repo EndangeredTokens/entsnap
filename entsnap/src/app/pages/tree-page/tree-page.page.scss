@@ -1,0 +1,285 @@
+.tree-page-content {
+    --background: var(--color-default-ocre);
+    .report-content {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        
+
+        .report-header {
+            background: var(--color-ocre-2);
+            border-radius: 25px;
+            .headline-prefix-container {
+                .report-id {
+                    padding-bottom: 0;
+                    font-family: 'Aller';
+                    color: var(--color-text);
+                    font-size: 14px;
+                }
+                .report-validated-badge {
+                    padding-bottom: 0;
+                }
+            }
+
+            .report-data {
+                .report-title-container {
+                    .title-text {
+                        padding-bottom: 0;
+                        font-family: 'Gotham';
+                        font-weight: bold;
+                        color: var(--color-primary);
+                        font-size: 24px;
+                    }
+                }
+
+                .subtitle-container {
+                    .subtitle-text {
+                        font-family: 'Gotham';
+                        font-weight: bold;
+                        color: var(--color-text);
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .report-images {
+            flex-wrap: nowrap;
+            overflow-x: scroll !important;
+            overflow-y: hidden;
+
+            .report-image {
+                img {
+                    height: 25vh;
+                    min-height: 25vh;
+                    border-radius: 0.625rem;
+                }
+            }
+        }
+
+        .stage-specie {
+            .stage,
+            .specie {
+                border: 1px solid var(--color-ocre-2);
+                border-radius: 30px;
+            }
+
+            .specie {
+                .specie-title {
+                    font-family: 'Aller';
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: var(--color-primary);
+                }
+                .specie-value {
+                    font-family: 'Aller';
+                    font-size: 14px;
+                    color: var(--color-text);
+                }
+            }
+
+            .stage {
+                display: flex;
+                .stage-container {
+                    .stage-title {
+                        font-family: 'Aller';
+                        font-weight: bold;
+                        font-size: 14px;
+                        color: var(--color-primary);
+                    }
+                    .stage-value {
+                        font-family: 'Aller';
+                        font-size: 14px;
+                        color: var(--color-text);
+                    }
+                }
+
+                .stage-icon {
+                }
+            }
+        }
+
+        .endangered-status {
+            background: var(--color-ocre-2);
+            border-radius: 999px;
+            .endangered-status-container {
+                .endangered-status-title {
+                    font-family: 'Aller';
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: #525252;
+
+                }
+                .endangered-status-smalltitle {
+                    font-family: 'Aller';
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: #3B292C;
+
+                }
+                .endangered-status-titleAbout{
+                    text-align: left;
+                    font-size: 14px;
+                    color: #505E41;
+                    padding: 10px 0;
+                    border-radius: 24px;
+                }
+                .endangered-status-about {
+                    text-align: left;
+                    margin-top: 5px;
+                    font-family: 'Aller';
+                    font-weight: normal;
+                    font-size: 14px;
+                    color: #525252;
+                }
+                
+                .endangered-status-options {
+                }
+                .endangered-status-subtitle {
+                    font-family: 'Aller';
+                    font-weight: bold;
+                    font-size: 10px;
+                    color: var(--color-input-error);
+                }
+            }
+        }
+
+        .environment-exposition,
+        .ecosystem-surroundings {
+            border: 1px solid var(--color-ocre-2);
+            border-radius: 30px;
+
+            ion-col {
+                .title {
+                    font-family: 'Aller';
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: var(--color-primary);
+                }
+
+                .value {
+                    font-family: 'Aller';
+                    font-size: 14px;
+                    color: var(--color-text);
+                }
+            }
+        }
+
+        .details-title {
+            margin-bottom: 0.5rem;
+            .details-title-text {
+                font-family: 'Aller';
+                font-weight: bold;
+                color: var(--color-primary);
+                font-size: 12px;
+            }
+        }
+
+        .verified-state,
+        .registered-by,
+        .register-date,
+        .location {
+            margin-bottom: 0.5rem;
+            ion-col {
+                font-family: 'Aller';
+                font-size: 14px;
+                color: var(--color-primary);
+
+                &.text {
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        .verified-state,
+        .registered-by {
+            border-radius: 10px;
+            background: var(--color-ocre-2);
+        }
+
+        .register-date,
+        .location {
+        }
+    }
+}
+
+
+.modal-zoom {
+    --height: auto;
+    --border-radius: 1.25rem;
+    --background: transparent !important;
+    .modal-zoom-content {
+        .zoom-cards-grid {
+            .zoom-cards-row {
+                flex-wrap: nowrap;
+                overflow-x: scroll !important;
+                overflow-y: hidden;
+
+                .zoom-card {
+                    .card-container {
+                        position: relative;
+                        
+                        img {
+                            object-fit: cover;
+                            border-radius: 1.25rem;
+                            min-height: 65vh;
+                            /* max-height: 65vh; */
+                            width: 65vh;
+                            height: 65vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.report-actions-modal {
+    --border-radius: 30px;
+    padding-top: 0.5rem;
+    .report-actions-content {
+        --background: var(--color-green-4);
+
+        .action-buttons-grid {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-top: 2rem;
+            background: rgba(80, 94, 65, 0.3);
+            border-radius: 24px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            .button-row {
+                margin-bottom: 0.5rem;
+                .icon {
+                }
+
+                .text {
+                    font-family: 'Aller';
+                    font-size: 16px;
+                    color: var(--color-default-ocre);
+                }
+            }
+        }
+    }
+}
+.custom-button {
+    background: none;
+}
+
+.custom-icon {
+    width: 10px;
+}
+
+.ion-text-start {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.ion-text-end {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+}

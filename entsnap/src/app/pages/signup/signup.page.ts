@@ -35,6 +35,9 @@ export class SignupPage implements OnInit {
   phone!: number;
   ToS: boolean = false;
 
+  emailError: string = ""
+
+
   emailForm: FormGroup = new FormGroup(
     {
       email: new FormControl("", [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$$/)]),
@@ -54,6 +57,10 @@ export class SignupPage implements OnInit {
           "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!¡%*?&{}\\;\\,\\.\\:\\-\\_\\?\\¿\\+\\(\\)\\[\\]])[A-Za-z\\d@$!¡%*?&{}\\;\\,\\.\\:\\-\\_\\?\\¿\\+\\(\\)\\[\\]]{8,}"
         ),
       ]),
+      totpToken: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\d{6}$/),
+      ]),
     },
     [checkIfMatchingPasswords()]
   );
@@ -69,6 +76,15 @@ export class SignupPage implements OnInit {
   phonePat = new RegExp('^(\\+?56)?(\\s?)(0?9)(\\s?)[9876543]\\d{7}$');
   passPat = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d\\w\\W]{8,}$');
 
+  isTotpCodeValid: boolean | null = null;
+  isTotpTokenSent: boolean | null = null;
+
+  isCooldownRunning: boolean = false;
+  cooldownTime: number = 122;
+  disableSendTotpButton: boolean = false;
+
+  showRevalidateTotpTokenMessage: boolean = false;
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -80,6 +96,13 @@ export class SignupPage implements OnInit {
   ionViewDidLeave() {
     this.emailForm.reset();
     this.actualRegisterStep = 0;  // we should use this when doing multi-step logn (main, verification code, other data)
+  }
+
+  startCooldown() {
+    this.isCooldownRunning = true;
+    setTimeout(() => {
+      this.isCooldownRunning = false;
+    }, this.cooldownTime * 1000);
   }
 
   togglePassword(): void {
@@ -103,32 +126,98 @@ export class SignupPage implements OnInit {
   }
 
   emailStep(): void {
-    this.disableFormButton = true;
+    this.validateTotpCode()
+    if (!this.isTotpCodeValid) {
+      this.showRevalidateTotpTokenMessage = true;
+      return
+    }
+    // this.disableFormButton = true;
+
     this.authService.signUp({ email: this.emailForm.get("email")?.value, password: this.emailForm.get("password")?.value, role: 0 })
       .subscribe(
         user => {
-          this.userService.setUserData(user)
-          console.log("the user is:", user);
-          console.log("the user in userService.current is:", this.userService.getCurrentUser())
-          console.log("a user loged in?:", this.authService.isLogedIn())
-          if (this.authService.isLogedIn()) {
-            console.log("redirect to home");
-            localStorage.setItem("auth_token", user.auth_token);
-            this.router.navigateByUrl('/tabs/home');
-          }
-          else {
-            this.disableFormButton = false;
-            alert("fail to login the user")
-          }
+          this.showRevalidateTotpTokenMessage = false;
+          this.router.navigateByUrl("/login")
+          // this.userService.setUserData(user)
+          // console.log("the user is:", user);
+          // console.log("the user in userService.current is:", this.userService.getCurrentUser())
+          // console.log("a user loged in?:", this.authService.isLogedIn())
+          // if (this.authService.isLogedIn()) {
+          //   console.log("redirect to home");
+          //   localStorage.setItem("auth_token", user.auth_token);
+          //   this.router.navigateByUrl('/tabs/home');
+          // }
+          // else {
+          //   this.disableFormButton = false;
+          //   alert("fail to login the user")
+          // }
         },
         err => {
           console.log("error", err)
           this.disableFormButton = false;
+          this.showRevalidateTotpTokenMessage = false
           alert("User already exists!")
         }
       )
   }
 
+  sendTotpToken(): void {
+    this.disableSendTotpButton = true
+    const email = this.emailForm.get("email")?.value
+    const password = this.emailForm.get("password")?.value
+    console.log("Saving email and password from form")
+    this.authService.saveRegisterData(email, password)
+    console.log("Saved authService email and password values")
+    console.log("authService Email:", this.authService.registerEmail)
+    console.log("authService Password:", this.authService.registerPassword)
+    console.log("SENDING TOTP TOKEN")
+    this.authService.sendTotpEmail({email}).subscribe(
+      response => {
+        console.log("Response from sending TOTP token:", response)
+        this.disableSendTotpButton = false
+        this.startCooldown()
+        // this.router.navigateByUrl("/validate-otp")
+      },
+      error => {
+        console.error("Error Sending TOTP token", error)
+
+        this.isTotpTokenSent = false
+        this.disableSendTotpButton = false
+        console.log("[sendTotpToken] this.isTotpTokenSent:", this.isTotpTokenSent)
+        if (error.status === 409) {
+          this.emailError = "User already exists!"
+        }
+      }
+    )
+  }
+
+  validateTotpCode() {
+    const totpCode = this.emailForm.get('totpToken')?.value;
+    const email = this.emailForm.get('email')?.value;
+    console.log('[validateTotpCodeInput] totpCode:', totpCode);
+    console.log('[validateTotpCodeInput] email:', email);
+    console.log('OTP Code:', totpCode);
+    this.authService
+      .validateTotpToken({
+        email: email,
+        totpToken: totpCode,
+      })
+      .subscribe(
+        (response) => {
+          console.log('Response from validating TOTP token:', response);
+          this.isTotpCodeValid = true;
+          // this.invalidCodeMessage = ""
+          // this.registerUser()
+          // this.router.navigateByUrl("/login")
+        },
+        (error) => {
+          console.error('Error validating TOTP token', error);
+          this.isTotpCodeValid = false;
+          // Add error in case code is invalid
+          // this.invalidCodeMessage = error.error.message
+        },
+      );
+  }
 
 
 }

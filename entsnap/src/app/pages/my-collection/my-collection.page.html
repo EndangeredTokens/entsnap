@@ -1,0 +1,219 @@
+<!-- <ion-header></ion-header> -->
+<ion-content [fullscreen]="true">
+    <ion-content [fullscreen]="true">
+        <ion-header collapse="condense" mode="ios">
+          <ion-toolbar [mode]="!platform.is('ios') ? 'md': undefined">
+            <ion-title size="medium">{{ 'my_collection.title' | translate }}</ion-title>
+          </ion-toolbar>
+        </ion-header>
+    <ion-grid class="reports-grid">
+        <ion-row
+            class="reports-header-row ion-justify-content-between ion-align-items-center"
+        >
+            <ion-col size="auto" class="title">{{ 'my_collection.tre_regis' | translate }}</ion-col>
+            <ion-col size="auto" class="redirect-all-button ion-float-right">
+                <ion-button
+                    size="small"
+                    fill="outline"
+                    routerLink="/tabs/my-trees"
+                    >{{ 'my_collection.all' | translate }}</ion-button
+                >
+            </ion-col>
+        </ion-row>
+        <ion-row class="report-cards-row">
+            <ion-col
+                *ngFor="let report of reports"
+                size="11"
+                class="report-card"
+            >
+                <ion-grid class="report-card-grid">
+                    <ion-row class="report-card-row">
+                        <ion-col
+                            size="4"
+                            class="report-image"
+                            routerLink="/tabs/tree-page/{{report.id}}"
+                        >
+                            <img
+                                class="image"
+                                [src]="report?.images?.[0]?.image?.image_small ? report?.images?.[0]?.image?.image_small : '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="8" class="report-data-container">
+                            <div class="report-options-button ion-text-end">
+                                <button (click)="openActionsModal()">
+                                    <img
+                                        src="../../../assets/icons/basics/triple-point.svg"
+                                        alt=""
+                                    />
+                                </button>
+                            </div>
+                            <div class="report-title ion-margin-start" 
+                                routerLink="/tabs/tree-page/{{report.id}}"> 
+                                <div
+                                    *ngIf="report.status_id === 3"
+                                    class="report-validated-badge"
+                                >
+                                    <img
+                                        src="../../../assets/icons/basics/shield-check.svg"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="report-title-id">
+                                    {{ 'my_collection.tree' | translate }} {{ report.id.toString().padStart(4,
+                                    "0") }}
+                                </div>
+                            </div>
+                            <div
+                                class="report-specie ion-margin-start ion-margin-top" 
+                                routerLink="/tabs/tree-page/{{report.id}}" 
+                            >
+                            {{ 'my_collection.specie_tree' | translate }}: {{ report.data &&
+                                report.data.specie ? report.data.specie : 'N/A'
+                                }}
+                            </div>  
+                            <div
+                                class="report-location ion-margin-start ion-margin-top" 
+                                routerLink="/tabs/tree-page/{{report.id}}" 
+                            >
+                            {{ 'my_collection.Location' | translate }}: {{ report.gps_geocoder &&
+                                report.gps_geocoder.route ?
+                                report.gps_geocoder.route : 'N/A' }}
+                            </div>
+                            <div
+                                class="report-validated-status ion-margin-start ion-margin-top ion-text-lowercase" 
+                                routerLink="/tabs/tree-page/{{report.id}}" 
+                            >
+                            {{ 'my_collection.status' | translate }}: {{ report.status && report.status.name ?
+                                report.status.name : 'N/A' }}
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="reports-grid">
+        <ion-row
+            class="reports-header-row ion-justify-content-between ion-align-items-center"
+        >
+            <ion-col size="auto" class="title">{{ 'my_collection.your_proof' | translate }}</ion-col>
+            <ion-col size="auto" class="redirect-all-button ion-float-right">
+                <ion-button
+                    size="small"
+                    fill="outline"
+                    routerLink="/tabs/my-proof-of-life"
+                    >{{ 'my_collection.all' | translate }}</ion-button
+                >
+            </ion-col>
+        </ion-row>
+        <ion-row class="report-cards-row">
+            <ion-col
+                *ngFor="let report of proofOfLifes"
+                size="11"
+                class="report-card"
+            >
+                <ion-grid class="report-card-grid">
+                    <ion-row class="report-card-row">
+                        <ion-col
+                            size="4"
+                            class="report-image"
+                            routerLink="/tabs/specific-proof-of-life/{{report.id}}"
+                        >
+                            <img
+                                class="image"
+                                [src]="report?.images?.[0]?.image?.image_small ? report?.images?.[0]?.image?.image_small : '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="8" class="report-data-container">
+                            <div class="report-options-button ion-text-end">
+                                <button (click)="openActionsModal()">
+                                    <img
+                                        src="../../../assets/icons/basics/triple-point.svg"
+                                        alt=""
+                                    />
+                                </button>
+                            </div>
+                            <div 
+                                class="report-title ion-margin-start" 
+                                routerLink="/tabs/specific-proof-of-life/{{report.id}}">
+                                <div class="report-validated-badge"></div>
+                                <div class="report-title-id">
+                                    {{ 'my_collection.tree' | translate }} {{ report.id.toString().padStart(4,
+                                    "0") }}
+                                </div>
+                            </div>
+                            <div
+                                class="report-location ion-margin-start ion-margin-top" 
+                                routerLink="/tabs/specific-proof-of-life/{{report.id}}"
+                            >
+                            {{ 'my_collection.Location' | translate }}: {{ report.gps_geocoder &&
+                                report.gps_geocoder.route ?
+                                report.gps_geocoder.route : 'N/A' }}
+                            </div>
+                            <div
+                                class="report-validated-status ion-margin-start ion-margin-top ion-text-lowercase" 
+                                routerLink="/tabs/specific-proof-of-life/{{report.id}}"
+                            >
+                            {{ 'my_collection.status' | translate }}: {{ report.status && report.status.name ?
+                                report.status.name : 'N/A' }}
+                            </div>
+                            <div
+                                class="report-date ion-margin-start ion-margin-top ion-text-lowercase"
+                                routerLink="/tabs/specific-proof-of-life/{{report.id}}"
+                            >
+                                {{ 'my_collection.date' | translate }}: {{ report.created_at ? (report.created_at
+                                | date: 'yyyy-MM-dd') : 'N/A' }}
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="reports-grid coming-soon-grid">
+        <ion-row
+            class="reports-header-row coming-soon-header-row ion-justify-content-between ion-align-items-center"
+        >
+            <ion-col size="auto" class="title">{{ 'my_collection.Adopted' | translate }}</ion-col>
+        </ion-row>
+        <ion-row class="logo-row ion-justify-content-center">
+            <ion-col size="auto">
+                <img
+                    src="../../../assets/icons/basics/just-planted.svg"
+                    alt=""
+                />
+            </ion-col>
+        </ion-row>
+        <ion-row class="text-row ion-justify-content-center">
+            <ion-col size="auto"> {{ 'my_collection.coming' | translate }} </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-modal class="report-actions-modal" [initialBreakpoint]="0.25">
+        <ng-template>
+            <ion-content class="report-actions-content" scroll-y="false">
+                <ion-grid class="action-buttons-grid">
+                    <ion-row class="button-row ion-align-items-center">
+                        <ion-col size="2" class="icon">
+                            <img
+                                src="../../../assets/icons/basics/share-default-ocre.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="10" class="text">{{ 'my_collection.share' | translate }}</ion-col>
+                    </ion-row>
+                    <ion-row class="button-row ion-align-items-center">
+                        <ion-col size="2" class="icon">
+                            <img
+                                src="../../../assets/icons/basics/trash-amarillo-palido.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="10" class="text">{{ 'my_collection.delete' | translate }}</ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-content>
+        </ng-template>
+    </ion-modal>
+</ion-content>

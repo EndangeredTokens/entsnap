@@ -1,88 +1,63 @@
+<ion-header></ion-header>
 <ion-content>
+  <ion-toolbar class="customtoolbar">
+    <ion-buttons slot="end"> 
+      <ion-select class="customselect" [(ngModel)]="selectedLanguage" interface="popover" (ionChange)="changeLanguage($event)">
+        <ion-select-option value="en">en</ion-select-option>
+        <ion-select-option value="es">es</ion-select-option>
+        <ion-select-option value="pt">pt</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+  </ion-toolbar>
   <div id="container">
     <ion-grid>
       <ion-row >
         <ion-col>
           <div class="car-icon">
-            <img [src]="logoPrincipal" />
+            <img src="../../../assets/img/logo-main.svg" />
           </div>
-          <ion-row>
+          <div>
+            <p class="login-title">{{ 'login.title' | translate }}</p>
+            <p class="version-center" translate [translateParams]="{ version: getVersionApp() }">login.version</p>
+          </div>
+          <ion-row class="buttons-container">
             <ion-col>
-              <ion-row class="container-form">
-                <form [formGroup]="emailForm">
-                  <ion-item class="mi-item">
-                    <ion-img class="candado" slot="start" [src]="candado"></ion-img>
-                    <ion-input formControlName="email" inputmode="email" required type="text"
-                      placeholder="Email"></ion-input>
-                  </ion-item>
-
-                  <ion-item class="mi-item-2">
-                    <ion-img class="candado" slot="start" [src]="candado"></ion-img>
-                    <ion-input formControlName="password" id="password" inputmode="text" required type="password"
-                      placeholder="Contraseña"></ion-input>
-                    <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"> </ion-icon>
-                  </ion-item>
-
-                  <ion-alert
-                    [isOpen]="isErrorModalOpen"
-                    [header]="errorModalConfig.header"
-                    [message]="errorModalConfig.message"
-                    [buttons]="errorModalConfig.buttons"
-                    (didDismiss)="setErrorModalOpen(false)"
-                  ></ion-alert>
-    
-                  <ion-item>
-                    <a class="switch-auth-form" (click)="resetPassword()">Forgot password?</a>
-                  </ion-item>
-                  <!-- <div
-                    *ngIf="emailForm.controls.password.invalid && (emailForm.controls.password.dirty || emailForm.controls.password.touched)"
-                    class="alert-password"
-                  >
-                    <div *ngIf="emailForm.controls.password.errors.pattern">
-                      La contraseña debe contener al menos una mayúscula, una minúscula, un dígito y un carácter especial.
-                    </div>
-                    <div *ngIf="emailForm.controls.password.errors.minlength">La contraseña debe tener al menos 8 caracteres.</div>
-                  </div> -->
-
-                  <!-- <ion-item class="mi-item-2">
-                    <ion-img class="candado" slot="start" [src]="candado"></ion-img>
-                    <ion-input [type]="showPasswordConfirm ? 'text' : 'password'" [clearOnEdit]="false"
-                      placeholder="Confirma tu contraseña" formControlName="confirm" maxlength="20"></ion-input>
-                    <ion-icon slot="end" [name]="passwordConfirmToggleIcon" (click)="togglePasswordConfirm()"> </ion-icon>
-                  </ion-item> -->
-                </form>
+              <ion-row class="buttons-set">
+                <button class="login-button-1" (click)="signIn()">
+                  <p>{{ 'login.login-email' | translate }}</p>
+                </button>
+                <button class="login-button-1" (click)="signUp()">
+                  <p>{{ 'login.create-account' | translate }}</p>
+                </button>
+              </ion-row>
+              <ion-row>
+                <button id="login-google" (click)="googleSignUp()">
+                  <div>
+                    <span class="login-icon-margin-right">
+                      <img src="../../../assets/img/google-icon.png">
+                    </span>
+                    <span>
+                      {{ 'login.login-gmail' | translate}}
+                    </span>
+                  </div>
+                </button>
+                <button id="login-wallet" (click)="loginWeb3()">
+                  <div>
+                    <span class="login-icon-margin-right">
+                      <img src="../../../assets/img/wallet-icon.svg">
+                    </span>
+                    <span>
+                      {{'login.login-wallet' | translate}}
+                    </span>
+                  </div>
+                </button>
+                <div class="offline-btn-container">
+                  <a (click)="enterOfflineMode()">{{'login.offline-mode' | translate}}</a>
+                </div>
               </ion-row>
             </ion-col>
           </ion-row>
-
-          <ion-row class="container-submit">
-              <ion-button class="eH-btn-green" (click)="checkCredentials()" id="login-button">
-                SIGN IN
-              </ion-button>
-              <ion-button class="eH-btn-white" (click)="loginWeb3()" id="google-button">
-                <ion-img [src]="wallet" ></ion-img>
-                SIGN IN WITH WALLET
-              </ion-button>
-              <ion-button class="eH-btn-white" (click)="googleSignUp()" id="google-button">
-                <ion-img [src]="google" ></ion-img>
-                SIGN UP WITH GOOGLE
-              </ion-button>
-              <a class="switch-auth-form" routerLink="/signup">Don't have an account?</a>
-              <ion-button class="eH-btn-gray" (click)="enterOfflineMode()" id="google-button">
-                OFFLINE MODE
-              </ion-button>
-
-            <!-- <ion-button id="login-wallet-button" routerLink="/singup">
-              LOGIN WITH WALLET
-            </ion-button> -->
-            <!-- <ion-button class="eH-btn-green" (click)="emailStep()" [disabled]="emailForm.invalid"
-              [disabled]="disableFormButton">CREATE AN ACCOUNT</ion-button> -->
-            <!-- <ion-button class="eH-btn-white" [disabled]="true">
-              <ion-img [src]="google" style="margin-left: -13px; width: 8%"></ion-img>
-              SIGNUP WITH GOOGLE
-            </ion-button> -->
-          </ion-row>
-          <p class="version">Version {{ getVersionApp() }}</p>
+          <!-- <p class="version">Version {{ getVersionApp() }}</p> -->
         </ion-col>
       </ion-row>
     </ion-grid>

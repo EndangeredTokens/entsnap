@@ -1,16 +1,19 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Platform } from "@ionic/angular";
 import { environment } from "src/environments/environment";
+import { routes } from "./routes";
+import { map, tap } from "rxjs";
 
 @Injectable({
 	providedIn: "root",
 })
 export class VersionsService {
-	private _userVersion = this.appPlatform === "android" ? environment.androidVersionNumber : 0;
-	private _userVersionCode = this.appPlatform === "android" ? environment.androidVersion : "0";
-
-
-	constructor(private platform: Platform) {}
+	constructor(
+		private platform: Platform,
+		private http: HttpClient,
+		private routes: routes,
+	) {}
 
 	get appPlatform(): string {
 		if (this.platform.is("ios")) {
@@ -36,15 +39,27 @@ export class VersionsService {
 	}
 
 	get userVersion(): number {
-		return this._userVersion;
+		if (this.appPlatform === "android") return environment.androidVersionNumber;
+		else if (this.appPlatform === "ios") return environment.iosVersionNumber;
+		else return 0
 	}
 
 	get userVersionCode(): string {
-		return this._userVersionCode;
+		if (this.appPlatform === "android") return environment.androidVersion;
+		else if (this.appPlatform === "ios") return environment.iosVersion;
+		else return "0.0.0"
 	}
 
-	checkAppVersion = async (): Promise<string | void> => {
-		// we could use this to check the compatible version of the backend and validate
-        // if the current app version is active or the user should update
-	};
+	checkAppVersion = async (): Promise<boolean> => {
+		return new Promise<boolean> ((resolve, reject) => {
+			this.http.get(this.routes.versionUrl()+"/"+this.appPlatform).subscribe(
+				(response: any) => {
+					resolve(this.userVersion >= response.data);
+				},
+				(error: any) => {
+					reject(error);
+				}
+			)
+		});
+	}
 }

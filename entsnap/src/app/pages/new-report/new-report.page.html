@@ -1,83 +1,182 @@
-<ion-content id="new-report" class="new-report">
-  <div id="camera-preview" class="camera-preview">
-    <div  class="header">
-      <img 
-        [ngStyle]="{'display': isFirstStep() ? 'none' : 'block'}"
-        [src]="backIcon"
-        (click)="previousStep()" 
-        alt="back button" 
-        class="back-button" 
-      />
+<!-- <ion-header></ion-header> -->
+<ion-content [fullscreen]="true" id="new-report" class="new-report">
+    <div id="camera-preview" class="camera-preview">
+        <!-- <div class="header"> -->
+        <!--     <img -->
+        <!--         [ngStyle]="{'display': isFirstStep() ? 'none' : 'block'}" -->
+        <!--         [src]="backIcon" -->
+        <!--         (click)="previousStep()" -->
+        <!--         alt="back button" -->
+        <!--         class="back-button" -->
+        <!--     /> -->
+        <!-- </div> -->
+        <div class="camera-overlay">
+            <header class="navbar-header">
+                <div class="navbar-header-control">
+                    <div
+                        class="navbar-back-button"
+                        (click)="presentAbandonReportAlert()"
+                    >
+                        <!-- (click)="this.goBackUrlHistory()" -->
+                        <img
+                            [hidden]="isCurrentStepCaptured()"
+                            src="../../../assets/icons/basics/chevron-left-white.svg"
+                            alt="Chevron Left"
+                            class="back-button-icon"
+                        />
+                    </div>
+                    <div class="navbar-title">{{ headerTitle | translate }}</div>
+                    <div class="navbar-step-counter">
+                        {{ getCurrentStepNumber() + 1 }}/4
+                    </div>
+                </div>
+            </header>
+            <div class="camera-frame" [hidden]="isCurrentStepCaptured()">
+                <div class="camera-top-frame">
+                    <div class="camera-top-left-frame">
+                        <img
+                            width="100"
+                            [src]="topLeftFrame"
+                            alt="left top frame corner"
+                        />
+                    </div>
+                    <div class="camera-top-right-frame">
+                        <img
+                            width="100"
+                            [src]="topRightFrame"
+                            alt="left top frame corner"
+                        />
+                    </div>
+                </div>
+                <!-- Current step: Frontal, Trunk, Scale ... image-->
+                <div class="camera-middle-step-image">
+                    <div>
+                        <img
+                            class="step-icon"
+                            width="89"
+                            [src]="getCurrentStepIcon()"
+                        />
+                        <div class="camera-current-image-title">
+                            {{ getCurrentStepTitle().toUpperCase() }}
+                        </div>
+                    </div>
+                </div>
+                <div class="camera-bottom-frame">
+                    <div class="camera-bottom-left-frame">
+                        <img
+                            width="100"
+                            [src]="bottomLeftFrame"
+                            alt="left top frame corner"
+                        />
+                    </div>
+
+                    <div class="camera-bottom-right-frame">
+                        <img
+                            width="100"
+                            [src]="bottomRightFrame"
+                            alt="left top frame corner"
+                        />
+                    </div>
+                </div>
+                <!-- Bottom camera take photo button -->
+                <div
+                    class="camera-photo-button"
+                    *ngIf="!isCurrentStepCaptured()"
+                >
+                    <button
+                        (click)="captureImage()"
+                        [disabled]="isCurrentStepCaptured() || disableCaptureImageButton"
+                    >
+                        <img
+                            type="button"
+                            class="img-logo camera-button"
+                            [src]="takePictureIcon"
+                        />
+                    </button>
+                </div>
+            </div>
+            <div class="extra-options">
+                <div class="location-data" *ngIf="!isCurrentStepCaptured()">
+                    <p *ngFor="let data of captureRelatedData">{{ data }}</p>
+                </div>
+                <div class="skip-btn-container">
+                    <button
+                        type=""
+                        class="skip-btn"
+                        (click)="nextStep()"
+                        [disabled]="isCurrentStepCaptured()"
+                        *ngIf="getCurrentStepNumber() >= 2 && !isCurrentStepCaptured()"
+                    >
+                    {{ 'new_report.skip' | translate }}
+                        <img
+                            src="../../../assets/icons/basics/forward-video-white.svg"
+                            class="camera-step-icon"
+                            alt=""
+                        />
+                    </button>
+                </div>
+            </div>
+            <!-- Next and Retry buttons -->
+            <div class="camera-steps-toolbar">
+                <div
+                    class="camera-step-btn-container"
+                    *ngIf="isCurrentStepCaptured()"
+                >
+                    <button
+                        *ngIf="isCurrentStepCaptured()"
+                        class="camera-step-btn btn-retake"
+                        (click)="retryImage()"
+                        [disabled]="!isCurrentStepCaptured()"
+                    >
+                        <img
+                            src="../../../assets/icons/basics/refresh-white.svg"
+                            class="camera-step-icon"
+                            alt=""
+                        />
+                        {{ 'new_report.retry' | translate }}
+                    </button>
+                </div>
+                <div class="camera-step-btn-container">
+                    <button
+                        *ngIf="isCurrentStepCaptured()"
+                        class="camera-step-btn btn-next"
+                        (click)="nextStep()"
+                        [disabled]="!isCurrentStepCaptured()"
+                    >
+                    {{ 'new_report.next' | translate }}
+                        <img
+                            src="../../../assets/icons/basics/chevron-right-white.svg"
+                            class="camera-step-icon"
+                            alt=""
+                        />
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image captured -->
+        <img
+            class="img-captured"
+            *ngIf="isCurrentStepCaptured()"
+            [src]="getCurrentStepImage()"
+            [alt]="getCurrentStepText() + 'image'"
+        />
     </div>
-    
-    <div class="icons">
 
-      <!-- Frame top borders -->
-      <div 
-        class="frame"
-      >
-        <img width="100" [src]="topLeftFrame" alt="left top frame corner">
-        <img width="100" [src]="topRightFrame" alt="right top frame corner">
-      </div>
-
-      <img class="step-icon" width="89"  [src]="getCurrentStepIcon()" />
-      <img class="img-frontal" [src]="getCurrentStepText()" />
-      
-      <!-- Frame bottom borders -->
-      <div 
-        class="frame"
-      >
-        <img width="100" [src]="bottomLeftFrame" alt="left bottom frame corner">
-        <img width="100" [src]="bottomRightFrame" alt="right bottom frame corner">
-      </div>
-
-      <!-- Take picture icon -->
-      <div class="buttons">
-        <button 
-          *ngIf="!isCurrentStepCaptured()"
-          class="btn-take-image"
-          (click)="captureImage()"
-          [disabled]="isCurrentStepCaptured()"
-        >
-          <img 
-            type="button"
-            class="img-logo" 
-            [src]="takePictureIcon" 
-          />
-        </button>
-        <button
-          *ngIf="isCurrentStepCaptured()"
-          class="btn-retake"
-          (click)="retryImage()"
-          [disabled]="!isCurrentStepCaptured()">
-          Retry
-        </button>
-        <button 
-          *ngIf="isCurrentStepCaptured()"
-          class="btn-next"
-          (click)="nextStep()"
-          [disabled]="!isCurrentStepCaptured()"
-        >
-          Next
-        </button>
-      </div>
-    </div>
-
-      <!-- Image captured -->
-      <img
-        class="img-captured" 
-        *ngIf="isCurrentStepCaptured()" 
-        [src]="getCurrentStepImage()" 
-        [alt]="getCurrentStepText() + 'image'"
-      >
-  </div>
-  
-  <!-- <app-report-image></app-report-image> -->
-  <ion-alert
-  [isOpen]="shouldTriggerAlert()"
-  header="Tree report in progress"
-  message="Would you like to continue the report?"
-  [buttons]="alertButtons"
-  backdropDismiss="false"
-></ion-alert>
+    <!-- <app-report-image></app-report-image> -->
+    <ion-alert
+        [isOpen]="shouldTriggerAlert()"
+        [header]="'new_report.header' | translate"
+        [message]="'new_report.message01' | translate"
+        [buttons]="alertButtons"
+        backdropDismiss="false"
+        class="custom-alert"
+    ></ion-alert>
+    <ion-alert
+        #alertLeave
+        class="custom-alert custom-alert-go-back"
+        [header]="'new_report.header' | translate"
+        [message]="'new_report.message02' | translate"
+        [buttons]="alertGoBackButtons"
+    ></ion-alert>
 </ion-content>

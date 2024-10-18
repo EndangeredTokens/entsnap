@@ -1,0 +1,278 @@
+<ion-header></ion-header>
+<ion-content [fullscreen]="true" class="tree-page-content">
+    <!-- <ion-header collapse="condense"> -->
+    <!--     <ion-toolbar> -->
+    <!--         <ion-title size="large">tree-page</ion-title> -->
+    <!--     </ion-toolbar> -->
+    <!-- </ion-header> -->
+
+    <ion-grid class="report-content">
+        
+        <ion-row class="report-actions">
+            
+            <ion-col class="ion-text-start">
+                <button class="custom-button" (click)="goBackUrlHistory()">
+                    <img [src]="backIcon" alt="Flecha Atrás" class="custom-icon" />
+                </button>
+            </ion-col>
+            <ion-col class="ion-text-end">
+                <img
+                    (click)="presentActionsModal()"
+                    src="../../../assets/icons/basics/triple-point.svg"
+                    alt=""
+                />
+            </ion-col>
+        </ion-row>
+        <ion-row class="report-header ion-align-items-start">
+            <ion-col size="12" class="report-data">
+                <ion-grid>
+                    <ion-row
+                        class="headline-prefix-container ion-align-items-center"
+                    >
+                        <ion-col size="10" class="report-id">
+                            {{ 'ENT' +report?.id?.toString().padStart(4, "0") ||
+                            'N/A'}}
+                        </ion-col>
+                        <ion-col
+                            *ngIf="report?.status_id === 3"
+                            size="2"
+                            class="report-validated-badge"
+                        >
+                            <img
+                                src="../../../assets/icons/basics/validated-success.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="report-title-container">
+                        <ion-col class="title-text"> {{ entName }} </ion-col>
+                    </ion-row>
+                    <ion-row class="subtitle-container">
+                        <ion-col class="subtitle-text">
+                            
+                            {{ report?.data?.endangered?.specie || ' ' }}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <ion-row class="report-images ion-margin-top">
+            <ion-col class="report-image" size="5">
+                <img
+                    (click)="presentModal(report?.images[0]?.image?.image)"
+                    [src]="report?.images[0]?.image?.image_small || '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col class="report-image" size="5">
+                <img
+                    (click)="presentModal(report?.images[1]?.image?.image)"
+                    [src]="report?.images[1]?.image?.image_small || '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col class="report-image" size="5">
+                <img
+                    (click)="presentModal(report?.images[2]?.image?.image)"
+                    [src]="report?.images[2]?.image?.image_small || '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+            <ion-col class="report-image" size="5">
+                <img
+                    (click)="presentModal(report?.images[3]?.image?.image)"
+                    id="open-modal-chances"
+                    [src]="report?.images[3]?.image?.image_small || '../../../assets/images/entsapp/missing-image-placeholder.jpg'"
+                    alt=""
+                />
+            </ion-col>
+        </ion-row>
+        <ion-row class="stage-specie ion-margin-top">
+            <ion-col class="specie ion-margin-end">
+                <div class="specie-title ion-text-center">{{ 'tree_page.specie' | translate }}</div>
+                <div class="specie-value ion-text-center">
+                    {{ report?.data?.specie || 'N/A' }}
+                </div>
+            </ion-col>
+            <ion-col
+                class="stage ion-justify-content-center ion-align-items-end"
+            >
+                <div class="stage-container ion-margin-end">
+                    <div class="stage-title">{{ 'tree_page.stage' | translate }}</div>
+                    <div class="stage-value">
+                        {{ report?.data?.stage?.name || 'N/A' }}
+                    </div>
+                </div>
+                <div class="stage-icon">
+                    <img
+                    [src]="getStageIconPath()" alt=""
+                    />
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row
+            class="endangered-status ion-justify-content-center ion-margin-top"
+        >
+            <ion-col size="11" class="endangered-status-container">
+                <div class="endangered-status-title ion-text-center">
+                    {{ 'tree_page.en_status' | translate }}
+                    <div class="endangered-status-smalltitle ion-text-center">
+                        {{ getEndangeredStatus() | translate}}
+                    </div>
+                </div>
+                
+                <div class="endangered-status-options ion-text-center" *ngIf="isEndangeredDefined()">
+                    <img
+                        class="ion-margin-end"
+                        src="../../../assets/icons/basics/point-black.svg"
+                        alt=""
+                    />
+                    <img
+                        class="ion-margin-end"
+                        src="../../../assets/icons/basics/point-dark-gray.svg"
+                        alt=""
+                    />
+                    <img
+                        class="ion-margin-end"
+                        src="../../../assets/icons/basics/point-red.svg"
+                        alt=""
+                    />
+                    <img
+                        class="ion-margin-end"
+                        src="../../../assets/icons/basics/point-orange.svg"
+                        alt=""
+                    />
+                    <img
+                        class="ion-margin-end"
+                        src="../../../assets/icons/basics/point-pale.svg"
+                        alt=""
+                    />
+                    <img
+                        class="ion-margin-end"
+                        src="../../../assets/icons/basics/point-gray.svg"
+                        alt=""
+                    />
+                    <img
+                        src="../../../assets/icons/basics/point-green.svg"
+                        alt=""
+                    />
+                    <div class="endangered-status-subtitle ion-text-center">
+                        {{ 'tree_page.endangered' | translate }}
+                    </div>
+                </div>
+                
+            </ion-col>
+        </ion-row>
+        <ion-row class="environment-exposition ion-margin-top">
+            <ion-col class="environment-exposition-container">
+                <div class="title ion-text-center">{{ 'tree_page.envi_expo' | translate }}</div>
+                <div class="value ion-text-center">
+                    {{ report?.data?.ecosystem_surrounding?.name || 'N/A' }}
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ecosystem-surroundings ion-margin-top">
+            <ion-col class="ecosystem-surroundings-container">
+                <div class="title ion-text-center">{{ 'tree_page.eco_surro' | translate }}</div>
+                <div class="value ion-text-center">
+                    {{ report?.data?.environment_exposition?.name || 'N/A' }}
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row
+        class="endangered-status ion-justify-content-center ion-margin-top"
+        >
+            <ion-col size="11" class="endangered-status-container">
+                <div class="endangered-status-titleAbout">
+                    {{ 'tree_page.about' | translate }}
+                    <div class="endangered-status-about">
+                        {{report?.data?.about || ('tree_page.sorrymsg' | translate) }}
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="details-title ion-margin-top">
+            <ion-col class="details-title-text"> {{ 'tree_page.details' | translate }} </ion-col>
+        </ion-row>
+        <ion-row class="registered-by">
+            <ion-col class="title">{{ 'tree_page.regis_by' | translate }}</ion-col>
+            <ion-col class="text"
+                >{{ report?.user?.tag_name || report?.user?.email || 'N/A'
+                }}</ion-col
+            >
+        </ion-row>
+        <ion-row class="register-date">
+            <ion-col class="title">{{ 'tree_page.regis_date' | translate }}</ion-col>
+            <ion-col class="text"
+                >{{ (report?.created_at | date: 'yyyy-MM-dd') ||
+                'N/A'}}</ion-col
+            >
+        </ion-row>
+        <ion-row class="verified-state">
+            <ion-col class="title">{{ 'tree_page.regis_date' | translate }}</ion-col>
+            <ion-col class="text"
+                >{{ report?.status_id === 3 ? 'yes' : 'no' }}</ion-col
+            >
+        </ion-row>
+        <ion-row class="location">
+            <ion-col class="title">{{ 'tree_page.Location' | translate }}</ion-col>
+            <ion-col class="text">
+                {{ report?.gps_geocoder?.route ? report?.gps_geocoder?.route : 'N/A'}}
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-modal
+        id="modal-chances"
+        class="modal-zoom"
+        trigger="open-modal-chances"
+        #modalZoom
+    >
+        <ng-template>
+            <div class="modal-zoom-content">
+                <ion-grid class="zoom-cards-grid">
+                    <ion-row class="zoom-cards-row">
+                        <ion-col
+                            *ngFor="let reportImage of report.images"
+                            size="11"
+                            class="zoom-card"
+                        >
+                            <div class="card-container">
+                                <img
+                                    [src]="reportImage.image.image"
+                                    alt=""
+                                />
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ng-template>
+    </ion-modal>
+    <ion-modal class="report-actions-modal" [initialBreakpoint]="0.25" #modalActions>
+        <ng-template>
+            <ion-content class="report-actions-content" scroll-y="false">
+                <ion-grid class="action-buttons-grid">
+                    <ion-row class="button-row ion-align-items-center">
+                        <ion-col size="2" class="icon">
+                            <img
+                                src="../../../assets/icons/basics/share-default-ocre.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="10" class="text">{{ 'tree_page.share' | translate }}</ion-col>
+                    </ion-row>
+                    <ion-row class="button-row ion-align-items-center">
+                        <ion-col size="2" class="icon">
+                            <img
+                                src="../../../assets/icons/basics/trash-amarillo-palido.svg"
+                                alt=""
+                            />
+                        </ion-col>
+                        <ion-col size="10" class="text">{{ 'tree_page.delete' | translate }}</ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-content>
+        </ng-template>
+    </ion-modal>
+</ion-content>

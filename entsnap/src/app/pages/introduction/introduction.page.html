@@ -1,3 +1,4 @@
+<ion-header></ion-header>
 <ion-content>
   <swiper-container
   [slidesPerView]="1"
@@ -5,27 +6,24 @@
   [pagination]="{ clickable: true }"
   >
   <swiper-slide>
-    <img src="../../../assets/img/palm.png" height="350" alt="palm tree">
-    <span class="text">Biodiversity assets <br>for the Future</span>
+    <img src="../../../assets/img/onborading01.gif" height="350" alt="palm tree">
+    <span class="text"> {{ 'introduction.page01' | translate }}<br>{{ 'introduction.subpage01' | translate }}</span>
   </swiper-slide>
   
   <swiper-slide>
-    <img src="../../../assets/img/coins.png" height="160" alt="coin">
-    <span class="text">Own ENT <br> Preserve Biodiversity <br> Earn rewards</span>
+    <div style="height: 350px; display: flex; align-items: end;">
+      <img src="../../../assets/img/roots-logo.svg" height="200" alt="roots logo">
+    </div>
+    <span class="text mt-4">{{ 'introduction.page02' | translate }} <br> {{ 'introduction.subpage02' | translate }} <br> {{ 'introduction.subsubpage02' | translate }} </span>
   </swiper-slide>
   
   <swiper-slide>
-      <div class="header">
-        <button
-          (click)="goToLogin()"
-          class="btn-close"
-        >
-          &#x2715;
-        </button>
-      </div>
       <div class="final-step">
-        <img src="../../../assets/img/pines.png" height="300" alt="pines">
-        <span class="text">Verify trees</span>
+        <div style="height: 350px; display: flex; align-items: end;">
+          <img src="../../../assets/img/onboarding02.gif" height="300" alt="pines">
+        </div>
+        <span class="text">{{ 'introduction.page03' | translate }} <br> {{ 'introduction.subpage03' | translate }}  <br>{{ 'introduction.subsubpage03' | translate }}</span>
+        <button (click)="goToLogin()" class="button-primary">{{ 'introduction.started' | translate }}</button>
       </div>
     </swiper-slide>
   </swiper-container>
