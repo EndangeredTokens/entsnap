@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ProofOfLifePopUpComponent } from '../proof-of-life-pop-up/proof-of-life-pop-up.component';
 import { ReportStepsService } from 'src/app/services/report-steps.service';
 import { CupertinoPane } from 'cupertino-pane';
-import { Device } from '@capacitor/device';
+import { Platform } from '@ionic/angular';
 
 @Component({
     selector: 'app-ent-modal',
@@ -42,6 +42,7 @@ export class EntModalComponent implements OnInit {
         private locationService: LocationV2Service,
         private loadingService: LoadingService,
         private reportStepsService: ReportStepsService,
+        private platform: Platform
     ) {}
 
     ngOnInit() {
@@ -170,8 +171,7 @@ export class EntModalComponent implements OnInit {
   }
 
   async openPopup() {
-    const deviceInfo = await Device.getInfo()
-    if (this.inPopupRange && !this.timerInCooldown && !this.popupAlreadyShowed && deviceInfo.platform !== "ios") {
+    if (this.inPopupRange && !this.timerInCooldown && !this.popupAlreadyShowed && this.platform.is("ios")) {
       await this.ProofOfLifePopUpComponent?.presentModal().then(() => {
         this.popupAlreadyShowed = true;
         this.timerInCooldown = true;
