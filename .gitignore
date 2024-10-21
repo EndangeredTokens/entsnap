@@ -133,3 +133,4 @@ dist
 .pnp.*
 
 environment.prod.ts
+environment.ts
