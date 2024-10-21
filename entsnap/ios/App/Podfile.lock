@@ -5,13 +5,13 @@ PODS:
   - AppAuth/Core (1.6.2)
   - AppAuth/ExternalUserAgent (1.6.2):
     - AppAuth/Core
-  - Capacitor (5.7.6):
+  - Capacitor (5.7.8):
     - CapacitorCordova
   - CapacitorCamera (5.0.10):
     - Capacitor
   - CapacitorCommunityCameraPreview (2.0.0):
     - Capacitor
-  - CapacitorCordova (5.7.6)
+  - CapacitorCordova (5.7.8)
   - CapacitorDevice (6.0.1):
     - Capacitor
   - CapacitorFilesystem (5.2.2):
@@ -72,10 +72,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
-  Capacitor: 6e86d6f68a9348c76b6da7349ab3ee4a9edd3b9a
+  Capacitor: 747aadb4fa786f460d8cd9d0557cb81440a13747
   CapacitorCamera: d333715364b5d85422c627aae6db87ef6161352c
   CapacitorCommunityCameraPreview: 47070b2c66a79a424afe7c73bd951dfabfbc0f76
-  CapacitorCordova: 46df0372f7768ff20aa659ba1658b5d7315ea42a
+  CapacitorCordova: 31ab98dca2ddcee051027a1afe7e8c85c82f7297
   CapacitorDevice: 7097a1deb4224b77fd13a6e60a355d0062a5d772
   CapacitorFilesystem: 202b158a878462ab4f401d0eb4d9644c67927333
   CapacitorGeolocation: 0572212732f7ee65828d069a9663a274be89b9fc
