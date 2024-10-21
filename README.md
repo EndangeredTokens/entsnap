@@ -46,21 +46,31 @@ To run the EntSnap mobile DAPP, follow these steps:
 3. **Install Dependencies**: Navigate to the `entsnap` directory and install npm packages:
    ```bash
    cd entsnap
-   npm install
+   nvm use 18
+   npm install --force
    ```
 
+   *NOTE: there  are currently some conflicting libraries and needs --force flag to install propery. The app runs just fine. We are working on fixing the conflicts.*
 4. **Run Development Mode**: Start the development server using Ionic CLI:
    ```bash
    npx ionic serve
    ```
 
-5. **Build Android APK**: Build the Android APK using Ionic CLI and Capacitor:
+5. **Build Android/ios APK**: Build the Android APK using Ionic CLI and Capacitor:
    ```bash
    npx ionic build
    npx cap sync
    npx cap open android
    ```
    Make sure you have Android Studio installed on your local machine for this step.
+
+   Build the iOS APK using:
+
+   ```bash
+   npx ionic build
+   npx cap sync
+   npx cap open ios
+   ```
 
 ## Usage 
 
