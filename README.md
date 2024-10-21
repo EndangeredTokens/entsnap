@@ -36,7 +36,7 @@ To run the EntSnap mobile DAPP, follow these steps:
 
 2. **Google Maps API Key**: Before you can run the app you must update the variable `googleMapsApiKey` in the environments files, using your own google maps API key. Depending on how you plan to run the app you might need to change one or another environment file.
 
-   * **web app**: Directly modify [environment.ts](./entsnap/src/environments/environment.ts)
+   * **web app**: create`environment.ts` from [environment.example.ts](./entsnap/src/environments/environment.example.ts) and modify the variable.
    * **Android/iOS app**: create `environment.prod.ts` from [environment.prod.example.ts](./entsnap/src/environments/environment.prod.example.ts) and modify the variable.
 
    ```ts
