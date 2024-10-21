@@ -32,10 +32,10 @@ export const environment = {
   },
 
   specifyLocationRadius: 20, //meters
-  androidVersion: '0.4.0',
-  androidVersionNumber: 10214,
-  iosVersion: '0.4.0',
-  iosVersionNumber: 6,
+  androidVersion: '0.4.1',
+  androidVersionNumber: 10215,
+  iosVersion: '0.4.1',
+  iosVersionNumber: 7,
   googleMapsApiKey: "YOUR-API-KEY",
   otpCodeTimer: 121,
   playStoreAppUrl: "https://play.google.com/store/apps/details?id=com.entsnap.app",
