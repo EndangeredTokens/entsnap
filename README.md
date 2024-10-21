@@ -34,7 +34,11 @@ To run the EntSnap mobile DAPP, follow these steps:
    git clone https://github.com/EndangeredTokens/entsnap
    ```
 
-2. **Google Maps API Key**: Update the `googleMapsApiKey` with your API key in the [environment.prod.ts](./entsnap/src/environments/environment.prod.ts) and [environment.ts](./entsnap/src/environments/environment.ts) files:
+2. **Google Maps API Key**: Before you can run the app you must update the variable `googleMapsApiKey` in the environments files, using your own google maps API key. Depending on how you plan to run the app you might need to change one or another environment file.
+
+   * **web app**: Directly modify [environment.ts](./entsnap/src/environments/environment.ts)
+   * **Android/iOS app**: create `environment.prod.ts` from [environment.prod.example.ts](./entsnap/src/environments/environment.prod.example.ts) and modify the variable.
+
    ```ts
    export const environment = {
       ...
@@ -60,17 +64,24 @@ To run the EntSnap mobile DAPP, follow these steps:
    ```bash
    npx ionic build
    npx cap sync
-   npx cap open android
    ```
-   Make sure you have Android Studio installed on your local machine for this step.
 
-   Build the iOS APK using:
+   Then open the code for Android or iOS using capacitor
 
-   ```bash
-   npx ionic build
-   npx cap sync
-   npx cap open ios
-   ```
+      * Android
+
+         ```
+         npx cap open android
+         ```
+
+         Make sure you have Android Studio installed on your local machine for this step.
+      * iOS:
+
+         ```
+         npx cap open ios
+         ```
+
+         *Note: you might have to change some configurations in xcode before the code runs in your emulators.*
 
 ## Usage 
 
